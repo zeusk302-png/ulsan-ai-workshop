@@ -55,7 +55,7 @@ function App() {
     const file = event.target.files?.[0]; event.target.value = ''; if (!file) return;
     if (file.size > 2000000) { setToast('2MB 이하의 실습실 JSON 백업을 선택해 주세요.'); return; }
     try { const next = validateState(JSON.parse(await file.text())); setConfirm({ type: 'import', state: next }); }
-    catch (e) { setToast(`가져오지 못했습니다. ${e.message}`); }
+    catch { setToast('가져오지 못했습니다. 실습실에서 내려받은 JSON 백업 파일인지 확인해 주세요.'); }
   };
   const toggleComplete = () => {
     const done = state.completed.includes(lesson.id);

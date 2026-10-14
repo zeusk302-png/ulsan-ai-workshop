@@ -1,0 +1,97 @@
+let playwright;
+try { playwright = require('playwright'); }
+catch { if (!process.env.PLAYWRIGHT_MODULE) throw new Error('Install Playwright (npm install --no-save playwright) or set PLAYWRIGHT_MODULE to its module path.'); playwright = require(process.env.PLAYWRIGHT_MODULE); }
+const { chromium } = playwright;
+const fs = require('node:fs');
+const assert = require('node:assert/strict');
+let browser;
+(async () => {
+  fs.mkdirSync('artifacts', { recursive: true });
+  browser = await chromium.launch({ channel: process.env.PLAYWRIGHT_CHANNEL || 'msedge', headless: true, timeout: 20000 });
+  const context = await browser.newContext({ viewport: { width: 1440, height: 1000 }, acceptDownloads: true, reducedMotion: 'reduce' });
+  const page = await context.newPage();
+  const errors = [], checks = [], overflow = [];
+  page.on('pageerror', e => errors.push(String(e)));
+  page.on('response', r => { if (r.status() >= 400) console.log('HTTP ERROR', r.status(), r.url()); });
+  page.on('console', m => { if (m.type() === 'error') errors.push(m.text()); });
+  const ok = name => { checks.push(name); console.log('PASS', name); };
+  const width = async name => { const dims = await page.evaluate(() => ({ width: innerWidth, scroll: document.documentElement.scrollWidth })); overflow.push({ name, ...dims }); assert.ok(dims.scroll <= dims.width, `${name}: overflow ${JSON.stringify(dims)}`); };
+  const shot = async name => { await page.evaluate(() => { document.activeElement?.blur(); window.scrollTo(0, 0); }); await page.screenshot({ path: `artifacts/${name}.png`, fullPage: !name.startsWith('mobile') }); };
+  await page.goto(process.env.QA_URL || 'http://127.0.0.1:8289/');
+  await page.getByRole('heading', { name: '배우는 AI에서, 일하는 AI로.' }).waitFor();
+  await width('desktop home'); await shot('desktop-home');
+  assert.equal(await page.locator('.lesson-card').count(), 3);
+  await page.getByRole('button', { name: /DAY 02 자료 정리와/ }).click();
+  assert.equal(await page.locator('.lesson-card').count(), 3);
+  assert.ok((await page.locator('.lesson-card').first().innerText()).includes('04'));
+  await page.getByRole('button', { name: /DAY 01 AI 기초와/ }).click(); ok('overview day switches and 3 lessons per day');
+  const ids = ['email', 'document', 'adapt', 'meeting', 'sources', 'template'];
+  for (const id of ids) {
+    await page.goto(`${process.env.QA_URL || 'http://127.0.0.1:8289/'}#${id}`);
+    await page.getByRole('tab', { name: '2. 자료·프롬프트' }).click();
+    assert.ok((await page.locator('.source-content').innerText()).length > 30);
+    assert.ok((await page.locator('.prompt-content').innerText()).length > 30);
+    const down = page.waitForEvent('download');
+    await page.getByRole('button', { name: '자료 다운로드', exact: true }).click();
+    const download = await down; const file = await download.path();
+    assert.ok(fs.readFileSync(file, 'utf8').length > 30);
+    if (id === 'sources') {
+      for (const n of [1, 2]) {
+        const wait = page.waitForEvent('download'); await page.getByRole('button', { name: `문서 ${n} 다운로드`, exact: true }).click();
+        const d = await wait; assert.ok(fs.readFileSync(await d.path(), 'utf8').length > 30);
+      }
+    }
+    await width(`desktop ${id}`);
+  } ok('all six lesson routes, materials, prompts and 8 nonempty material downloads');
+  await page.goto(`${process.env.QA_URL || 'http://127.0.0.1:8289/'}#email`);
+  await page.getByRole('tab', { name: '3. 내 작업' }).click();
+  await page.getByRole('button', { name: '검토했어요 · 실습 완료' }).click();
+  assert.ok((await page.getByRole('status').innerText()).includes('결과물을 작성'));
+  await page.locator('#result').fill('안녕하세요. 교육 일정이 10월 20일로 변경되었습니다. 확인 부탁드립니다.');
+  await page.locator('#my-prompt').fill('제공된 일정으로 정중한 안내 메일을 작성해 주세요.');
+  await page.getByRole('checkbox').nth(0).check();
+  await page.reload();
+  await page.getByRole('tab', { name: '3. 내 작업' }).click();
+  assert.ok((await page.locator('#result').inputValue()).includes('10월 20일'));
+  assert.ok((await page.locator('#my-prompt').inputValue()).includes('정중한'));
+  assert.equal(await page.getByRole('checkbox').nth(0).isChecked(), true);
+  await page.getByRole('checkbox').nth(1).check(); await page.getByRole('checkbox').nth(2).check();
+  await page.getByRole('button', { name: '검토했어요 · 실습 완료' }).click();
+  await page.getByText('완료한 실습', { exact: true }).waitFor();
+  await shot('desktop-work'); ok('completion requires result and 3 checks; drafts, prompts and checks survive reload');
+  await page.getByRole('button', { name: /내 작업함/ }).first().click();
+  await page.getByRole('button', { name: '열기', exact: true }).first().click();
+  assert.equal(await page.getByRole('tab', { name: '3. 내 작업' }).getAttribute('aria-selected'), 'true');
+  await page.goBack(); await page.getByRole('heading', { name: '오늘 만든 것, 내일 쓸 것.' }).waitFor(); ok('workbook Open enters work tab and browser back returns workbook');
+  await shot('desktop-workbook');
+  let downloadWait = page.waitForEvent('download'); await page.getByRole('button', { name: 'JSON 백업', exact: true }).click();
+  const backupFile = await (await downloadWait).path(); const backup = fs.readFileSync(backupFile, 'utf8');
+  assert.equal(JSON.parse(backup).completed[0], 'email');
+  downloadWait = page.waitForEvent('download'); await page.getByRole('button', { name: '전체 텍스트', exact: true }).click();
+  assert.ok(fs.readFileSync(await (await downloadWait).path(), 'utf8').includes('10월 20일'));
+  await page.getByRole('button', { name: '기록 초기화' }).click(); await page.getByRole('button', { name: '취소', exact: true }).click();
+  assert.ok((await page.locator('.draft-preview').first().innerText()).includes('10월 20일'));
+  await page.getByRole('button', { name: '기록 초기화' }).click(); await page.getByRole('button', { name: '모두 삭제', exact: true }).click();
+  assert.equal(await page.locator('.draft-preview').count(), 0); ok('reset confirmation cancel preserves data and accept clears data');
+  await page.locator('input[type=file]').setInputFiles({ name: 'backup.json', mimeType: 'application/json', buffer: Buffer.from(backup) });
+  await page.getByRole('button', { name: '가져오기', exact: true }).click();
+  assert.ok((await page.locator('.draft-preview').first().innerText()).includes('10월 20일'));
+  await page.locator('input[type=file]').setInputFiles({ name: 'bad.json', mimeType: 'application/json', buffer: Buffer.from('{broken') });
+  assert.ok((await page.getByRole('status').innerText()).includes('가져오지 못했습니다'));
+  assert.equal(await page.getByRole('alertdialog').count(), 0); ok('JSON export/import round trip; invalid JSON rejected without overwriting data; full text export');
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto(`${process.env.QA_URL || 'http://127.0.0.1:8289/'}#home`); await width('mobile home'); await shot('mobile-home');
+  await page.getByRole('button', { name: '메뉴 열기' }).click();
+  assert.equal(await page.getByRole('button', { name: '메뉴 열기' }).getAttribute('aria-expanded'), 'true');
+  await shot('mobile-menu'); await page.locator('.lesson-link').first().click();
+  assert.equal(await page.getByRole('button', { name: '메뉴 열기' }).getAttribute('aria-expanded'), 'false');
+  await width('mobile lesson guide'); await shot('mobile-lesson');
+  await page.getByRole('tab', { name: '2. 자료·프롬프트' }).click(); await width('mobile materials');
+  await page.getByRole('tab', { name: '3. 내 작업' }).click(); await width('mobile work'); await shot('mobile-work');
+  await page.getByRole('button', { name: '메뉴 열기' }).click(); await page.getByRole('button', { name: /내 작업함/ }).first().click();
+  await width('mobile workbook'); await shot('mobile-workbook'); ok('mobile menu opens, navigates and closes; home, lesson tabs and workbook have no overflow');
+  assert.deepEqual(errors, []); ok('no browser console errors or page errors');
+  fs.writeFileSync('artifacts/browser-qa.json', JSON.stringify({ passed: true, checkedAt: new Date().toISOString(), scope: 'UI behavior and synthetic data persistence; does not assess learner answer correctness.', checks, overflow, errors }, null, 2));
+  console.log(JSON.stringify({ passed: true, checks, overflow, errors }, null, 2));
+  await browser.close();
+})().catch(error => { console.error(error); process.exitCode = 1; }).finally(async () => { await browser?.close(); });
