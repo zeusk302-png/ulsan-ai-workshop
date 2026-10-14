@@ -1,10 +1,10 @@
 # 검증 기록
 
-검증일: 2026-10-14 (Asia/Seoul).
+검증일: 2026-10-14 (Asia/Seoul). 실제 화면 상세판 검증은 `docs/real-screen-guide.md`도 참고하세요.
 
 ## 로컬·CI
 
-- `npm test`: 5개 테스트 통과. 일차별 총 180분·직접 실습 120분, 콘텐츠 구성, 한국어 저장 데이터 왕복, 잘못된 백업 거부, 가져오기 정규화 검증.
+- `npm test`: 상세판 포함 8개 테스트 통과. 일차별 총 180분·직접 실습 120분, 콘텐츠 구성, 한국어 저장 데이터 왕복, 잘못된 백업 거부, 가져오기 정규화, 상세 가이드 시간 합계와 구성, 실제 이미지 13개 SHA-256, 복합 프롬프트 샘플 삽입 검증.
 - `npm run build`: 배포용 정적 빌드 통과.
 - `npm audit --omit=dev --audit-level=high`: 실행 의존성에서 알려진 취약점 0건 보고. 전체 보안 감사를 뜻하지 않음.
 - GitHub Actions 첫 배포: https://github.com/zeusk302-png/ulsan-ai-workshop/actions/runs/38516323278 성공. 최신 배포는 Actions에서 별도 확인.

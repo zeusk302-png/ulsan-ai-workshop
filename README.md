@@ -27,6 +27,12 @@ GitHub Pages에서 동작하는 정적 웹 플랫폼으로 구성합니다. 실�
 
 결과물과 진행률은 현재 브라우저의 localStorage에 저장되며 서버에 제출되지 않습니다. 공용 PC에서는 백업 후 기록을 초기화하세요. 무료 AI 도구는 가입·로그인 및 사용 한도 제한이 있을 수 있습니다.
 
+## 자세한 안내와 실제 화면
+
+각 실습에 시간별 5단계 안내, 확인할 결과, 후속 요청 3개, 문제 해결 3개, 선택 과제를 추가했습니다. `실제 화면` 탭에서 ChatGPT·Gemini·NotebookLM에 가상 자료를 직접 입력한 실제 캡처 13개를 볼 수 있습니다. 화면은 확대·전체 맞춤과 원본 새 탭 열기를 지원합니다.
+
+실제 캡처는 AI 생성 이미지나 재구성 화면이 아닙니다. 개인정보 영역만 제외했으며, AI 답변에 나타난 부정확한 표현은 이미지에서 고치지 않고 별도 검토 지점으로 설명합니다. 계정·시점별 메뉴 차이와 캡처 계정의 유료 기능 표시가 있을 수 있습니다. 자세한 캡처 범위와 검증은 `docs/real-screen-guide.md`에 있습니다.
+
 ## 로컬 실행
 
 Node.js 22 이상을 권장합니다.
@@ -62,6 +68,9 @@ Google Fonts의 Noto Sans KR와 IBM Plex Mono를 사용하며 외부 폰트를 �
 - `src/main.jsx`, `src/style.css`: 실제 앱과 반응형 스타일
 - `src/state.js`: 저장 데이터와 백업 검증
 - `tests/state.test.js`: 시간표·콘텐츠·저장 데이터 검증
+- `src/walkthroughs.js`, `src/LessonGuide.jsx`: 상세 단계·후속 요청·확대 화면
+- `content/screen-captures.json`, `public/screens/`: 실제 캡처 설명·해시·파일
+- `tests/walkthroughs.test.js`, `tests/walkthrough-qa.cjs`: 상세 안내와 실제 화면 검증
 - `.github/workflows/pages.yml`: GitHub Pages 배포
 
 ## 운영 시 수정

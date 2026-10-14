@@ -1,0 +1,234 @@
+{
+  "capturedOn": "2026-10-14",
+  "timezone": "Asia/Seoul",
+  "method": "Actual connected Chrome screenshots of education-only fictional prompts. Viewport originals were captured with browser screenshot APIs. Account areas are excluded with browser clipping or privacy-only cropping; no answer text or UI content has been altered or generated.",
+  "notice": "실제 브라우저 캡처입니다. 가상 자료만 사용했고 개인 대화 목록과 계정 영역은 제외했습니다. 화면·메뉴·모델명은 계정과 업데이트에 따라 다를 수 있습니다. 캡처 계정의 유료 표시나 추가 기능을 사용할 필요는 없습니다.",
+  "screens": [
+    {
+      "id": "chatgpt-email-input",
+      "file": "chatgpt-email-input.jpg",
+      "tool": "ChatGPT",
+      "source": "https://chatgpt.com/",
+      "title": "요청과 업무 메모를 함께 입력",
+      "alt": "ChatGPT 임시 채팅 입력란에 일정 변경 메일 요청과 가상 업무 메모가 함께 들어 있는 실제 화면",
+      "focus": [
+        "메시지 입력란에 할 일과 원문이 함께 들어 있습니다.",
+        "입력란의 전송 버튼을 누르기 전에 날짜와 요청 조건을 읽어보세요."
+      ],
+      "kind": "input",
+      "width": 1674,
+      "height": 1160,
+      "bytes": 57223,
+      "sha256": "2861e744367800b2b93b9ccfc5fb5113dd5e023bfa1e23b942e47f6f31db4c16"
+    },
+    {
+      "id": "chatgpt-email-result",
+      "file": "chatgpt-email-result.jpg",
+      "tool": "ChatGPT",
+      "source": "https://chatgpt.com/",
+      "title": "실제로 생성된 일정 변경 메일",
+      "alt": "ChatGPT가 제목과 일정 목록, 회신 기한, 확인 필요 항목을 포함한 메일 초안을 생성한 화면",
+      "focus": [
+        "기존 일정과 변경 일정이 분리되어 있습니다.",
+        "자료에 없는 연도와 회신 이메일을 확인 필요로 남겼습니다.",
+        "응답 아래의 복사 아이콘으로 결과를 가져올 수 있습니다."
+      ],
+      "kind": "result",
+      "width": 1674,
+      "height": 1160,
+      "bytes": 80793,
+      "sha256": "64d2302d4a9ff54da8cd4ab91726ccc709ff8fec4d9b419dd1a6f5a24710f81f"
+    },
+    {
+      "id": "chatgpt-email-revision",
+      "file": "chatgpt-email-revision.jpg",
+      "tool": "ChatGPT",
+      "source": "https://chatgpt.com/",
+      "title": "후속 요청으로 말투 수정",
+      "alt": "같은 사실을 유지한 채 외부 고객용 정중한 메일로 수정하도록 요청하고 결과를 받은 실제 ChatGPT 대화",
+      "focus": [
+        "기존 대화에서 같은 사실을 유지하라는 조건을 추가했습니다.",
+        "인사와 양해 표현이 바뀌어도 날짜·장소·회신 기한은 원문과 대조합니다."
+      ],
+      "kind": "revision",
+      "width": 1674,
+      "height": 1160,
+      "bytes": 107965,
+      "sha256": "53ce81a71e3db5574ff46ddd4cd6ab2d77b757fd4e35b374319c14c0fcce8655"
+    },
+    {
+      "id": "gemini-document-input",
+      "file": "gemini-document-input.jpg",
+      "tool": "Gemini",
+      "source": "https://gemini.google.com/",
+      "title": "독자와 형식을 지정해 두 문서 요청",
+      "alt": "Gemini 입력란에 직원용 안내문과 팀장 보고서를 요청하는 가상 교육 준비 자료가 입력된 화면",
+      "focus": [
+        "문서 1은 참가 직원용, 문서 2는 팀장용으로 독자를 구분합니다.",
+        "미정인 담당자·예산·기한은 만들지 말라고 요청했습니다."
+      ],
+      "kind": "input",
+      "width": 1674,
+      "height": 1160,
+      "bytes": 55007,
+      "sha256": "d6cf6ce15999a39d6e92b2159aeac314afa7e4fb6076f602439fee1ade50681a"
+    },
+    {
+      "id": "gemini-document-result",
+      "file": "gemini-document-result.jpg",
+      "tool": "Gemini",
+      "source": "https://gemini.google.com/",
+      "title": "실제 안내문·보고서 초안",
+      "alt": "Gemini가 실제로 작성한 업무 개선 교육 안내문과 보고서 초안 화면",
+      "focus": [
+        "일정·장소·준비물이 실제로 어떻게 배치되는지 확인합니다.",
+        "응답의 모든 표현이 원문에 근거하는지는 별도 검토해야 합니다."
+      ],
+      "kind": "result",
+      "width": 1674,
+      "height": 1160,
+      "bytes": 103823,
+      "sha256": "7b87795f76c60b7d4ee6cc1871e14ed9d65e45aaa71be92c6e4f0f1040c7916b"
+    },
+    {
+      "id": "gemini-report-review",
+      "file": "gemini-report-review.jpg",
+      "tool": "Gemini",
+      "source": "https://gemini.google.com/",
+      "title": "원문에 없는 실행 계획 찾아보기",
+      "alt": "Gemini의 실제 보고서에 확정 상황과 검토 사항이 나뉘어 작성된 화면",
+      "focus": [
+        "노트북 6대 미확보라는 문제점이 포함되어 있습니다.",
+        "응답에는 참가자 지참을 독려할 예정이라는 추가 표현도 나왔습니다. 원문에서 확정된 계획인지 확인하고 제안으로 분리하거나 삭제하세요."
+      ],
+      "kind": "review",
+      "width": 1674,
+      "height": 1160,
+      "bytes": 99707,
+      "sha256": "d1e90bec87decc0a9fb819fb41dc18a272b91fc18fd68a7e5cf6fb1d80c110e6"
+    },
+    {
+      "id": "gemini-meeting-table",
+      "file": "gemini-meeting-table.jpg",
+      "tool": "Gemini",
+      "source": "https://gemini.google.com/",
+      "title": "회의에서 할 일·담당자·기한 추출",
+      "alt": "Gemini 실제 회의 정리 결과에서 할 일, 담당자, 기한, 원문 근거 표가 표시된 화면",
+      "focus": [
+        "안내 메일 초안은 준호, 11월 9일 오전으로 정리되었습니다.",
+        "정해지지 않은 담당자와 기한은 미정입니다.",
+        "이 응답은 표와 제목이 반복되었습니다. 최종 기록에서는 중복을 정리하고 현황과 결정을 구분하세요."
+      ],
+      "kind": "result",
+      "width": 1674,
+      "height": 1160,
+      "bytes": 114754,
+      "sha256": "2e71ba0f8fe8b6b26ee1f8d9700bb01ecc968516c2f107f8c67bbe3176dfe00c"
+    },
+    {
+      "id": "notebook-paste-source",
+      "file": "notebook-paste-source.jpg",
+      "tool": "NotebookLM / Gemini Notebook",
+      "source": "https://notebooklm.google.com/",
+      "title": "복사한 텍스트를 소스로 추가",
+      "alt": "실제 Gemini Notebook의 복사한 텍스트 붙여넣기 창에 가상 운영 지침이 입력되고 삽입 버튼이 보이는 화면",
+      "focus": [
+        "새 노트북에서 출처 추가 → 복사된 텍스트를 선택했습니다.",
+        "문서 내용을 붙여넣은 뒤 삽입 버튼을 누릅니다. 파일 업로드를 사용할 수도 있습니다."
+      ],
+      "kind": "input",
+      "width": 1580,
+      "height": 1040,
+      "bytes": 87604,
+      "sha256": "2fba97e134851e5c67c4376af63d5ee9b060d78b182e86426b3c4fae21c81a5d"
+    },
+    {
+      "id": "notebook-two-sources",
+      "file": "notebook-two-sources.jpg",
+      "tool": "NotebookLM / Gemini Notebook",
+      "source": "https://notebooklm.google.com/",
+      "title": "소스 두 개와 선택 표시 확인",
+      "alt": "가상 운영 지침과 FAQ 두 소스가 실제 노트북에 등록되어 선택된 화면",
+      "focus": [
+        "왼쪽 목록에 운영 지침과 FAQ가 각각 있는지 확인합니다.",
+        "가운데 아래 채팅 입력란의 소스 수가 2개인지 확인합니다.",
+        "자동 요약의 참석 인원 표현은 원문의 정원과 의미가 다른지 직접 검토해야 합니다."
+      ],
+      "kind": "setup",
+      "width": 1640,
+      "height": 1060,
+      "bytes": 105988,
+      "sha256": "18423f6d03b408caa4227b12e0b4fac5259be8e0f935bbf9173487fec62d6d58"
+    },
+    {
+      "id": "notebook-answer",
+      "file": "notebook-answer.jpg",
+      "tool": "NotebookLM / Gemini Notebook",
+      "source": "https://notebooklm.google.com/",
+      "title": "답변과 인용 번호 함께 읽기",
+      "alt": "두 가상 문서를 근거로 일정과 준비물, 미정인 사항, 주차 정보 부재를 설명하며 인용 번호를 표시한 실제 답변",
+      "focus": [
+        "대여·녹화는 미정, 주차 요금은 자료에 없음으로 구분되었습니다.",
+        "인용 번호가 표시되어도 원문의 조건과 수치를 직접 확인해야 합니다."
+      ],
+      "kind": "result",
+      "width": 1640,
+      "height": 1060,
+      "bytes": 112413,
+      "sha256": "8fffa7b6aad6f02ce40eb026cc5c97f9fb363268f9eec3dd9a4d99f21d1f4f20"
+    },
+    {
+      "id": "notebook-citation",
+      "file": "notebook-citation.jpg",
+      "tool": "NotebookLM / Gemini Notebook",
+      "source": "https://notebooklm.google.com/",
+      "title": "인용 번호를 눌러 원문 대조",
+      "alt": "실제 Notebook 답변의 인용 번호를 클릭하자 운영 지침 원문과 취소 기한이 열린 화면",
+      "focus": [
+        "취소 기한 옆 인용 번호를 눌렀습니다.",
+        "열린 원문에서 11월 10일 17:00까지라는 문장을 직접 확인합니다.",
+        "출처 이름과 원문을 비교한 뒤 결과물에 검토 기록을 남기세요."
+      ],
+      "kind": "citation",
+      "width": 1640,
+      "height": 1060,
+      "bytes": 144295,
+      "sha256": "d92b6edfa233a9c1890547c22636cf6449d8efa090190ca0b9c173107cba9291"
+    },
+    {
+      "id": "chatgpt-template",
+      "file": "chatgpt-template.jpg",
+      "tool": "ChatGPT",
+      "source": "https://chatgpt.com/",
+      "title": "바꿔 넣는 자리와 고정 규칙 분리",
+      "alt": "ChatGPT가 실제로 생성한 주간 보고 재사용 프롬프트와 입력 메모 자리가 표시된 화면",
+      "focus": [
+        "입력 자리인 [이번 주 메모]는 매번 바꾸고 나머지 규칙은 유지합니다.",
+        "없는 담당자·기한은 미정, 언급 없는 문제는 없다고 단정하지 않는 규칙을 확인합니다."
+      ],
+      "kind": "template",
+      "width": 1673,
+      "height": 1160,
+      "bytes": 204115,
+      "sha256": "707ea28a75b1b36847ca3777b2ac5aadf6a03e5fb1525e45562a8d42ed8c7db8"
+    },
+    {
+      "id": "chatgpt-template-cases",
+      "file": "chatgpt-template-cases.jpg",
+      "tool": "ChatGPT",
+      "source": "https://chatgpt.com/",
+      "title": "A·B 두 입력으로 실제 결과 비교",
+      "alt": "같은 주간 보고 템플릿에 서로 다른 두 가상 사례를 적용해 숫자와 문제점, 담당자·기한을 다르게 출력한 실제 ChatGPT 화면",
+      "focus": [
+        "A는 신청 24명·노트북 미확보·담당자와 기한 미정입니다.",
+        "B는 신청 28명·노트북 확보·준호·11월 12일 오전입니다.",
+        "문제점이 언급되지 않은 상태를 문제가 전혀 없다고 단정하지 않았는지도 확인하세요."
+      ],
+      "kind": "test",
+      "width": 1673,
+      "height": 1160,
+      "bytes": 202944,
+      "sha256": "33239901cba47a35a3e29ae9b86a0307eadf958b3f950408944ab264fdf4398c"
+    }
+  ]
+}
