@@ -1,0 +1,37 @@
+{
+  "title": "내일 출근해서 바로 쓰는 AI",
+  "subtitle": "문서 작성부터 자료 정리까지",
+  "audience": "AI·IT 비전공 직장인",
+  "days": [
+    {
+      "id": "day1",
+      "title": "AI 기초와 업무 문서 작성",
+      "schedule": [
+        {"type": "concept", "minutes": 10, "title": "AI 기본 이해와 입력 주의사항"},
+        {"type": "practice", "minutes": 35, "lesson": "email", "title": "업무 메일 작성하고 수정하기"},
+        {"type": "break", "minutes": 10, "title": "휴식"},
+        {"type": "concept", "minutes": 10, "title": "배경·대상·형식 지정하기"},
+        {"type": "practice", "minutes": 40, "lesson": "document", "title": "같은 자료로 안내문과 보고서 만들기"},
+        {"type": "break", "minutes": 10, "title": "휴식"},
+        {"type": "concept", "minutes": 10, "title": "오류와 누락 점검하기"},
+        {"type": "practice", "minutes": 45, "lesson": "adapt", "title": "내 직무에 맞는 문서 완성하기"},
+        {"type": "review", "minutes": 10, "title": "결과물과 프롬프트 저장"}
+      ]
+    },
+    {
+      "id": "day2",
+      "title": "자료 정리와 내 업무 적용",
+      "schedule": [
+        {"type": "concept", "minutes": 10, "title": "복습과 원문 확인 방법"},
+        {"type": "practice", "minutes": 35, "lesson": "meeting", "title": "회의 메모를 실행 목록으로 정리하기"},
+        {"type": "break", "minutes": 10, "title": "휴식"},
+        {"type": "concept", "minutes": 10, "title": "NotebookLM 자료 등록과 질문"},
+        {"type": "practice", "minutes": 40, "lesson": "sources", "title": "문서에서 답 찾고 근거 확인하기"},
+        {"type": "break", "minutes": 10, "title": "휴식"},
+        {"type": "concept", "minutes": 10, "title": "반복 업무 프롬프트 구성"},
+        {"type": "practice", "minutes": 45, "lesson": "template", "title": "내 업무용 프롬프트 만들고 수정하기"},
+        {"type": "review", "minutes": 10, "title": "결과 공유와 활용 계획"}
+      ]
+    }
+  ]
+}
