@@ -9,6 +9,7 @@ import { DetailedLessonGuide, ScreenGallery, Foundations } from './LessonGuide';
 import { composeLessonPrompt } from './lesson-utils';
 import { OfficialLibrary, DocumentCards } from './OfficialDocuments';
 import { Concepts } from './Concepts';
+import { WorkbookDownload, workbookUrl } from './WorkbookDownload';
 import captures from '../content/screen-captures.json';
 import './style.css';
 
@@ -95,20 +96,20 @@ function App() {
       {[1, 2].map(d => <div className="sidebar-day" key={d}><p>DAY 0{d}<span>{d === 1 ? '문서 업무' : '자료 정리·업무 적용'}</span></p>
         {lessons.filter(l => l.day === d).map(l => <button className={`lesson-link ${page === l.id ? 'selected' : ''}`} key={l.id} onClick={() => go(l.id)}><span className={`lesson-dot ${state.completed.includes(l.id) ? 'done' : ''}`}>{state.completed.includes(l.id) ? <Check size={11} /> : l.number}</span>{l.short}</button>)}
       </div>)}
-      <div className="sidebar-bottom"><button className={`guide-link ${page === 'guide' ? 'selected' : ''}`} onClick={() => go('guide')}><HelpCircle size={17} />처음 오셨나요?</button>
+      <div className="sidebar-bottom"><a className="sidebar-pdf-link" href={workbookUrl} download="울산대학교-AI실습-수강생교재.pdf"><Download size={17}/>수강생 교재 PDF</a><button className={`guide-link ${page === 'guide' ? 'selected' : ''}`} onClick={() => go('guide')}><HelpCircle size={17} />처음 오셨나요?</button>
         <div className="sidebar-progress"><div><span>나의 실습 진행률</span><b>{Math.round(count / 6 * 100)}%</b></div><progress value={count} max="6" /><small>6개의 실습 중 {count}개 완료</small></div>
         <p className="local-note">작성 내용은 이 브라우저에 저장됩니다.</p>
       </div>
     </aside>
     <div className="main-shell">
-      <header className="topbar"><div><span>WORKSPACE</span><ChevronRight size={13} /><b>{lesson ? `${lesson.day}일차 실습` : { home: '실습 둘러보기', workbook: '내 작업함', guide: '시작 안내', documents: '실제 문서 자료실', concepts: 'AI 개념·사용법' }[page]}</b></div><button onClick={exportBackup}><Download size={15} />내 작업 백업</button></header>
+      <header className="topbar"><div><span>WORKSPACE</span><ChevronRight size={13} /><b>{lesson ? `${lesson.day}일차 실습` : { home: '실습 둘러보기', workbook: '내 작업함', guide: '시작 안내', documents: '실제 문서 자료실', concepts: 'AI 개념·사용법' }[page]}</b></div><a className="workbook-top-link" href={workbookUrl} download="울산대학교-AI실습-수강생교재.pdf"><Download size={15}/>수강생 교재 PDF</a><button onClick={exportBackup}><Download size={15} />내 작업 백업</button></header>
       {storageError && <div className="storage-warning" role="alert">브라우저 저장 공간을 사용할 수 없습니다. 페이지를 닫기 전에 내 작업 백업을 내려받으세요.</div>}
       <main id="main-content" ref={mainRef} tabIndex={-1}>
         {page === 'home' && <>
           <section className="hero"><div className="hero-copy"><div className="eyebrow"><span className="live-dot" />직장인을 위한 AI 실무 워크숍</div><h1>배우는 AI에서,<br /><span>일하는 AI로.</span></h1><p>383쪽 편람부터 실제 공고·업무계획까지.<br />전체 자료로 만들고, 근거를 확인하고, 내 업무에 가져가세요.</p><button className="btn primary" onClick={() => go(state.current)}>{Object.keys(state.drafts).length || count ? '이어서 실습하기' : '첫 번째 실습 시작하기'}<ArrowUpRight size={19} /></button><div className="hero-caption">코딩 없이 · 유료 구독 없이 · 내 노트북으로</div></div>
             <div className="hero-art" aria-hidden="true"><div className="art-grid" /><div className="art-badge">LESS THEORY.<br /><b>MORE PRACTICE.</b></div><div className="paper paper-back"><span>업무 메모</span><i /><i /><i /></div><div className="paper paper-front"><div><FileText size={19} /><span>내 업무의 첫 번째 변화</span><CheckCircle2 size={17} /></div><h3>막막했던 초안이,<br />쓸 수 있는 문서로.</h3><i /><i /><i className="short-line" /><div className="paper-footer"><span>초안 작성</span><ArrowRight size={14} /><span>검토·수정</span><ArrowRight size={14} /><b>완성</b></div></div><div className="art-index">01 — 06 / HANDS-ON LAB</div></div>
           </section>
-          <div className="course-strip"><div><Clock3 size={19} /><b>2일, 총 6시간</b><span>하루 3시간</span></div><div><Clipboard size={19} /><b>직접 실습 120분 / 일</b><span>개념·시연 30분</span></div><div><FolderOpen size={19} /><b>내 업무 결과물</b><span>저장하고 다시 활용</span></div></div>
+          <WorkbookDownload/><div className="course-strip"><div><Clock3 size={19} /><b>2일, 총 6시간</b><span>하루 3시간</span></div><div><Clipboard size={19} /><b>직접 실습 120분 / 일</b><span>개념·시연 30분</span></div><div><FolderOpen size={19} /><b>내 업무 결과물</b><span>저장하고 다시 활용</span></div></div>
           <div className="official-update"><b>실제 공개 문서로 실습합니다.</b> 편람383쪽 · 실제 본문11,521줄 · 울산 지자체 공고·업무계획 · 법령 전문 <button className="text-btn" onClick={() => go('documents')}>원문 자료실 열기<ArrowUpRight size={15}/></button></div><div className="official-update"><b>처음이라면 개념부터.</b> 생성형AI의 원리와 한계 · 업무 요청 · 컨텍스트 관리 · 새 대화로 옮기기 <button className="text-btn" onClick={() => go('concepts')}>10분 개념 수업 보기<ArrowRight size={15}/></button></div><section className="curriculum-section"><div className="section-heading"><div><span className="eyebrow">YOUR LEARNING PATH</span><h2>하나씩 해보면, 내 것이 됩니다.</h2></div><button className="text-btn" onClick={() => go('guide')}>수업 준비하기<ArrowUpRight size={16} /></button></div>
             <div className="day-switch" role="group" aria-label="학습 일차 선택">{[1, 2].map(d => <button aria-pressed={day === d} className={day === d ? 'current' : ''} key={d} onClick={() => setDay(d)}><span>DAY 0{d}</span>{d === 1 ? 'AI 기초와 업무 문서 작성' : '자료 정리와 내 업무 적용'}<small>3시간</small></button>)}</div>
             <div className="lesson-grid">{lessons.filter(l => l.day === day).map(lessonCard)}</div>

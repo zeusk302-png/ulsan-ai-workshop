@@ -1,0 +1,10 @@
+import fs from 'node:fs';
+import vm from 'node:vm';
+import { lessons, tools } from '../src/content.js';
+import { walkthroughs } from '../src/walkthroughs.js';
+const source=fs.readFileSync(new URL('../src/Concepts.jsx',import.meta.url),'utf8');
+const prefix=source.slice(source.indexOf('const references ='),source.indexOf('const situations =')).replace('export const conceptUnits','const conceptUnits');
+const concepts=vm.runInNewContext(prefix+'\n({units:conceptUnits,handoff,references})');
+const read=name=>JSON.parse(fs.readFileSync(new URL('../content/'+name,import.meta.url),'utf8'));
+fs.mkdirSync(new URL('../artifacts/',import.meta.url),{recursive:true});
+fs.writeFileSync(new URL('../artifacts/workbook-data.json',import.meta.url),JSON.stringify({lessons,tools,walkthroughs,concepts,curriculum:read('curriculum.json'),documents:read('official-documents.json'),captures:read('screen-captures.json')},null,2));

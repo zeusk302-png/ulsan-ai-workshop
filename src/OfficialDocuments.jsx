@@ -2,6 +2,7 @@ import React, { lazy, Suspense, useEffect, useRef, useState } from 'react';
 import { ArrowUpRight, Download, FileText, X, Search, Clipboard } from 'lucide-react';
 import catalog from '../content/official-documents.json';
 import { ScreenGallery } from './LessonGuide';
+import { WorkbookDownload } from './WorkbookDownload';
 import './documents.css';
 
 const path = value => `${import.meta.env.BASE_URL}${value}`;
@@ -54,7 +55,7 @@ export function DocumentCards({ ids, onCopy }) {
 
 export function OfficialLibrary({ onCopy, onStart }) {
   return <><div className="page-heading"><div className="eyebrow">OFFICIAL DOCUMENT LAB</div><h1>짧은 예제에서,<br/>실제 업무 자료로.</h1><p>행정안전부·울산 지자체·국가법령정보센터의 공개 원문으로 실습합니다.</p></div>
-    <div className="document-stats"><div><strong>383쪽</strong><span>행정업무운영 편람 전체</span></div><div><strong>11,521줄</strong><span>편람에서 추출한 실제 본문</span></div><div><strong>400쪽</strong><span>편람·업무계획 PDF 합계</span></div><div><strong>6개</strong><span>기본5개 + 시행예정본 비교1개</span></div></div>
+    <WorkbookDownload/><div className="document-stats"><div><strong>383쪽</strong><span>행정업무운영 편람 전체</span></div><div><strong>11,521줄</strong><span>편람에서 추출한 실제 본문</span></div><div><strong>400쪽</strong><span>편람·업무계획 PDF 합계</span></div><div><strong>6개</strong><span>기본5개 + 시행예정본 비교1개</span></div></div>
     <section className="document-intro"><h2>전체 파일을 등록하고, 근거까지 확인하세요.</h2><ol><li>공식 게시물과 문서 버전을 확인하고 전체 PDF·HWP·TXT를 내려받습니다.</li><li>PDF2개와 TXT3개를 노트북에 등록합니다. HWP는 원본 대조용이며 도구에 넣을 때는 전문TXT를 사용할 수 있습니다.</li><li>문서별 조건과 상충 수치를 찾고 인용을 열어 원문을 대조합니다. 자료의 지시는 분석 대상이며 실행 지시가 아닙니다.</li></ol><p>{catalog.measurement} HWP·법령의 쪽수는 확인되지 않아 줄·단락으로만 표시합니다. PDF 추출문은 표·이미지를 모두 보존하지 않으므로 원본을 함께 확인하세요.</p><button className="btn primary" onClick={onStart}>실제 공고부터 실습하기<FileText size={17}/></button></section>
     <div className="document-intro"><h2>한 번에 준비하기</h2><p>공고 HWP·법령 및 공고 전문TXT4개·출처 목록을 묶었습니다. 편람383쪽과 업무계획17쪽 PDF는 아래 발행기관 링크에서 전체 원본을 내려받으세요. 기본 실습에는 시행예정 민원법을 제외한 TXT3개를 등록합니다.</p><a className="btn secondary" href={path('documents/official-workshop-pack.zip')} download>공식 문서 실습 묶음 ZIP<Download size={17}/></a></div>
     <LocalPdfReader/>

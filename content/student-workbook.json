@@ -1,0 +1,20 @@
+{
+  "title": "울산대학교 직장인AI 실습 - 수강생 교재",
+  "version": "1.0",
+  "updatedOn": "2026-10-14",
+  "path": "course/ulsan-ai-workshop-student-workbook.pdf",
+  "pages": 77,
+  "bytes": 8587600,
+  "sha256": "d547161a1add1e5cbb37df2556ed25368fcbfdd2931b5a8b3227052d08662e6b",
+  "realScreens": 31,
+  "embeddedSources": 5,
+  "standalone": "시간표·개념6개·실습6개·전체프롬프트·실제화면31개·공식원문링크·검토와저장양식 포함. AI실행과전체기관PDF다운로드는 인터넷 필요.",
+  "inputs": {
+    "src/content.js": "847047c00b581c315d276171c05a997cd38c583d12249e008e82e40f2284fa5c",
+    "src/walkthroughs.js": "0c29e29746ffd24d4ac190cbb29b5d1ceb725a03aea7e776a07105357fbe10fb",
+    "src/Concepts.jsx": "be9e3e5c54790352274df2ccc40c192be147c12d0004514d8a065f650aebde67",
+    "content/curriculum.json": "2268c29255f28cef5204db74856986e2e797624c89e6fbef72f48f7d9e3afb50",
+    "content/official-documents.json": "0d5195f744829c2a570a70622ada19e702e34cf54d752b25e6d65a0156c41aac",
+    "content/screen-captures.json": "cc65a98b9b0deff79a727906efb0ed6e85861c9e0f1624daa5d94a60ce70b1f8"
+  }
+}

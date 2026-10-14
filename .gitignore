@@ -8,3 +8,4 @@ dist/
 .playwright/
 .tools/
 materials/
+output/pdf/
