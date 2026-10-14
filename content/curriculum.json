@@ -10,7 +10,8 @@
         {
           "type": "concept",
           "minutes": 10,
-          "title": "AI 기본 이해와 입력 주의사항"
+          "title": "AI 이해와 업무를 맡기는 범위",
+          "conceptId": "ai"
         },
         {
           "type": "practice",
@@ -26,7 +27,8 @@
         {
           "type": "concept",
           "minutes": 10,
-          "title": "배경·대상·형식 지정하기"
+          "title": "목적·자료·독자·형식·검토 조건",
+          "conceptId": "prompt"
         },
         {
           "type": "practice",
@@ -42,7 +44,8 @@
         {
           "type": "concept",
           "minutes": 10,
-          "title": "오류와 누락 점검하기"
+          "title": "원문 대조와 과도한 단정 수정",
+          "conceptId": "verify"
         },
         {
           "type": "practice",
@@ -64,7 +67,8 @@
         {
           "type": "concept",
           "minutes": 10,
-          "title": "복습과 원문 확인 방법"
+          "title": "컨텍스트·토큰·대화 관리",
+          "conceptId": "context"
         },
         {
           "type": "practice",
@@ -80,7 +84,8 @@
         {
           "type": "concept",
           "minutes": 10,
-          "title": "NotebookLM 자료 등록과 질문"
+          "title": "장문 자료 등록과 소스 범위 지정",
+          "conceptId": "long"
         },
         {
           "type": "practice",
@@ -96,7 +101,8 @@
         {
           "type": "concept",
           "minutes": 10,
-          "title": "반복 업무 프롬프트 구성"
+          "title": "업무 요약으로 새 대화 이어가기",
+          "conceptId": "handoff"
         },
         {
           "type": "practice",

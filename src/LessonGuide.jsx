@@ -29,7 +29,7 @@ export function DetailedLessonGuide({ lesson, onMaterials, onCopy }) {
   const guide = walkthroughs[lesson.id];
   return <>
     <div className="lesson-deliverable"><span className="eyebrow">TODAY'S OUTPUT</span><h2>오늘 가져갈 결과물</h2><p>{guide.output}</p><small>{guide.preparation}</small></div>
-    <section className="concept-block"><span className="eyebrow">개념은 짧게</span><h2>시작 전에, 이것만 기억하세요.</h2><p>{lesson.concept}</p></section>
+    <section className="concept-block"><span className="eyebrow">개념은 짧게</span><h2>시작 전에, 이것만 기억하세요.</h2><p>{lesson.concept}</p><a className="text-btn" href="#concepts">AI 개념·컨텍스트 관리 자세히 보기<ArrowRight size={15}/></a></section>
     <div className="prompt-comparison"><h2>같은 일도, 이렇게 설명하면 달라집니다.</h2><div><article><span>정보가 부족한 요청</span><p>{guide.weak}</p></article><article><span>업무가 보이는 요청</span><p>{guide.strong}</p></article></div><small>원하는 말투만 지정하기보다 자료·독자·형식·확인 조건을 함께 전달하세요.</small></div>
     <div className="walkthrough-heading"><h2>한 단계씩 직접 해보기</h2><span><Clock3 size={14} />총 {lesson.minutes}분</span></div>
     <ol className="detailed-steps">{guide.detailedSteps.map(([title, action, expected], i) => <li key={title}><div className="step-number">{String(i + 1).padStart(2, '0')}</div><div><div className="step-title"><h3>{title}</h3><span>{guide.timing[i]}분</span></div><p>{action}</p><div className="expected"><CheckCircle2 size={15} /><p><b>여기까지 확인</b>{expected}</p></div></div></li>)}</ol>
