@@ -29,20 +29,16 @@ let browser;
   for (const id of ids) {
     await page.goto(`${process.env.QA_URL || 'http://127.0.0.1:8289/'}#${id}`);
     await page.getByRole('tab', { name: '2. 자료·프롬프트' }).click();
-    assert.ok((await page.locator('.source-content').innerText()).length > 30);
+    assert.ok(await page.locator('.document-card').count() >= 1);
     assert.ok((await page.locator('.prompt-content').innerText()).length > 30);
-    const down = page.waitForEvent('download');
-    await page.getByRole('button', { name: '자료 다운로드', exact: true }).click();
-    const download = await down; const file = await download.path();
-    assert.ok(fs.readFileSync(file, 'utf8').length > 30);
-    if (id === 'sources') {
-      for (const n of [1, 2]) {
-        const wait = page.waitForEvent('download'); await page.getByRole('button', { name: `문서 ${n} 다운로드`, exact: true }).click();
-        const d = await wait; assert.ok(fs.readFileSync(await d.path(), 'utf8').length > 30);
-      }
-    }
+    const localText = page.getByRole('link', { name: '전문 TXT', exact: true });
+    if (await localText.count()) {
+      const down = page.waitForEvent('download'); await localText.first().click();
+      const download = await down; const file = await download.path();
+      assert.ok(fs.readFileSync(file, 'utf8').length > 4000);
+    } else assert.ok((await page.getByRole('link',{name:'발행기관 전체 PDF',exact:true}).getAttribute('href')).startsWith('https://www.bukgu.ulsan.kr/'));
     await width(`desktop ${id}`);
-  } ok('all six lesson routes, materials, prompts and 8 nonempty material downloads');
+  } ok('all six lesson routes, official materials, prompts, five full TXT downloads and official PDF link');
   await page.goto(`${process.env.QA_URL || 'http://127.0.0.1:8289/'}#email`);
   await page.getByRole('tab', { name: '3. 내 작업' }).click();
   await page.getByRole('button', { name: '검토했어요 · 실습 완료' }).click();

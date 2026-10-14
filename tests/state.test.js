@@ -15,7 +15,7 @@ test('curriculum preserves daily 180-minute and 120-minute practice allocations'
 test('all six exercises contain usable materials, instructions, checks and examples', () => {
   assert.equal(new Set(lessons.map(l => l.id)).size, 6);
   for (const l of lessons) {
-    assert.equal(l.steps.length, 4); assert.equal(l.checks.length, 3);
+    assert.ok(l.documentIds.length >= 1); assert.equal(l.checks.length, 3);
     for (const key of ['source', 'prompt', 'example', 'concept', 'goal']) assert.ok(l[key].length > 20);
   }
 });

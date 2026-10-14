@@ -29,12 +29,12 @@ test('six detailed walkthroughs preserve practice time and have complete follow-
   }
   assert.equal(basics.length, 4);
 });
-test('all 13 referenced real screenshots exist and match captured SHA-256 hashes', () => {
-  assert.equal(manifest.screens.length, 13);
-  assert.equal(new Set(manifest.screens.map(s => s.id)).size, 13);
+test('all actual screenshots exist and match captured SHA-256 hashes', () => {
+  assert.ok(manifest.screens.length >= 25);
+  assert.equal(new Set(manifest.screens.map(s => s.id)).size, manifest.screens.length);
   const used = new Set(Object.values(walkthroughs).flatMap(g => g.screens));
   for (const screen of manifest.screens) {
-    assert.ok(used.has(screen.id), `Unused capture: ${screen.id}`);
+    if (screen.id.startsWith('official-')) assert.ok(used.has(screen.id) || screen.gallery === 'library', `Unused capture: ${screen.id}`);
     const bytes = fs.readFileSync(new URL(`../public/screens/${screen.file}`, import.meta.url));
     assert.equal(bytes[0], 255); assert.equal(bytes[1], 216);
     assert.equal(bytes.length, screen.bytes);

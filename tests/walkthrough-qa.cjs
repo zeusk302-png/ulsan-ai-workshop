@@ -48,6 +48,12 @@ let browser;
   await page.goto(`${url}#guide`);
   assert.equal(await page.locator('.foundation-grid article').count(), 4);
   await page.screenshot({ path: 'artifacts/detailed-foundations-desktop.png', fullPage: true });
+  const archive = page.locator('details').filter({ has: page.locator('summary', { hasText: '이전 기초 화면' }) });
+  if (await archive.count()) {
+    await archive.locator('summary').click(); await imageCheck();
+    assert.equal(await archive.locator('.screen-card').count(), 13);
+    checks.push('13 archived fictional screenshots remain accessible in guide details, separate from official workflows');
+  }
   await page.goto(`${url}#document`);
   await page.locator('.detailed-steps').screenshot({ path: 'artifacts/detailed-steps-desktop.png' });
   await page.getByRole('tab', { name: /실제 화면/ }).click();
@@ -80,8 +86,18 @@ let browser;
   for (const screen of manifest.screens) {
     const hash = crypto.createHash('sha256').update(fs.readFileSync(`public/screens/${screen.file}`)).digest('hex');
     assert.equal(hash, screen.sha256, `capture hash: ${screen.id}`);
+    const response = await page.request.get(`${url}screens/${screen.file}`);
+    assert.equal(response.status(), 200);
+    assert.equal(crypto.createHash('sha256').update(await response.body()).digest('hex'), hash);
   }
-  checks.push('13 final capture files match provenance manifest SHA-256');
+  checks.push(`${manifest.screens.length} final capture files accessible with HTTP200 and matching provenance SHA-256`);
+  await page.setViewportSize({width:1440,height:1000});
+  await page.goto(`${url}#documents`);
+  if(await page.locator('.capture-gallery').count()) {
+   await imageCheck(); assert.equal(await page.locator('.capture-gallery .screen-card').count(),6);
+   await page.locator('.capture-gallery .screenshot-button').first().click(); await page.locator('dialog[open]').waitFor(); await page.keyboard.press('Escape');
+   checks.push('official library six-image gallery loads and native dialog closes with Escape');
+  }
   assert.deepEqual(errors, []);
   const result = { passed: true, checks, overflow, errors, scope: 'Guide and gallery UI; image semantic/privacy audit performed separately by viewing original captures.' };
   fs.writeFileSync('artifacts/walkthrough-qa.json', JSON.stringify(result, null, 2)); console.log(JSON.stringify(result, null, 2));

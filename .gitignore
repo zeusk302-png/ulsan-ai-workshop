@@ -6,3 +6,5 @@ artifacts/
 *.log
 dist/
 .playwright/
+.tools/
+materials/
