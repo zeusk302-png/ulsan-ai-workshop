@@ -4,3 +4,5 @@ artifacts/
 .env.*
 !.env.example
 *.log
+dist/
+.playwright/

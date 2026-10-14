@@ -1,0 +1,39 @@
+{
+  "sections": [
+    {
+      "label": "Mockups",
+      "groups": [
+        {
+          "files": [
+            {
+              "path": "mockups/workroom/index.html",
+              "label": "index.html"
+            }
+          ],
+          "slug": "workroom"
+        }
+      ],
+      "id": "mockups"
+    },
+    {
+      "label": "Design Systems",
+      "groups": [
+        {
+          "files": [
+            {
+              "path": "design-systems/workroom/SKILL.md",
+              "label": "SKILL.md"
+            },
+            {
+              "path": "design-systems/workroom/tokens/colors_and_type.css",
+              "label": "colors_and_type.css"
+            }
+          ],
+          "slug": "workroom"
+        }
+      ],
+      "id": "design-systems"
+    }
+  ],
+  "generated": "2026-10-14T05:22:02.4775983Z"
+}
