@@ -5,7 +5,7 @@ import './course-foundations.css';
 export function CourseFoundations({ label }) {
   return <section className="course-foundations" aria-label={`${label} AI 기본 안내`}>
     <span className="eyebrow">{label} / START HERE</span>
-    <h2>{label}도 AI 기본부터 시작합니다.</h2>
+    <h2>{courseFoundations.title}</h2>
     <p>{courseFoundations.introduction}</p>
     <div className="foundation-grid">{courseFoundations.items.map(([title, text]) => <article key={title}><h3>{title}</h3><p>{text}</p></article>)}</div>
     <h3>내가 활용할 영역을 골라보세요.</h3>

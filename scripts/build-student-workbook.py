@@ -86,8 +86,8 @@ add('STUDENT WORKBOOK / 2026','small');story.append(Spacer(1,70))
 add('내 생활과 일에\n쓰는 AI','cover')
 add('울산대학교 AI 활용 실습\n초급반 3시간 · 중급반 3시간, 각 반 독립 수강','h2')
 add('실제 공고를 읽고, 문서를 만들고, 근거를 확인합니다.\n383쪽 편람과 울산 지자체 원문으로 실습하고\n다음 업무에 사용할 요청 양식을 완성합니다.')
-story.append(Spacer(1,25));table([['개념·시연','직접 실습','각 반 수업'],['반별 개념·시연30분\n두 반 모두 AI 기본 포함','반별 실습3개\n각120분','휴식·정리 포함\n각180분']],[170,170,171])
-add('교재 v2.0 · 2026-11-04 개정 / 실제 화면·원문 수집: 2026-10-14','small')
+story.append(Spacer(1,25));table([['개념·시연','직접 실습','각 반 수업'],['반별 개념·시연\n각30분','반별 실습3개\n각120분','휴식·정리 포함\n각180분']],[170,170,171])
+add('교재 v2.1 · 2026-11-04 개정 / 실제 화면·원문 수집: 2026-10-14','small')
 add('공식 문서 다운로드 링크, 선택 가능한 전체 프롬프트, 실제 화면31개, 검토표와 작업 기록 양식을 포함합니다. 원문 파일5개를 PDF 첨부파일에도 보관합니다. 긴PDF2개는 발행기관에서 전체 원본을 받습니다.')
 link('온라인 실습실 열기 (선택)',SITE)
 
@@ -154,7 +154,7 @@ for id in ['official-source-manual','official-source-notice','official-platform-
 
 for day in [1,2]:
  course=DATA['curriculum']['days'][day-1]
- page(course['label']+' AI 기본 안내',course['slug']+'-foundations')
+ page(course['label']+' AI 기본 사용법',course['slug']+'-foundations')
  add(course['title'],'h3');add(course['prerequisite']);add(DATA['foundations']['introduction'])
  add('선택한 반의 학습 목표: '+course['outcome'])
  for title,text in DATA['foundations']['items']:add(title,'h3');add(text)
@@ -163,7 +163,7 @@ for day in [1,2]:
  for lesson in [l for l in DATA['lessons'] if l['day']==day]:
   u=next(u for u in DATA['concepts']['units'] if u['lesson']==lesson['id'])
   page(f'개념 {DATA["concepts"]["units"].index(u)+1:02d} - {u["title"]}',f'concept-{u["id"]}')
-  add(course['label']+(' | AI 기본 안내 포함 설명·시연18분 + 확인2분 = 20분' if u['minutes']==20 else ' | 설명·시연4분 + 확인1분 = 5분'),'small');add(u['summary'],'h3')
+  add(course['label']+(' | 설명·시연18분 + 확인2분 = 20분' if u['minutes']==20 else ' | 설명·시연4분 + 확인1분 = 5분'),'small');add(u['summary'],'h3')
   for text in u['paragraphs']:add(offline(text))
   add('우리 실습에 적용하면','h2');block(u['example'])
   add('마지막 확인: '+u['exercise'],'small')
@@ -231,7 +231,7 @@ public=R/'public/course';public.mkdir(parents=True,exist_ok=True);shutil.copyfil
 pdf=pymupdf.open(TARGET)
 cover=pdf[0].get_pixmap(matrix=pymupdf.Matrix(1,1),alpha=False)
 PILImage.frombytes('RGB',[cover.width,cover.height],cover.samples).save(public/'student-workbook-cover.jpg',quality=92)
-manifest={'title':'울산대학교 AI 실습 - 초급반·중급반 수강생 교재','version':'2.0','updatedOn':'2026-11-04','path':'course/'+TARGET.name,'pages':len(pdf),'bytes':TARGET.stat().st_size,'sha256':hashlib.sha256(TARGET.read_bytes()).hexdigest(),'realScreens':len(screens_done),'embeddedSources':pdf.embfile_count(),'standalone':'초급반·중급반 각3시간 독립 과정. 두 반 모두 AI 기본 안내·시간표·개념6개·실습6개·전체프롬프트·실제화면31개·공식원문링크·검토와저장양식 포함. AI실행과전체기관PDF다운로드는 인터넷 필요.'}
+manifest={'title':'울산대학교 AI 실습 - 초급반·중급반 수강생 교재','version':'2.1','updatedOn':'2026-11-04','path':'course/'+TARGET.name,'pages':len(pdf),'bytes':TARGET.stat().st_size,'sha256':hashlib.sha256(TARGET.read_bytes()).hexdigest(),'realScreens':len(screens_done),'embeddedSources':pdf.embfile_count(),'standalone':'초급반·중급반 각3시간 독립 과정. 두 반 모두 AI 기본 안내·시간표·개념6개·실습6개·전체프롬프트·실제화면31개·공식원문링크·검토와저장양식 포함. AI실행과전체기관PDF다운로드는 인터넷 필요.'}
 manifest['inputs']={name:hashlib.sha256((R/name).read_bytes()).hexdigest() for name in ['src/content.js','src/walkthroughs.js','src/Concepts.jsx','src/course-foundations.js','content/curriculum.json','content/official-documents.json','content/screen-captures.json']}
 (R/'content/student-workbook.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n',encoding='utf-8',newline='\n')
 report={'pages':len(pdf),'embeddedSources':pdf.embfile_names(),'links':sum(len(p.get_links()) for p in pdf),'outlineEntries':len(pdf.get_toc()),'pageTextLengths':[len(p.get_text()) for p in pdf],'screens':screens_done}

@@ -10,7 +10,7 @@
         {
           "type": "concept",
           "minutes": 20,
-          "title": "AI 기본 안내와 첫 문서 작업 흐름",
+          "title": "AI 기본 사용법과 문서 작업 흐름",
           "conceptId": "ai"
         },
         {
@@ -61,7 +61,7 @@
       ],
       "slug": "beginner",
       "label": "초급반",
-      "prerequisite": "처음 사용해도 참여할 수 있습니다. 노트북과 로그인 가능한 AI 계정을 준비하세요.",
+      "prerequisite": "AI를 처음 사용하거나, 문서 작성과 자료 정리를 직접 연습하고 싶은 분께 권합니다.",
       "outcome": "내 자료로 문서를 만들고 수정·검토·저장할 수 있습니다.",
       "independent": true
     },
@@ -72,7 +72,7 @@
         {
           "type": "concept",
           "minutes": 20,
-          "title": "AI 기본 안내와 컨텍스트 관리",
+          "title": "AI 기본 사용법과 컨텍스트 관리",
           "conceptId": "context"
         },
         {
@@ -123,7 +123,7 @@
       ],
       "slug": "intermediate",
       "label": "중급반",
-      "prerequisite": "초급반 수강은 필수가 아닙니다. 파일 첨부가 낯설면 기본 안내부터 함께 시작하세요.",
+      "prerequisite": "자료를 첨부해 질문하고, 근거를 확인하며 반복 작업에 활용하는 방법을 배우고 싶은 분께 권합니다.",
       "outcome": "자료와 대화를 관리하고 근거를 검증하는 작업 흐름을 재사용할 수 있습니다.",
       "independent": true
     }

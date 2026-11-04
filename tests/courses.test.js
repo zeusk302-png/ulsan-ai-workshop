@@ -22,7 +22,7 @@ test('both independent courses have a complete 180-minute schedule including the
     assert.equal(course.schedule.filter(s => s.type === 'practice').reduce((n, s) => n + s.minutes, 0), 120);
     const concepts = course.schedule.filter(s => s.type === 'concept');
     assert.deepEqual(concepts.map(s => s.minutes), [20, 5, 5]);
-    assert.ok(concepts[0].title.includes('AI 기본 안내'));
+    assert.ok(concepts[0].title.includes('AI 기본 사용법'));
     for (const slot of concepts) {
       const unit = units.find(u => u.id === slot.conceptId);
       assert.equal(unit.day, i + 1);
@@ -30,7 +30,8 @@ test('both independent courses have a complete 180-minute schedule including the
     }
     assert.equal(lessons.filter(l => l.day === i + 1).length, 3);
   });
-  assert.ok(courseFoundations.introduction.includes('중급반은 초급반 수강을 전제로 하지 않습니다'));
+  assert.equal(courseFoundations.title, 'AI 기본 사용법');
+  assert.ok(courseFoundations.introduction.includes('요청·수정·확인'));
   assert.equal(courseFoundations.areas.length, 4);
   for (const term of ['AI와 생성형 AI', '모델·서비스', '요청하고 수정', '컨텍스트', '무료·유료', '공개 자료']) {
     assert.ok(courseFoundations.items.some(([title]) => title.includes(term)), term);
@@ -44,6 +45,6 @@ test('existing lesson identities remain compatible with saved work and both cour
   assert.ok(app.includes('classLessons.indexOf(lesson) < classLessons.length - 1'));
   assert.ok(!/DAY 0|일차|2일, 총/.test(app));
   const pdf = JSON.parse(read('content/student-workbook.json'));
-  assert.equal(pdf.version, '2.0');
+  assert.equal(pdf.version, '2.1');
   assert.ok(pdf.inputs['src/course-foundations.js']);
 });

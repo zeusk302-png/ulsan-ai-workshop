@@ -10,7 +10,7 @@ const fs=require('node:fs'),assert=require('node:assert/strict');
   assert.equal(await page.locator('.concept-index button').count(),3);
   assert.equal(await page.locator('.concept-lesson[id]').count(),3);
   const curriculum=JSON.parse(fs.readFileSync('content/curriculum.json','utf8'));
-  for(const course of curriculum.days){await page.getByRole('button',{name:course.label+' AI 기본·개념',exact:true}).click();assert.ok((await page.locator('.course-foundations').innerText()).includes('초급반 수강을 전제로 하지 않습니다'));assert.equal(course.schedule.filter(s=>s.type==='concept').reduce((a,s)=>a+s.minutes,0),30);for(const s of course.schedule.filter(s=>s.type==='concept'))assert.equal(await page.locator('#concept-'+s.conceptId).count(),1)}
+  for(const course of curriculum.days){await page.getByRole('button',{name:course.label+' AI 기본·개념',exact:true}).click();assert.ok((await page.locator('.course-foundations').innerText()).includes('요청·수정·확인'));assert.equal(course.schedule.filter(s=>s.type==='concept').reduce((a,s)=>a+s.minutes,0),30);for(const s of course.schedule.filter(s=>s.type==='concept'))assert.equal(await page.locator('#concept-'+s.conceptId).count(),1)}
   fs.mkdirSync('artifacts',{recursive:true});await page.screenshot({path:'artifacts/concepts-desktop.png'});
   for(const[i,name]of['이어가기','새로 시작','정리해 옮기기'].entries()){await page.locator('.context-situation').nth(i).getByRole('button',{name,exact:true}).click();assert.ok((await page.locator('.context-situation').nth(i).innerText()).includes('좋은 선택'))}
   await page.getByLabel('목적',{exact:true}).fill('공고의 지원금 기준 대조');
