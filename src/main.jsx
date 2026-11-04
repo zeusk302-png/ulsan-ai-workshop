@@ -12,6 +12,7 @@ import { composeLessonPrompt } from './lesson-utils';
 import { OfficialLibrary, DocumentCards } from './OfficialDocuments';
 const Concepts = lazy(()=>import('./Concepts').then(module=>({default:module.Concepts})));
 import { WorkflowCourse, WorkflowMap, CourseSchedule } from './WorkflowCourse';
+import { HeroWorkPreview } from './LearningVisuals';
 import { legacyTopicStages } from './flow-curriculum';
 import { flowGuides } from './flow-lessons';
 import './course-foundations.css';
@@ -66,7 +67,7 @@ function App() {
       const target=curriculum.days.findIndex(c=>c.slug===next); setDay(target>=0 ? target+1 : initialCourse());
       setMenu(false); setTab('guide'); setShowExample(false);
       const params=new URLSearchParams(location.hash.split('?')[1]||'');
-      const readingJump=(next==='concepts'&&window.innerWidth<=760&&(params.has('stage')||params.has('topic'))) || (next==='reference'&&window.innerWidth<=900&&params.has('topic'));
+      const readingJump=(next==='concepts'&&(params.has('stage')||params.has('topic'))) || (next==='reference'&&window.innerWidth<=900&&params.has('topic'));
       if(!readingJump){window.scrollTo({top:0,behavior:'instant'});mainRef.current?.focus();}
     };
     window.addEventListener('hashchange',handler); return()=>window.removeEventListener('hashchange',handler);
@@ -139,7 +140,7 @@ function App() {
       {storageError && <div className="storage-warning" role="alert">브라우저 저장 공간을 사용할 수 없습니다. 페이지를 닫기 전에 내 작업 백업을 내려받으세요.</div>}
       <main id="main-content" ref={mainRef} tabIndex={-1}>
         {['home', 'beginner', 'intermediate'].includes(page) && <>
-          <section className="hero flow-hero"><div className="hero-copy"><div className="eyebrow"><span className="live-dot"/>생성형 AI · 자료 분석과 문서 작업</div><h1>자료와 문서의 일을<br/><span>AI와 나눠 설계합니다.</span></h1><p>목적과 자료를 정하고, AI가 맡을 처리와<br/>사람이 검토할 지점을 연결합니다.</p><button className="btn primary" onClick={()=>go('concepts','purpose')}>{course.label} 작업 흐름 열기<ArrowRight size={18}/></button><div className="hero-caption">초급·중급 각 3시간 · 공개 원문 · 무료 기능 중심</div></div><div className="hero-art flow-hero-art"><div className="flow-hero-step"><small>사람이 정의</small><strong>목적 · 자료 · 판단 기준</strong></div><ArrowRight/><div className="flow-hero-step ai"><small>AI가 처리</small><strong>추출 · 구조화 · 작성</strong></div><ArrowRight/><div className="flow-hero-step"><small>사람이 검토</small><strong>근거 · 누락 · 다음 행동</strong></div><span>준비부터 검토·수정까지의 전체 수고로 활용을 판단합니다.</span></div></section>
+          <section className="hero flow-hero"><div className="hero-copy"><div className="eyebrow"><span className="live-dot"/>생성형 AI · 자료 분석과 문서 작업</div><h1>자료와 문서의 일을<br/><span>AI와 나눠 설계합니다.</span></h1><p>목적과 자료를 정하고, AI가 맡을 처리와<br/>사람이 검토할 지점을 연결합니다.</p><button className="btn primary" onClick={()=>go('concepts','purpose')}>{course.label} 작업 흐름 열기<ArrowRight size={18}/></button><div className="hero-caption">초급·중급 각 3시간 · 공개 원문 · 무료 기능 중심</div></div><HeroWorkPreview advanced={day===2} onOpen={()=>go('concepts',day===2?'evidence':'structure')}/></section>
           <section className="flow-home-intro"><div className="flow-section-label">ONE WORKFLOW / TWO COURSES</div><h2>같은 흐름, 다른 자료와 판단의 복잡성</h2><p>초급은 한 자료에서 문서를 완성하는 과정에, 중급은 RAG로 여러 근거를 연결하고 작업 상태를 관리하는 과정에 집중합니다.</p><WorkflowMap slug={course.slug} compact/><div className="flow-home-actions"><button className="btn primary" onClick={()=>go('concepts','purpose',1)}>초급 흐름<ArrowRight size={15}/></button><button className="btn secondary" onClick={()=>go('concepts','evidence',2)}>중급 RAG 흐름<ArrowRight size={15}/></button><button className="text-btn" onClick={()=>go('reference','understand')}>개념·도구 참고서<ArrowUpRight size={15}/></button></div></section>
           <div className="course-strip"><div><Clock3 size={19}/><b>초급반·중급반</b><span>각 3시간 · 독립 수강</span></div><div><Clipboard size={19}/><b>단계 실행·분석 120분</b><span>기본 설명·시연 30분</span></div><div><FolderOpen size={19}/><b>근거와 작업 상태</b><span>최종본·미결·다음 단계 보존</span></div></div>
           <section className="curriculum-section"><div className="section-heading"><div><span className="eyebrow">COURSE / WORKING PROCESS</span><h2>과정 구성</h2></div><button className="text-btn" onClick={()=>go('guide')}>수업 준비 안내<ArrowUpRight size={15}/></button></div><div className="day-switch" role="group" aria-label="수강 과정 선택">{[1,2].map(d=><button key={d} aria-pressed={day===d} className={day===d?'current':''} onClick={()=>go(curriculum.days[d-1].slug)}><span>{curriculum.days[d-1].label}</span>{curriculum.days[d-1].title}<small>3시간</small></button>)}</div><section className="course-entry" aria-label={`${course.label} 과정 안내`}><span className="eyebrow">{course.label} · 3시간</span><h3>{course.outcome}</h3><p>{course.prerequisite}</p><div className="course-start-actions"><button className="btn primary" onClick={()=>go('concepts','purpose')}>전체 흐름과 기본 개념<ArrowRight size={15}/></button><button className="btn secondary" onClick={()=>go(classLessons[0].id)}>적용 사례 열기<ArrowRight size={15}/></button></div></section><div className="lesson-grid">{classLessons.map(lessonCard)}</div><CourseSchedule course={course} onCase={go}/></section>

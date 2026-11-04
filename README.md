@@ -102,3 +102,5 @@ Google Fonts의 Noto Sans KR와 IBM Plex Mono를 사용하며 외부 폰트를 �
 `#concepts?course=beginner&stage=purpose`에서 7단계 흐름을, `#concepts?course=intermediate&stage=evidence`에서 RAG 처리를 엽니다. 기존 `topic` 주소도 관련 흐름으로 연결됩니다. `#reference?course=beginner&topic=context`는 개념·도구 참고서입니다. 고유 주제15개를 양 과정 모두 제공하며 기존 상세 설명·도구 사용법·판단 사례·공식 출처를 유지합니다.
 
 검증: `npm test`, `npm run build`. 재현용 브라우저 스크립트는 `tests/workflow-qa.cjs`(새 흐름), `tests/concepts-qa.cjs`(참고서), `tests/browser-qa.cjs`(저장·사례), `tests/walkthrough-qa.cjs`(단계·캡처)입니다. 이번 실제 UI 검증은 연결된 브라우저에서 수행했고 범위와 제한은 `docs/verification.md`에 기록합니다. 재현용 CLI 스크립트 자체의 실행을 이번 검증으로 주장하지 않습니다.
+
+수업 시각화는 `src/LearningVisuals.jsx`에서 제공합니다. 작업 분담표, 실제 원문과 정리표·초안·주장 검토의 비교, RAG 소스·근거·주장 연결, 컨텍스트의 유지·제외 비교, 전체 폭 실제 캡처를 제공합니다. 인용 자료는 `src/visual-examples.js`에서 보존 원문과 대조하며 새 AI 실행 결과로 표시하지 않습니다. 점검·개선 범위는 `docs/visual-revision.md`에 있습니다.

@@ -25,6 +25,17 @@ const fs=require('node:fs'), assert=require('node:assert/strict');
       }
     }
     await page.goto(`${base}#concepts?course=intermediate&stage=evidence`);
+    await page.getByRole('button',{name:'사업 금액 조회',exact:true}).click();
+    assert.equal(await page.locator('.rag-corpus li.selected').count(),1);
+    assert.equal(await page.locator('.fragment-list button').count(),2);
+    await page.locator('.fragment-list button').nth(1).click();
+    assert.match(await page.locator('.evidence-claim').innerText(),/130,000[\s\S]*150,000/);
+    await page.goto(`${base}#concepts?course=beginner&stage=structure`);
+    for(const label of ['구조화 표','문서 초안','주장 검토']){
+      await page.getByRole('button',{name:label,exact:true}).click();
+      assert.equal(await page.getByRole('button',{name:label,exact:true}).getAttribute('aria-pressed'),'true');
+    }
+    await page.goto(`${base}#concepts?course=intermediate&stage=evidence`);
     for(const operation of ragOperations){
       await page.locator('.rag-pipeline').getByRole('button',{name:new RegExp(operation.title)}).click();
       assert.equal(await page.locator('.rag-operation h4').innerText(),operation.title);

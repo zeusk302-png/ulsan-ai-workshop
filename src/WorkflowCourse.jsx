@@ -5,6 +5,7 @@ import { flowStages, webCurriculum, flowHref, resolveFlowStage, compareEffort } 
 import { diagnosticBranches, flowContent, flowReferences, ragOperations, sourceQuestions, stagePrinciples } from './flow-content';
 import { flowLessonCopy } from './flow-lessons';
 import { ScreenGallery } from './LessonGuide';
+import { ContextTransferView, RealScreenSpotlight, StageVisual } from './LearningVisuals';
 import './workflow.css';
 const ApplicationCases = lazy(()=>import('./UsageGuide').then(module=>({default:module.ApplicationCases})));
 
@@ -25,12 +26,7 @@ export function EffortComparison() {
 
 export function ContextTree({ advanced=false }) {
   const [mode,setMode]=useState('current');
-  const branches={
-    current:[['유지','현재 목표·독자·출력 기준'],['참조','현재 원문·선택 소스·버전'],['분리','확인한 사실 / 미결 / AI 제안'],['갱신','이번 수정 조건·다음 단계']],
-    handoff:[['검토','요약의 수치·근거·확정 상태'],['전달','목적·자료·확인한 사실·미결'],['재등록','필요 원문·표·조항'],['제외','버린 초안·잘못된 수치']],
-    switch:[['교체','중구 공고 → 북구 업무계획'],['갱신','목적·선택 소스·출력 열'],['유지','근거 표시·없는 정보·상충 처리 규칙'],['제외','이전 공고의 금액·접수기한']]
-  };
-  return <section className="flow-visual"><div className="flow-section-label">CONTEXT / STATE</div><h3>현재 작업에 제공할 정보 트리</h3><p>화면의 대화 전체와 모델에 전달되는 참고 범위는 구분합니다. 아래는 사용자가 관리할 정보의 구조입니다.</p><div className="flow-choice" role="group" aria-label="컨텍스트 상황 선택">{[['current','같은 작업 수정'],['handoff','새 대화 인수인계'],...(advanced?[['switch','다른 업무로 전환']]:[])].map(([id,title])=><button className="btn secondary" key={id} aria-pressed={mode===id} onClick={()=>setMode(id)}>{title}</button>)}</div><div className="context-root">현재 작업 상태</div><ul className="context-tree">{branches[mode].map(([label,text])=><li key={label}><span>{label}</span><p>{text}</p></li>)}</ul><p className="flow-caption">요약은 원문의 길잡이입니다. 개인화 메모리나 앞선 AI 초안을 원문 근거의 대체물로 사용하지 않습니다.</p></section>;
+  return <section className="flow-visual context-visual"><div className="flow-section-label">CONTEXT / STATE</div><h3>어떤 정보를 다음 요청에 넘길 것인가</h3><p>상황을 바꾸면 유지·제외할 정보와 다음 작업 묶음이 함께 바뀝니다.</p><div className="flow-choice" role="group" aria-label="컨텍스트 상황 선택">{[['current','같은 작업 수정'],['handoff','새 대화 인수인계'],...(advanced?[['switch','다른 업무로 전환']]:[])].map(([id,title])=><button className="btn secondary" key={id} aria-pressed={mode===id} onClick={()=>setMode(id)}>{title}</button>)}</div><ContextTransferView mode={mode} advanced={advanced}/><p className="flow-caption">요약은 원문의 길잡이입니다. 화면의 전체 대화와 실제 참고 범위는 구분하며, 개인화 메모리나 앞선 AI 초안을 원문 근거의 대체물로 사용하지 않습니다.</p></section>;
 }
 
 export function SourceRoleTree() {
@@ -74,7 +70,7 @@ export function WorkflowCourse({courseSlug='beginner',onCourse,onCopy,onCase}) {
   useEffect(()=>{
     if(new URLSearchParams(location.hash.split('?')[1]||'').has('stage')||new URLSearchParams(location.hash.split('?')[1]||'').has('topic')){
       headerRef.current?.focus({preventScroll:true});
-      if(window.innerWidth<=760&&headerRef.current)window.scrollTo({top:headerRef.current.getBoundingClientRect().top+window.scrollY-78,behavior:'instant'});
+      if(headerRef.current)window.scrollTo({top:headerRef.current.getBoundingClientRect().top+window.scrollY-(window.innerWidth<=760?78:24),behavior:'instant'});
     }
   },[active]);
   function saveStage(){
@@ -87,20 +83,22 @@ export function WorkflowCourse({courseSlug='beginner',onCourse,onCopy,onCase}) {
     <section className="flow-course-principle"><span className="flow-section-label">이 과정의 판단</span><p>{course.question}</p><div><span>AI가 맡을 처리</span><ArrowRight size={15}/><span>사람의 확인 지점</span><ArrowRight size={15}/><span>다음 단계의 입력</span></div></section>
     <div ref={mapRef}><WorkflowMap slug={course.slug} active={active} onCurrent={showCurrent}/></div>
     <article className="flow-stage" key={active}>
-      <header className="flow-stage-header" ref={headerRef} tabIndex={-1}><button className="text-btn flow-map-return" onClick={()=>{if(mapRef.current)window.scrollTo({top:mapRef.current.getBoundingClientRect().top+window.scrollY-78,behavior:'instant'});}}>전체 흐름 보기<ArrowLeft size={14}/></button><div className="flow-stage-meta"><span>STAGE {node.number} / 07</span><span>{node.owner}</span></div><h2>{node.title}</h2><p>{content.lead}</p><button className="text-btn" onClick={saveStage}><Download size={15}/>단계 안내 TXT 저장</button></header>
+      <header className="flow-stage-header" ref={headerRef} tabIndex={-1}><div className="flow-stage-header-nav"><button className="text-btn flow-map-return" onClick={()=>{if(mapRef.current)window.scrollTo({top:mapRef.current.getBoundingClientRect().top+window.scrollY-(window.innerWidth<=760?78:24),behavior:'instant'});}}>전체 흐름 보기<ArrowLeft size={14}/></button><button className="text-btn" onClick={saveStage}><Download size={15}/>단계 안내 TXT 저장</button></div><div className="flow-stage-meta"><span>STAGE {node.number} / 07</span><span>{node.owner}</span></div><h2>{node.title}</h2><p>{content.lead}</p></header>
+      <StageVisual stage={active} courseSlug={course.slug}/>
+      {['inputs','reuse'].includes(active)&&<ContextTree advanced={course.slug==='intermediate'}/>}
       <div className="flow-contribution"><div><span>지금의 번거로움</span><p>{content.friction}</p></div><div><span>AI가 맡을 처리</span><p>{content.ai}</p></div><div><span>사람이 판단할 부분</span><p>{content.human}</p></div></div>
       <section className="flow-section"><h3>{principle.heading}</h3>{principle.paragraphs.map(text=><p key={text}>{text}</p>)}<dl className="flow-term-list">{principle.terms.map(([term,meaning])=><div key={term}><dt>{term}</dt><dd>{meaning}</dd></div>)}</dl></section>
       <section className="flow-section"><div className="flow-section-label">INPUT → PROCESS → OUTPUT</div><h3>이 단계의 입력과 다음 결과</h3><div className="flow-contract"><div><h4>준비할 입력</h4><ul>{content.inputs.map(text=><li key={text}>{text}</li>)}</ul></div><ArrowRight size={22}/><div><h4>다음 단계로 넘길 것</h4><ul>{content.outputs.map(text=><li key={text}>{text}</li>)}</ul></div></div></section>
       {active==='purpose'&&<EffortComparison/>}
-      {active==='inputs'&&<><ContextTree advanced={course.slug==='intermediate'}/>{course.slug==='intermediate'&&<SourceRoleTree/>}</>}
+      {active==='inputs'&&course.slug==='intermediate'&&<SourceRoleTree/>}
       {active==='evidence'&&<><RagExplorer/>{course.slug==='intermediate'&&<SourceRoleTree/>}</>}
       {active==='review'&&<><DiagnosticTree slug={course.slug}/><EffortComparison/></>}
-      {active==='reuse'&&<><ContextTree advanced={course.slug==='intermediate'}/><HarnessDiagram/><div className="flow-section"><Suspense fallback={<p>영역별 적용 자료를 불러오는 중입니다.</p>}><ApplicationCases onCopy={onCopy}/></Suspense></div></>}
+      {active==='reuse'&&<><HarnessDiagram/><div className="flow-section"><Suspense fallback={<p>영역별 적용 자료를 불러오는 중입니다.</p>}><ApplicationCases onCopy={onCopy}/></Suspense></div></>}
       <section className="flow-section"><div className="flow-section-label">CASE / WORKING REASON</div><h3>기존 자료에 적용하면</h3>{content.explanation.map(text=><p key={text}>{text}</p>)}<div className="flow-contrast">{content.contrast.map((text,i)=><div key={text}><span>{i===0?'관찰·조건':'해석·처리'}</span><p>{text}</p></div>)}</div></section>
       <CopyRequest text={content.request} onCopy={onCopy}/>
       <div className="flow-gate"><span>다음 단계로 넘길 기준</span><p>{content.gate}</p></div>
       <section className="flow-section flow-linked-cases"><h3>흐름을 실행할 사례</h3><p>자료·요청·중간 결과·검토 기준을 연결해 기록합니다.</p>{content.caseIds.map(id=><button key={id} onClick={()=>onCase(id)}><span>{flowLessonCopy[id].number}</span><div><strong>{flowLessonCopy[id].title}</strong><small>{flowLessonCopy[id].description}</small></div><ArrowUpRight size={18}/></button>)}</section>
-      {content.screens.length>0&&<section className="flow-section flow-evidence-screens"><h3>실제 실행과 원문 대조 화면</h3>{content.screenNote&&<p className="flow-screen-note">{content.screenNote}</p>}<ScreenGallery ids={content.screens} compact/></section>}
+      {content.screens.length>0&&<section className="flow-section flow-evidence-screens"><h3>실제 실행과 원문 대조 화면</h3>{content.screenNote&&<p className="flow-screen-note">{content.screenNote}</p>}<RealScreenSpotlight ids={content.screens}/><details className="visual-screen-archive"><summary>캡처 전체와 확대 보기</summary><ScreenGallery ids={content.screens} compact/></details></section>}
       <details className="flow-reading"><summary>관련 개념·도구 사용법</summary><p>필요한 조작과 개념을 참고 자료에서 확인합니다.</p><div>{content.topics.map(topic=><a key={topic} href={`#reference?course=${course.slug}&topic=${topic}`}>{({understand:'AI·모델·서비스',prompt:'요청 구성',plans:'무료·유료 선택',files:'파일 준비',context:'컨텍스트',privacy:'자료 보안',verify:'검증',rag:'RAG·소스 관리',long:'장문 자료',revise:'후속 수정',handoff:'인수인계',transfer:'영역별 적용',templates:'요청 재사용',workflow:'하네스'})[topic]||topic}<ArrowRight size={14}/></a>)}</div></details>
       <section className="flow-references"><span>공식 개념·기능 참고 · 2026-11-04 확인</span>{principle.refs.map(id=><a key={id} href={flowReferences[id][1]} target="_blank" rel="noreferrer">{flowReferences[id][0]}<ArrowUpRight size={13}/></a>)}<p>사례의 해석·요청·판정 예시는 강사 구성입니다. 실제 캡처는 각 화면의 날짜와 사용 자료를 구분해 봅니다.</p></section>
       <nav className="flow-stage-pagination" aria-label="흐름 단계 이동">{flowStages.indexOf(node)>0?<a className="btn secondary" href={flowHref(course.slug,flowStages[flowStages.indexOf(node)-1].id)}><ArrowLeft size={15}/>이전 단계</a>:<span/>}{flowStages.indexOf(node)<6?<a className="btn primary" href={flowHref(course.slug,flowStages[flowStages.indexOf(node)+1].id)}>다음 단계<ArrowRight size={15}/></a>:<button className="btn primary" onClick={()=>onCase(course.lessonIds[0])}>전체 흐름 적용<ArrowRight size={15}/></button>}</nav>
