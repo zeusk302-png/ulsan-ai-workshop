@@ -1,16 +1,16 @@
 {
-  "title": "내일 출근해서 바로 쓰는 AI",
-  "subtitle": "문서 작성부터 자료 정리까지",
-  "audience": "AI·IT 비전공 직장인",
+  "title": "내 생활과 일에 쓰는 AI",
+  "subtitle": "초급반·중급반 독립 과정",
+  "audience": "일반인·학생·구직자·직장인",
   "days": [
     {
       "id": "day1",
-      "title": "AI 기초와 업무 문서 작성",
+      "title": "AI 기본 사용과 문서 만들기",
       "schedule": [
         {
           "type": "concept",
-          "minutes": 10,
-          "title": "AI 이해와 업무를 맡기는 범위",
+          "minutes": 20,
+          "title": "AI 기본 안내와 첫 문서 작업 흐름",
           "conceptId": "ai"
         },
         {
@@ -26,7 +26,7 @@
         },
         {
           "type": "concept",
-          "minutes": 10,
+          "minutes": 5,
           "title": "목적·자료·독자·형식·검토 조건",
           "conceptId": "prompt"
         },
@@ -43,7 +43,7 @@
         },
         {
           "type": "concept",
-          "minutes": 10,
+          "minutes": 5,
           "title": "원문 대조와 과도한 단정 수정",
           "conceptId": "verify"
         },
@@ -58,16 +58,21 @@
           "minutes": 10,
           "title": "결과물과 프롬프트 저장"
         }
-      ]
+      ],
+      "slug": "beginner",
+      "label": "초급반",
+      "prerequisite": "처음 사용해도 참여할 수 있습니다. 노트북과 로그인 가능한 AI 계정을 준비하세요.",
+      "outcome": "내 자료로 문서를 만들고 수정·검토·저장할 수 있습니다.",
+      "independent": true
     },
     {
       "id": "day2",
-      "title": "자료 정리와 내 업무 적용",
+      "title": "AI 기본부터 RAG·컨텍스트·재사용까지",
       "schedule": [
         {
           "type": "concept",
-          "minutes": 10,
-          "title": "컨텍스트·토큰·대화 관리",
+          "minutes": 20,
+          "title": "AI 기본 안내와 컨텍스트 관리",
           "conceptId": "context"
         },
         {
@@ -83,7 +88,7 @@
         },
         {
           "type": "concept",
-          "minutes": 10,
+          "minutes": 5,
           "title": "장문 자료 등록과 소스 범위 지정",
           "conceptId": "long"
         },
@@ -100,7 +105,7 @@
         },
         {
           "type": "concept",
-          "minutes": 10,
+          "minutes": 5,
           "title": "업무 요약으로 새 대화 이어가기",
           "conceptId": "handoff"
         },
@@ -115,7 +120,13 @@
           "minutes": 10,
           "title": "결과 공유와 활용 계획"
         }
-      ]
+      ],
+      "slug": "intermediate",
+      "label": "중급반",
+      "prerequisite": "초급반 수강은 필수가 아닙니다. 파일 첨부가 낯설면 기본 안내부터 함께 시작하세요.",
+      "outcome": "자료와 대화를 관리하고 근거를 검증하는 작업 흐름을 재사용할 수 있습니다.",
+      "independent": true
     }
-  ]
+  ],
+  "format": "초급반 3시간 · 중급반 3시간, 각 반 독립 수강"
 }

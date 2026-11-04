@@ -11,8 +11,10 @@ for name in d.embfile_names():
  original=R/'public/documents'/('originals/'+name if name.endswith('.hwp') else 'text/'+name)
  assert d.embfile_get(name)==original.read_bytes(),name
 text='\n'.join(page.get_text() for page in d)
-for term in ['컨텍스트','확인한 사실','아직 확인할 것','12,000천원','130,000원','150,000원','시행예정','프롬프트','문서번호']:
+for term in ['초급반','중급반','AI 기본 안내','초급반 수강을 전제로 하지 않습니다','무료·유료','컨텍스트','확인한 사실','아직 확인할 것','12,000천원','130,000원','150,000원','시행예정','프롬프트','문서번호']:
  assert term in text,term
+for retired in ['DAY 01','DAY01','DAY 02','DAY02','1일차','2일차','2일 · 6시간']:
+ assert retired not in text,retired
 for name,sha in m['inputs'].items(): assert hashlib.sha256((R/name).read_bytes()).hexdigest()==sha,name
 course=json.loads((R/'artifacts/workbook-data.json').read_text(encoding='utf-8'))
 for lesson in course['lessons']:

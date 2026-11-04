@@ -21,10 +21,10 @@ let browser;
   await page.getByRole('heading', { name: '배우는 AI에서, 일하는 AI로.' }).waitFor();
   await width('desktop home'); await shot('desktop-home');
   assert.equal(await page.locator('.lesson-card').count(), 3);
-  await page.getByRole('button', { name: /DAY 02 자료 정리와/ }).click();
+  await page.getByRole('button', { name: /중급반 AI 기본부터/ }).click();
   assert.equal(await page.locator('.lesson-card').count(), 3);
   assert.ok((await page.locator('.lesson-card').first().innerText()).includes('04'));
-  await page.getByRole('button', { name: /DAY 01 AI 기초와/ }).click(); ok('overview day switches and 3 lessons per day');
+  await page.getByRole('button', { name: /초급반 AI 기본 사용과/ }).click(); ok('overview independent course switches and 3 lessons per course');
   const ids = ['email', 'document', 'adapt', 'meeting', 'sources', 'template'];
   for (const id of ids) {
     await page.goto(`${process.env.QA_URL || 'http://127.0.0.1:8289/'}#${id}`);
