@@ -8,7 +8,7 @@ export function CourseFoundations({ label }) {
     <h2>{courseFoundations.title}</h2>
     <p>{courseFoundations.introduction}</p>
     <div className="foundation-grid">{courseFoundations.items.map(([title, text]) => <article key={title}><h3>{title}</h3><p>{text}</p></article>)}</div>
-    <h3>내가 활용할 영역을 골라보세요.</h3>
+    <h3>활용 영역</h3>
     <ul>{courseFoundations.areas.map(([title, text]) => <li key={title}><b>{title}</b> · {text}</li>)}</ul>
     <p>오늘 만들고 싶은 결과물 한 개를 정하고, 실습 후 다음에 적용할 일을 기록하세요.</p>
   </section>;

@@ -1,0 +1,9 @@
+{
+  "scope": "web-only",
+  "updatedOn": "2026-11-04",
+  "pdfVersion": "2.1",
+  "pdfSha256": "f96c61d0565a3465dfc769b1328dd19cb4cdbfd25cf142269f8f7c0da6c3e1e2",
+  "webConceptsSha256": "c8480246ca2d3ee4b0f58b98d5b0f39b946c1912cd61fff70ee201990e3c4486",
+  "conceptDataSha256": "77f8d2906a3ace2fa04baa75b13f1a608f677743d6d60af976c397bad3d1bd00",
+  "note": "웹 화면의 문구만 개정했습니다. PDF 2.1판과 교재용 원문·프롬프트·개념 데이터는 유지합니다."
+}

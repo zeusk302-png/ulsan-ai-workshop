@@ -15,7 +15,17 @@ for term in ['초급반','중급반','AI 기본 안내','AI 기본 사용법','�
  assert term in text,term
 for retired in ['DAY 01','DAY01','DAY 02','DAY02','1일차','2일차','2일 · 6시간']:
  assert retired not in text,retired
-for name,sha in m['inputs'].items(): assert hashlib.sha256((R/name).read_bytes()).hexdigest()==sha,name
+for name,sha in m['inputs'].items():
+ actual=hashlib.sha256((R/name).read_bytes()).hexdigest()
+ if actual==sha:continue
+ # A documented web-only edit may change the React view, not its PDF source data.
+ assert name=='src/Concepts.jsx',name
+ revision=json.loads((R/'content/web-copy-revision.json').read_text(encoding='utf-8'))
+ assert revision['scope']=='web-only' and revision['pdfSha256']==m['sha256']
+ assert revision['pdfVersion']==m['version'] and revision['webConceptsSha256']==actual
+ source=(R/name).read_text(encoding='utf-8')
+ prefix=source[source.index('const references ='):source.index('const situations =')]
+ assert hashlib.sha256(prefix.encode()).hexdigest()==revision['conceptDataSha256']
 course=json.loads((R/'artifacts/workbook-data.json').read_text(encoding='utf-8'))
 for lesson in course['lessons']:
  title=f'실습 {lesson["number"]} - {lesson["title"]}'

@@ -19,7 +19,7 @@ export default function PdfReader({ url, name }) {
     let alive = true;
     const task = getDocument({ url, useSystemFonts: true });
     setPdf(null); setStatus('전체 PDF를 여는 중…'); setPageNumber(1); index.current.clear();
-    task.promise.then(doc => { if (alive) { setPdf(doc); setStatus(`전체 ${doc.numPages}쪽 로드됨`); } })
+    task.promise.then(doc => { if (alive) { setPdf(doc); setStatus(`전체 ${doc.numPages}쪽`); } })
       .catch(() => { if (alive) setStatus('PDF를 열지 못했습니다. 위의 새 탭에서 읽기로 원본을 열어보세요.'); });
     return () => { alive = false; searchToken.current++; void task.destroy(); };
   }, [url]);
@@ -39,8 +39,8 @@ export default function PdfReader({ url, name }) {
         element.width = Math.ceil(viewport.width); element.height = Math.ceil(viewport.height);
         render = page.render({ canvasContext: element.getContext('2d'), viewport });
         await render.promise;
-        if (alive) setStatus(`PDF 뷰어 ${pageNumber} / ${pdf.numPages}쪽 · 원본 페이지 표시됨`);
-      } catch (e) { if (alive && e.name !== 'RenderingCancelledException') setStatus('페이지 표시 실패 · 새 탭 원본을 확인하세요.'); }
+        if (alive) setStatus(`PDF 뷰어 ${pageNumber} / ${pdf.numPages}쪽 · 원본 페이지`);
+      } catch (e) { if (alive && e.name !== 'RenderingCancelledException') setStatus('페이지를 표시하지 못했습니다. 새 탭에서 원본을 확인하세요.'); }
     })();
     return () => { alive = false; render?.cancel(); };
   }, [pdf, pageNumber, zoom]);

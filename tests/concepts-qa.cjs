@@ -6,13 +6,13 @@ const fs=require('node:fs'),assert=require('node:assert/strict');
   const page=await browser.newPage({viewport:{width:1440,height:1000},acceptDownloads:true});
   const errors=[];page.on('pageerror',e=>errors.push(String(e)));
   const url=process.env.QA_URL||'http://127.0.0.1:8289/';
-  await page.goto(url+'#concepts');await page.getByRole('heading',{name:'AI를 이해하고, 일을 맡기는 방법.'}).waitFor();
+  await page.goto(url+'#concepts');await page.getByRole('heading',{name:'AI 기본 개념과 활용 방법'}).waitFor();
   assert.equal(await page.locator('.concept-index button').count(),3);
   assert.equal(await page.locator('.concept-lesson[id]').count(),3);
   const curriculum=JSON.parse(fs.readFileSync('content/curriculum.json','utf8'));
   for(const course of curriculum.days){await page.getByRole('button',{name:course.label+' AI 기본·개념',exact:true}).click();assert.ok((await page.locator('.course-foundations').innerText()).includes('요청·수정·확인'));assert.equal(course.schedule.filter(s=>s.type==='concept').reduce((a,s)=>a+s.minutes,0),30);for(const s of course.schedule.filter(s=>s.type==='concept'))assert.equal(await page.locator('#concept-'+s.conceptId).count(),1)}
   fs.mkdirSync('artifacts',{recursive:true});await page.screenshot({path:'artifacts/concepts-desktop.png'});
-  for(const[i,name]of['이어가기','새로 시작','정리해 옮기기'].entries()){await page.locator('.context-situation').nth(i).getByRole('button',{name,exact:true}).click();assert.ok((await page.locator('.context-situation').nth(i).innerText()).includes('좋은 선택'))}
+  for(const[i,name]of['이어가기','새로 시작','정리해 옮기기'].entries()){await page.locator('.context-situation').nth(i).getByRole('button',{name,exact:true}).click();assert.ok((await page.locator('.context-situation').nth(i).innerText()).includes('권장 선택'))}
   await page.getByLabel('목적',{exact:true}).fill('공고의 지원금 기준 대조');
   assert.ok((await page.locator('.concept-builder').locator('..').locator('.prompt-content').innerText()).includes('공고의 지원금 기준 대조'));
   const wait=page.waitForEvent('download');await page.getByRole('button',{name:'양식 TXT 다운로드',exact:true}).click();const dl=await wait;const data=fs.readFileSync(await dl.path(),'utf8');assert.ok(data.includes('확인한 사실')&&data.includes('아직 확인할 것')&&data.includes('원문을 대신하지 않습니다'));
