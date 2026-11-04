@@ -29,16 +29,15 @@ export function ScreenGallery({ ids, compact = false }) {
 export function DetailedLessonGuide({ lesson, onMaterials, onCopy }) {
   const guide = presentGuide(lesson, walkthroughs[lesson.id]);
   return <>
-    <div className="lesson-deliverable"><span className="eyebrow">TODAY'S OUTPUT</span><h2>실습 목표와 결과물</h2><p>{guide.output}</p><small>{guide.preparation}</small></div>
-    <section className="concept-block"><span className="eyebrow">관련 개념</span><h2>시작 전 확인</h2><p>{lesson.concept}</p><a className="text-btn" href={`#concepts?course=${lesson.day === 2 ? 'intermediate' : 'beginner'}`}>AI 개념·컨텍스트 관리 자세히 보기<ArrowRight size={15}/></a></section>
-    <div className="prompt-comparison"><h2>요청 작성 예시</h2><div><article><span>조건이 빠진 요청</span><p>{guide.weak}</p></article><article><span>자료와 조건을 담은 요청</span><p>{guide.strong}</p></article></div><small>원하는 말투만 지정하기보다 자료·독자·형식·확인 조건을 함께 전달하세요.</small></div>
+    <div className="lesson-deliverable"><span className="eyebrow">WORKING OUTPUT</span><h2>단계 목표와 작업 기록</h2><p>{guide.output}</p><small>{guide.preparation}</small></div>
+    <section className="concept-block"><span className="eyebrow">작업의 원리</span><h2>이 단계의 판단 기준</h2><p>{lesson.concept}</p><a className="text-btn" href={`#concepts?course=${lesson.day === 2 ? 'intermediate' : 'beginner'}&stage=${lesson.stage}`}>해당 작업 흐름과 원리<ArrowRight size={15}/></a></section>
     <div className="walkthrough-heading"><h2>실습 순서</h2><span><Clock3 size={14} />총 {lesson.minutes}분</span></div>
     <ol className="detailed-steps">{guide.detailedSteps.map(([title, action, expected], i) => <li key={title}><div className="step-number">{String(i + 1).padStart(2, '0')}</div><div><div className="step-title"><h3>{title}</h3><span>{guide.timing[i]}분</span></div><p>{action}</p><div className="expected"><CheckCircle2 size={15} /><p><b>확인할 내용</b>{expected}</p></div></div></li>)}</ol>
     <button className="btn primary" onClick={onMaterials}>자료·프롬프트로 실습하기<ArrowRight size={17} /></button>
-    <ScreenGallery ids={guide.screens} />
+    {guide.screenNote&&<p className="flow-screen-note">{guide.screenNote}</p>}<ScreenGallery ids={guide.screens} />
     <section className="follow-up-section"><span className="eyebrow">TRY ONE MORE THING</span><h2>후속 요청</h2><p>같은 대화에서 필요한 요청 하나를 골라 입력하세요. 사실이 바뀌지 않았는지 다시 확인합니다.</p>{guide.followUps.map(([title, prompt], i) => <article className="follow-up" key={title}><div><span>0{i + 1}</span><h3>{title}</h3><button onClick={() => onCopy(prompt)} aria-label={`${title} 후속 요청 복사`}><Clipboard size={15} />복사</button></div><p>{prompt}</p></article>)}</section>
     <section className="trouble-section"><h2>문제 해결</h2>{guide.trouble.map(([q, a]) => <details key={q}><summary>{q}<ChevronRight size={16} /></summary><p>{a}</p></details>)}</section>
-    <section className="challenge-block"><div className="eyebrow">선택 과제</div><h2>추가 실습</h2><p>{guide.challenge}</p><div><b>마무리 점검</b><p>{guide.debrief}</p></div></section>
+    <section className="challenge-block"><div className="eyebrow">TRANSFER / EVALUATION</div><h2>다른 작업에 적용할 조건</h2><p>{guide.challenge}</p><div><b>활용 효과 기록</b><p>{guide.debrief}</p></div></section>
   </>;
 }
 

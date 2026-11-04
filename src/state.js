@@ -1,5 +1,8 @@
 export const STORAGE_KEY = 'ulsan-ai-workroom-v1';
 export const lessonIds = ['email', 'document', 'adapt', 'meeting', 'sources', 'template'];
+export function workflowProgress(value) {
+  return value.workflow?.revision === 'flow-2026-11-04' ? value.workflow : { revision:'flow-2026-11-04', completed:[], checks:{} };
+}
 export function emptyState() { return { version: 1, current: 'email', drafts: {}, completed: [], checks: {} }; }
 export function validateState(value) {
   if (!value || value.version !== 1 || !lessonIds.includes(value.current) || !Array.isArray(value.completed) || !value.completed.every(id => lessonIds.includes(id))) throw new Error('지원하는 백업 파일이 아닙니다.');
@@ -13,7 +16,13 @@ export function validateState(value) {
   }
   const checks = {};
   for (const id of lessonIds) if (Array.isArray(value.checks?.[id])) checks[id] = [...new Set(value.checks[id].filter(n => Number.isInteger(n) && n >= 0 && n < 3))];
-  return { version: 1, current: value.current, drafts, completed: [...new Set(value.completed)], checks };
+  const normalized = { version: 1, current: value.current, drafts, completed: [...new Set(value.completed)], checks };
+  if (value.workflow?.revision === 'flow-2026-11-04') {
+    const flowChecks = {};
+    for (const id of lessonIds) if (Array.isArray(value.workflow.checks?.[id])) flowChecks[id] = [...new Set(value.workflow.checks[id].filter(n => Number.isInteger(n) && n >= 0 && n < 3))];
+    normalized.workflow = { revision:'flow-2026-11-04', completed:[...new Set((Array.isArray(value.workflow.completed) ? value.workflow.completed : []).filter(id => lessonIds.includes(id)))], checks:flowChecks };
+  }
+  return normalized;
 }
 export function readState(storage) {
   try { const raw = storage.getItem(STORAGE_KEY); return raw ? validateState(JSON.parse(raw)) : emptyState(); }

@@ -15,7 +15,7 @@ test('usage-guide navigation resolves only valid topics for each independent cou
     for (const topic of topics) assert.equal(validUsageTopic(slug, topic), topic);
     for (const topic of ['understand', 'first-chat', 'prompt', 'context', 'plans', 'verify', 'privacy']) assert.ok(topics.includes(topic));
   }
-  assert.equal(validUsageTopic('beginner', 'rag'), 'understand');
+  assert.equal(validUsageTopic('beginner', 'rag'), 'rag');
   assert.equal(validUsageTopic('intermediate', 'rag'), 'rag');
 });
 

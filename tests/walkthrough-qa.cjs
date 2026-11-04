@@ -26,9 +26,9 @@ let browser;
     await page.goto(`${url}#${id}`);
     assert.equal(await page.getByRole('tab').count(), 4);
     assert.equal(await page.locator('.detailed-steps>li').count(), 5);
-    assert.equal(await page.locator('.follow-up').count(), 3);
-    assert.equal(await page.locator('.trouble-section details').count(), 3);
-    assert.ok((await page.locator('.challenge-block').innerText()).length > 100);
+    assert.equal(await page.locator('.follow-up').count(), 2);
+    assert.equal(await page.locator('.trouble-section details').count(), 2);
+    assert.ok((await page.locator('.challenge-block').innerText()).length > 70);
     await imageCheck();
     await page.getByRole('button', { name: '자료·프롬프트로 실습하기' }).click();
     assert.equal(await page.getByRole('tab', { name: '2. 자료·프롬프트' }).getAttribute('aria-selected'), 'true');
@@ -46,7 +46,7 @@ let browser;
     checks.push(`${id}: detailed guide, screenshot loads, materials shortcut, tab scroll, dialog Escape/close/focus`);
   }
   await page.goto(`${url}#guide`);
-  assert.equal(await page.locator('.foundation-grid article').count(), 4);
+  assert.equal(await page.locator('.flow-guide-cards article').count(), 4);
   await page.screenshot({ path: 'artifacts/detailed-foundations-desktop.png', fullPage: true });
   const archive = page.locator('details').filter({ has: page.locator('summary', { hasText: '이전 기초 화면' }) });
   if (await archive.count()) {

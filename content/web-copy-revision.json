@@ -3,8 +3,9 @@
   "updatedOn": "2026-11-04",
   "pdfVersion": "2.1",
   "pdfSha256": "f96c61d0565a3465dfc769b1328dd19cb4cdbfd25cf142269f8f7c0da6c3e1e2",
-  "webConceptsSha256": "d25a6078f6708091161fe9ed542e3f8c866126029df6bfd43f0ab0eb0c0c4523",
+  "webConceptsSha256": "a972c7fc8a77ccabc808a6578d8ab002a8d96f28890351c6cab48cbcd89f1d28",
   "conceptDataSha256": "77f8d2906a3ace2fa04baa75b13f1a608f677743d6d60af976c397bad3d1bd00",
-  "note": "웹에 상세 AI 사용법 15개 주제와 영역별 사례를 추가했습니다. PDF 2.1판과 기존 교재용 원문·요청문·개념 데이터는 유지합니다.",
-  "webHandbookTopics": 15
+  "note": "웹을 초급·중급 7단계 작업 흐름과 RAG 중심으로 개편했습니다. PDF 2.1판과 기존 교재 원본은 유지하며 웹 편성·사례 요청·검토 기준은 별도로 관리합니다.",
+  "webHandbookTopics": 15,
+  "workflowStagesPerCourse": 7
 }

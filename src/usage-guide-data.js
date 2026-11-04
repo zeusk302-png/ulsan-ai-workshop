@@ -314,8 +314,8 @@ export const usageChapters = [
 ];
 
 export const usageCourses = {
-  beginner: ['understand', 'first-chat', 'prompt', 'revise', 'context', 'files', 'search', 'plans', 'verify', 'privacy', 'transfer'],
-  intermediate: ['understand', 'first-chat', 'prompt', 'context', 'files', 'rag', 'workflow', 'handoff', 'templates', 'plans', 'verify', 'privacy', 'transfer']
+  beginner: ['understand', 'first-chat', 'prompt', 'revise', 'context', 'files', 'search', 'plans', 'verify', 'privacy', 'transfer', 'rag', 'workflow', 'handoff', 'templates'],
+  intermediate: ['understand', 'first-chat', 'prompt', 'context', 'files', 'rag', 'workflow', 'handoff', 'templates', 'plans', 'verify', 'privacy', 'transfer', 'revise', 'search']
 };
 
 export const applicationCases = [
