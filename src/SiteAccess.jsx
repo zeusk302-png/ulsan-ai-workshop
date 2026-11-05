@@ -1,0 +1,10 @@
+import React,{useId,useRef,useState} from 'react';
+import {ArrowRight,ArrowUpRight,Clipboard,Download,Expand,QrCode,X} from 'lucide-react';
+import './site-access.css';
+export const SITE_URL='https://zeusk302-png.github.io/ulsan-ai-workshop/';
+export function SiteAccess({compact=false}){
+  const dialog=useRef(null),id=useId(),[copied,setCopied]=useState(false);
+  async function copy(){try{await navigator.clipboard.writeText(SITE_URL);setCopied(true);}catch{setCopied(false);}}
+  const src=`${import.meta.env.BASE_URL}learning/workshop-home-qr.png`;
+  return <>{compact?<button className="access-top-button" onClick={()=>dialog.current?.showModal()}><QrCode size={17}/>접속 QR</button>:<section className="site-access-banner" aria-label="홈페이지 빠른 접속"><div><span className="eyebrow">QUICK ACCESS / ULSAN AI WORKSHOP</span><h2>수업 자료 바로 열기</h2><p>휴대폰 카메라로 QR을 비추면 이 홈페이지로 연결됩니다.</p><a href={SITE_URL}>{SITE_URL.replace('https://','')}<ArrowUpRight size={14}/></a><div><a className="text-btn" href="#basics?unit=ai">초급반 바로 시작<ArrowRight size={15}/></a><button className="text-btn" onClick={copy}><Clipboard size={15}/>{copied?'링크 복사됨':'주소 복사'}</button><button className="text-btn" onClick={()=>dialog.current?.showModal()}><Expand size={15}/>QR 크게 보기</button></div><span className="sr-only" role="status">{copied?'홈페이지 주소를 복사했습니다.':''}</span></div><button className="access-qr-image" onClick={()=>dialog.current?.showModal()} aria-label="홈페이지 QR 확대"><img src={src} alt="울산대학교 AI 수업 홈페이지 접속 QR" width="360" height="360"/><span>홈페이지 접속</span></button></section>}<dialog ref={dialog} className="site-access-dialog" aria-labelledby={id} onClick={e=>{if(e.target===dialog.current)dialog.current.close();}}><header><h2 id={id}>수업 홈페이지 접속</h2><button onClick={()=>dialog.current.close()} aria-label="접속 QR 닫기"><X size={22}/></button></header><img src={src} alt={`접속 주소 ${SITE_URL}`} width="360" height="360"/><a href={SITE_URL}>{SITE_URL}</a><div><button className="btn primary" onClick={copy}><Clipboard size={16}/>{copied?'복사됨':'주소 복사'}</button><a className="btn secondary" href={src} download="울산대학교-AI수업-QR.png"><Download size={16}/>QR 저장</a></div></dialog></>;
+}

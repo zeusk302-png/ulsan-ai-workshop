@@ -9,14 +9,14 @@ import { flowGuides } from '../src/flow-lessons.js';
 import { emptyState, validateState, workflowProgress } from '../src/state.js';
 const read=path=>JSON.parse(fs.readFileSync(new URL('../'+path,import.meta.url),'utf8'));
 
-test('web flow courses retain 180 minutes with three coherent 35/40/45-minute sessions',()=>{
+test('web courses retain 180 minutes with coherent beginner periods and intermediate practice sessions',()=>{
   const webLessons=lessons.map(presentLesson);
   assert.deepEqual(webLessons.map(l=>l.id).sort(),lessons.map(l=>l.id).sort());
   assert.deepEqual(webLessons.slice().sort((a,b)=>+a.number-+b.number).map(l=>l.id),['meeting','adapt','email','document','sources','template']);
   webCurriculum.days.forEach((course,index)=>{
     assert.equal(course.schedule.reduce((n,s)=>n+s.minutes,0),180);
-    assert.deepEqual(course.schedule.filter(s=>s.type==='practice').map(s=>s.minutes),[35,40,45]);
-    assert.deepEqual(course.schedule.filter(s=>s.type==='concept').map(s=>s.minutes),[20,5,5]);
+    assert.deepEqual(course.schedule.filter(s=>s.type==='practice').map(s=>s.minutes),index===0?[15,35,35]:[35,40,45]);
+    assert.deepEqual(course.schedule.filter(s=>s.type==='concept').map(s=>s.minutes),index===0?[35,15,15]:[20,5,5]);
     assert.deepEqual(webLessons.filter(l=>l.day===index+1).sort((a,b)=>+a.number-+b.number).map(l=>l.id),course.lessonIds);
     for(const slot of course.schedule.filter(s=>s.lesson)){
       const lesson=webLessons.find(l=>l.id===slot.lesson);

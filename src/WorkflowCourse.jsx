@@ -56,7 +56,7 @@ function HarnessDiagram() {
 export function CourseSchedule({ course, onCase }) {
   let elapsed=0;
   const clock=n=>`${String(Math.floor(n/60)).padStart(2,'0')}:${String(n%60).padStart(2,'0')}`;
-  return <details className="flow-schedule"><summary>{course.label} 3시간 진행표<span>설명·시연 30분 · 단계 실행·분석 120분 · 휴식 20분 · 정리 10분</span></summary><ol>{course.schedule.map((slot,i)=>{const from=elapsed;elapsed+=slot.minutes;return <li key={i}><time>{clock(from)}–{clock(elapsed)}</time><span>{slot.lesson?flowLessonCopy[slot.lesson].title:slot.title}</span><small>{slot.minutes}분</small>{slot.lesson&&onCase&&<button className="text-btn" onClick={()=>onCase(slot.lesson)}>적용 사례<ArrowUpRight size={13}/></button>}</li>;})}</ol></details>;
+  return <details className="flow-schedule"><summary>{course.label} 3시간 진행표<span>{course.slug==='beginner'?'3교시 × 50분 · 휴식 20분 · 마무리 10분':'설명·시연 30분 · 단계 실행·분석 120분 · 휴식 20분 · 정리 10분'}</span></summary><ol>{course.schedule.map((slot,i)=>{const from=elapsed;elapsed+=slot.minutes;return <li key={i}><time>{clock(from)}–{clock(elapsed)}</time><span>{slot.lesson?flowLessonCopy[slot.lesson].title:slot.title}</span><small>{slot.minutes}분</small>{slot.lesson&&onCase&&<button className="text-btn" onClick={()=>onCase(slot.lesson)}>적용 사례<ArrowUpRight size={13}/></button>}</li>;})}</ol></details>;
 }
 
 export function WorkflowCourse({courseSlug='beginner',onCourse,onCopy,onCase}) {

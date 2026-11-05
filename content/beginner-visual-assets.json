@@ -1,0 +1,28 @@
+{
+  "createdOn": "2026-11-05",
+  "qrUrl": "https://zeusk302-png.github.io/ulsan-ai-workshop/",
+  "qrDecoded": "https://zeusk302-png.github.io/ulsan-ai-workshop/",
+  "images": "AI concept illustrations approved in chat; token chart uses measured text bodies, not live service traffic",
+  "files": {
+    "ai-learning-and-answering.png": {
+      "bytes": 1699784,
+      "sha256": "cf34628d2b9936a48c7df737613dae28f6756db24072f3b8ba5308bab8525ed9"
+    },
+    "context-token-chart.png": {
+      "bytes": 143418,
+      "sha256": "cb501b9ffd9aaffdfb140815350b6f8830940480b0546b6ee85e2bb1db1a9d01"
+    },
+    "context-token-measurements.json": {
+      "bytes": 831,
+      "sha256": "6846c60cde22adcf99f462bfeeac4694d155d86b2fa6491609ebb766bb64f2f1"
+    },
+    "rag-components.png": {
+      "bytes": 1508691,
+      "sha256": "c6c0d1c6a097f1c02dd05c84e2ef3645d84e656d27e4542e638faa0404d9886b"
+    },
+    "workshop-home-qr.png": {
+      "bytes": 897,
+      "sha256": "2b90851f4faaa0bfc6b93f78a69f8f473c3f12cd762f123bddba3b63d42be08c"
+    }
+  }
+}

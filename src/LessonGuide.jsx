@@ -30,7 +30,7 @@ export function DetailedLessonGuide({ lesson, onMaterials, onCopy }) {
   const guide = presentGuide(lesson, walkthroughs[lesson.id]);
   return <>
     <div className="lesson-deliverable"><span className="eyebrow">WORKING OUTPUT</span><h2>단계 목표와 작업 기록</h2><p>{guide.output}</p><small>{guide.preparation}</small></div>
-    <section className="concept-block"><span className="eyebrow">작업의 원리</span><h2>이 단계의 판단 기준</h2><p>{lesson.concept}</p><a className="text-btn" href={`#concepts?course=${lesson.day === 2 ? 'intermediate' : 'beginner'}&stage=${lesson.stage}`}>해당 작업 흐름과 원리<ArrowRight size={15}/></a></section>
+    <section className="concept-block"><span className="eyebrow">작업의 원리</span><h2>이 단계의 판단 기준</h2><p>{lesson.concept}</p><a className="text-btn" href={lesson.day===1?`#basics?unit=${({meeting:'models',adapt:'prompt',email:'lab'})[lesson.id]}`:`#concepts?course=intermediate&stage=${lesson.stage}`}>해당 작업 흐름과 원리<ArrowRight size={15}/></a></section>
     <div className="walkthrough-heading"><h2>실습 순서</h2><span><Clock3 size={14} />총 {lesson.minutes}분</span></div>
     <ol className="detailed-steps">{guide.detailedSteps.map(([title, action, expected], i) => <li key={title}><div className="step-number">{String(i + 1).padStart(2, '0')}</div><div><div className="step-title"><h3>{title}</h3><span>{guide.timing[i]}분</span></div><p>{action}</p><div className="expected"><CheckCircle2 size={15} /><p><b>확인할 내용</b>{expected}</p></div></div></li>)}</ol>
     <button className="btn primary" onClick={onMaterials}>자료·프롬프트로 실습하기<ArrowRight size={17} /></button>

@@ -1,0 +1,39 @@
+{
+  "measurement": "sum of independently tokenized text bodies; excludes message formatting, service instructions and non-text processing",
+  "encoding": "cl100k_base",
+  "tiktoken_version": "0.12.0",
+  "source_path": "public/documents/text/notice.txt",
+  "source_sha256": "40029a3d44004f891b231d8d746335bf137c57f3412b1e88c4e6ac8ff39a528d",
+  "parts": [
+    "지시·작업 조건",
+    "공고 원문",
+    "이전 대화 / 검토 요약",
+    "현재 질문"
+  ],
+  "values": [
+    [
+      66,
+      3966,
+      0,
+      58
+    ],
+    [
+      66,
+      3966,
+      2227,
+      58
+    ],
+    [
+      66,
+      3966,
+      163,
+      58
+    ]
+  ],
+  "totals": [
+    4090,
+    6317,
+    4253
+  ],
+  "scope": "Educational text-composition example, not a real service transcript, performance benchmark or model context-limit claim."
+}

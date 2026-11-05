@@ -3,6 +3,20 @@ export const lessonIds = ['email', 'document', 'adapt', 'meeting', 'sources', 't
 export function workflowProgress(value) {
   return value.workflow?.revision === 'flow-2026-11-04' ? value.workflow : { revision:'flow-2026-11-04', completed:[], checks:{} };
 }
+const beginnerIds=['meeting','adapt','email'];
+function beginnerProgress(value){return value.beginner?.revision==='beginner-2026-11-05'?value.beginner:{revision:'beginner-2026-11-05',completed:[],checks:{}};}
+export function activeReviewProgress(value){
+  const old=workflowProgress(value),current=beginnerProgress(value);
+  return {completed:[...old.completed.filter(id=>!beginnerIds.includes(id)),...current.completed],checks:{...Object.fromEntries(Object.entries(old.checks).filter(([id])=>!beginnerIds.includes(id))),...current.checks}};
+}
+export function toggleReviewCheck(value,id,n){
+  const key=beginnerIds.includes(id)?'beginner':'workflow',current=key==='beginner'?beginnerProgress(value):workflowProgress(value),checks=current.checks[id]||[];
+  return {...value,[key]:{...current,checks:{...current.checks,[id]:checks.includes(n)?checks.filter(v=>v!==n):[...checks,n]}}};
+}
+export function setReviewCompleted(value,id,complete){
+  const key=beginnerIds.includes(id)?'beginner':'workflow',current=key==='beginner'?beginnerProgress(value):workflowProgress(value);
+  return {...value,[key]:{...current,completed:complete?[...new Set([...current.completed,id])]:current.completed.filter(v=>v!==id)}};
+}
 export function emptyState() { return { version: 1, current: 'email', drafts: {}, completed: [], checks: {} }; }
 export function validateState(value) {
   if (!value || value.version !== 1 || !lessonIds.includes(value.current) || !Array.isArray(value.completed) || !value.completed.every(id => lessonIds.includes(id))) throw new Error('지원하는 백업 파일이 아닙니다.');
@@ -21,6 +35,11 @@ export function validateState(value) {
     const flowChecks = {};
     for (const id of lessonIds) if (Array.isArray(value.workflow.checks?.[id])) flowChecks[id] = [...new Set(value.workflow.checks[id].filter(n => Number.isInteger(n) && n >= 0 && n < 3))];
     normalized.workflow = { revision:'flow-2026-11-04', completed:[...new Set((Array.isArray(value.workflow.completed) ? value.workflow.completed : []).filter(id => lessonIds.includes(id)))], checks:flowChecks };
+  }
+  if(value.beginner?.revision==='beginner-2026-11-05'){
+    const nextChecks={};
+    for(const id of beginnerIds)if(Array.isArray(value.beginner.checks?.[id]))nextChecks[id]=[...new Set(value.beginner.checks[id].filter(n=>Number.isInteger(n)&&n>=0&&n<3))];
+    normalized.beginner={revision:'beginner-2026-11-05',completed:[...new Set((Array.isArray(value.beginner.completed)?value.beginner.completed:[]).filter(id=>beginnerIds.includes(id)))],checks:nextChecks};
   }
   return normalized;
 }

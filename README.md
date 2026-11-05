@@ -1,10 +1,12 @@
 # 울산대학교 AI 실습실
 
+2026-11-05 초급반 웹 개정: [초급반 수업](https://zeusk302-png.github.io/ulsan-ai-workshop/#basics?unit=ai)은 3교시·10중단원·30소단원으로 AI 원리·모델/요금제·환각, 토큰/컨텍스트/요청, RAG/노트북을 다룹니다. 홈페이지 첫 섹션과 공통 상단의 접속 QR로 참여합니다. PDF v2.1은 유지합니다. 현재 웹 편성·저장 호환·검증 범위는 `docs/beginner-course-2026-11-05.md`를 기준으로 보세요. 아래 기록의 이전 초급 편성보다 이 개정이 우선합니다.
+
 일반인·학생·구직자·직장인을 위한 초급반·중급반 독립 AI 실습 과정입니다. 각 반은 3시간이며, 중급반도 AI 기본 안내부터 시작합니다. 초급반 수강은 필수가 아닙니다.
 
 ## 교육 방향
 
-- 각 반 180분: 개념·시연 30분, 직접 실습 120분, 휴식 20분, 정리 10분.
+- 초급반 180분: 50분씩 3교시(개념·시연·실습 포함), 휴식 20분, 정리 10분. 중급반 180분: 개념·시연 30분, 직접 실습 120분, 휴식 20분, 정리 10분.
 - 진행 흐름: 목적·기준 → 자료·컨텍스트 → 추출·구조화 → 근거 조회·RAG → 작성·수정 → 평가·오류 진단 → 저장·재사용.
 - 실제 공개 공문·법령·편람 전문을 사용하며 실제 개인정보와 기밀자료를 요구하지 않습니다.
 
@@ -18,7 +20,7 @@ GitHub Pages에서 동작하는 정적 웹 플랫폼으로 구성합니다. 실�
 
 `main`에 push하면 GitHub Actions가 테스트·빌드 후 GitHub Pages에 배포합니다. 실제 최신 배포 상태는 저장소의 Actions 및 Environments에서 확인합니다.
 
-초급반 진입: https://zeusk302-png.github.io/ulsan-ai-workshop/#beginner
+초급반 수업: https://zeusk302-png.github.io/ulsan-ai-workshop/#basics?unit=ai
 
 중급반 진입: https://zeusk302-png.github.io/ulsan-ai-workshop/#intermediate
 
@@ -26,7 +28,7 @@ GitHub Pages에서 동작하는 정적 웹 플랫폼으로 구성합니다. 실�
 
 ## 사용 방법
 
-1. 초급반 또는 중급반을 선택하고 `AI 활용 흐름`에서 AI의 처리와 사람의 판단, 단계별 입력·결과·통과 기준을 확인합니다.
+1. 초급반은 `초급반 수업`에서, 중급반은 `AI 활용 흐름`에서 AI의 처리와 사람의 판단, 단계별 입력·결과·통과 기준을 확인합니다.
 2. `실제 문서 자료실`에서 전체 원문 파일을 준비하고 AI 도구에 등록한 뒤 `자료·프롬프트`의 요청을 실행합니다. 이 플랫폼 자체는 AI를 호출하지 않습니다.
 3. 연결된 사례의 `내 작업`에 결과와 프롬프트·근거·미결을 기록합니다. 새 기준의 검토 항목 세 개를 확인하고 검토 완료를 기록합니다.
 4. `내 작업함`에서 전체 텍스트 또는 JSON 백업을 내려받습니다. 다른 기기에서는 JSON 백업을 가져옵니다.
@@ -101,6 +103,6 @@ Google Fonts의 Noto Sans KR와 IBM Plex Mono를 사용하며 외부 폰트를 �
 
 `#concepts?course=beginner&stage=purpose`에서 7단계 흐름을, `#concepts?course=intermediate&stage=evidence`에서 RAG 처리를 엽니다. 기존 `topic` 주소도 관련 흐름으로 연결됩니다. `#reference?course=beginner&topic=context`는 개념·도구 참고서입니다. 고유 주제15개를 양 과정 모두 제공하며 기존 상세 설명·도구 사용법·판단 사례·공식 출처를 유지합니다.
 
-검증: `npm test`, `npm run build`. 재현용 브라우저 스크립트는 `tests/workflow-qa.cjs`(새 흐름), `tests/concepts-qa.cjs`(참고서), `tests/browser-qa.cjs`(저장·사례), `tests/walkthrough-qa.cjs`(단계·캡처)입니다. 이번 실제 UI 검증은 연결된 브라우저에서 수행했고 범위와 제한은 `docs/verification.md`에 기록합니다. 재현용 CLI 스크립트 자체의 실행을 이번 검증으로 주장하지 않습니다.
+검증: `npm test`, `npm run build`. 재현용 브라우저 스크립트는 `tests/workflow-qa.cjs`(새 흐름), `tests/concepts-qa.cjs`(참고서), `tests/browser-qa.cjs`(저장·사례), `tests/walkthrough-qa.cjs`(단계·캡처)입니다. 이번 초급반 개정은 `scripts/verify-beginner-structure.mjs`로 정적 렌더링을 검사했습니다. 브라우저 제어가 비활성화되어 이번 화면 QA는 실행하지 못했으며, 이전 판의 UI 검증과 범위는 `docs/verification.md`에 구분해 기록합니다. 재현용 CLI 브라우저 스크립트의 실행을 이번 검증으로 주장하지 않습니다.
 
 수업 시각화는 `src/LearningVisuals.jsx`에서 제공합니다. 작업 분담표, 실제 원문과 정리표·초안·주장 검토의 비교, RAG 소스·근거·주장 연결, 컨텍스트의 유지·제외 비교, 전체 폭 실제 캡처를 제공합니다. 인용 자료는 `src/visual-examples.js`에서 보존 원문과 대조하며 새 AI 실행 결과로 표시하지 않습니다. 점검·개선 범위는 `docs/visual-revision.md`에 있습니다.
