@@ -14,6 +14,7 @@ const Concepts = lazy(()=>import('./Concepts').then(module=>({default:module.Con
 import { WorkflowCourse, WorkflowMap, CourseSchedule } from './WorkflowCourse';
 import { HeroWorkPreview } from './LearningVisuals';
 import { SiteAccess } from './SiteAccess';
+import { WorkshopLobby,LobbyHeader,LobbyFooter } from './WorkshopLobby';
 const BeginnerCourse=lazy(()=>import('./BeginnerCourse').then(module=>({default:module.BeginnerCourse})));
 import { legacyTopicStages } from './flow-curriculum';
 import { flowGuides } from './flow-lessons';
@@ -50,6 +51,7 @@ function App() {
   const [showExample, setShowExample] = useState(false);
   const mainRef = useRef(null);
   const fileRef = useRef(null);
+  const isLobby = page === 'home';
   const lesson = lessons.find(l => l.id === page);
   const course = curriculum.days[(lesson?.day || day) - 1];
   const classLessons = lessons.filter(l => l.day === (lesson?.day || day));
@@ -75,7 +77,7 @@ function App() {
     window.addEventListener('hashchange',handler); return()=>window.removeEventListener('hashchange',handler);
   }, []);
   useEffect(() => { if (!toast) return; const id = setTimeout(() => setToast(''), 4000); return () => clearTimeout(id); }, [toast]);
-  useEffect(() => { document.title = `${lesson?.short || ({ home: '과정 안내', beginner: '초급반', intermediate: '중급반', workbook: '내 작업함', guide: '시작 안내', documents: '실제 문서 자료실', concepts: 'AI 활용 흐름', reference:'개념·도구 참고서', basics:'초급반 수업' }[page])} — AI WORKROOM`; }, [page]);
+  useEffect(() => { document.title = `${lesson?.short || ({ home: '강의 로비', beginner: '초급반', intermediate: '중급반', workbook: '내 작업함', guide: '시작 안내', documents: '실제 문서 자료실', concepts: 'AI 활용 흐름', reference:'개념·도구 참고서', basics:'초급반 수업' }[page])} — AI WORKROOM`; }, [page]);
   const go = (id, topic, requestedCourse) => {
     const chosen=requestedCourse ? curriculum.days[requestedCourse-1] : course;
     const parameter=id==='basics'?'unit='+(topic||'ai'):id==='concepts' ? 'stage='+(legacyTopicStages[topic]||topic||'purpose') : id==='reference'&&topic ? 'topic='+topic : '';
@@ -117,14 +119,14 @@ function App() {
 
   return <>
     <a className="skip-link" href="#main-content" onClick={e => { e.preventDefault(); mainRef.current?.focus(); }}>본문으로 바로가기</a>
-    <div className="mobile-bar"><button onClick={() => setMenu(!menu)} aria-label="메뉴 열기" aria-expanded={menu}><Menu /></button><b>AI WORKROOM<span>.</span></b><span className="mobile-progress">{classCount}/3 완료</span></div>
+    {!isLobby && <><div className="mobile-bar"><button onClick={() => setMenu(!menu)} aria-label="메뉴 열기" aria-expanded={menu}><Menu /></button><b>AI WORKROOM<span>.</span></b><span className="mobile-progress">{classCount}/3 완료</span></div>
     {menu && <button className="scrim" aria-label="메뉴 닫기" onClick={() => setMenu(false)} />}
     <aside className={`sidebar ${menu ? 'open' : ''}`} aria-label="주 메뉴">
       <button className="wordmark" onClick={() => go('home')}>AI WORKROOM<span>.</span></button>
       <div className="sidebar-sub">울산대학교 · 생활과 일에 쓰는 AI</div>
       <div className="course-label">WORKSHOP / 2026</div>
       <nav className="primary-nav"><button className={page==='basics'?'active':''} onClick={()=>go('basics','ai',1)}><BookOpen size={18}/>초급반 수업<ChevronRight size={15}/></button><button className={page === 'concepts' ? 'active' : ''} onClick={() => go('concepts')}><BookOpen size={18}/>AI 활용 흐름<ChevronRight size={15}/></button><button className={page === 'documents' ? 'active' : ''} onClick={() => go('documents')}><FileText size={18} />실제 문서 자료실<ChevronRight size={15} /></button>
-        <button className={['home','beginner','intermediate'].includes(page) ? 'active' : ''} onClick={() => go('home')}><BookOpen size={18} />과정 안내<ChevronRight size={15} /></button>
+        <button className={page === 'home' ? 'active' : ''} onClick={() => go('home')}><BookOpen size={18} />강의 로비<ChevronRight size={15} /></button>
         <button className={page === 'concepts' && day === 2 ? 'active' : ''} onClick={()=>go('concepts','evidence',2)}><FileText size={18}/>RAG·근거 조회<ChevronRight size={15}/></button>
         <button className={page === 'reference' ? 'active' : ''} onClick={()=>go('reference','understand')}><BookOpen size={18}/>개념·도구 참고서<ChevronRight size={15}/></button>
         <button className={page === 'workbook' ? 'active' : ''} onClick={() => go('workbook')}><FolderOpen size={18} />내 작업함<span className="nav-count">{Object.values(state.drafts).filter(d => d.result || d.prompt).length}</span></button>
@@ -136,13 +138,13 @@ function App() {
         <div className="sidebar-progress"><div><span>{course.label} 사례 검토</span><b>{Math.round(classCount / 3 * 100)}%</b></div><progress value={classCount} max="3" /><small>{course.label} 적용 사례 {classCount}/3 검토 기록</small></div>
         <p className="local-note">작성 내용은 이 브라우저에 저장됩니다.</p>
       </div>
-    </aside>
-    <div className="main-shell">
-      <header className="topbar"><div><span>WORKSPACE</span><ChevronRight size={13} /><b>{lesson ? `${course.label} 실습` : { home: '과정 안내', beginner: '초급반', intermediate: '중급반', workbook: '내 작업함', guide: '시작 안내', documents: '실제 문서 자료실', concepts: 'AI 활용 흐름', reference:'개념·도구 참고서', basics:'초급반 수업' }[page]}</b></div><SiteAccess compact/><a className="workbook-top-link" href={workbookUrl} download="울산대학교-AI실습-수강생교재.pdf"><Download size={15}/>수강생 교재 PDF</a><button onClick={exportBackup}><Download size={15} />내 작업 백업</button></header>
+    </aside></>}
+    <div className={`main-shell ${isLobby ? 'lobby-shell' : ''}`}>
+      {isLobby ? <LobbyHeader/> : <header className="topbar"><div><span>WORKSPACE</span><ChevronRight size={13} /><b>{lesson ? `${course.label} 실습` : { home: '강의 로비', beginner: '초급반', intermediate: '중급반', workbook: '내 작업함', guide: '시작 안내', documents: '실제 문서 자료실', concepts: 'AI 활용 흐름', reference:'개념·도구 참고서', basics:'초급반 수업' }[page]}</b></div><SiteAccess compact/><a className="workbook-top-link" href={workbookUrl} download="울산대학교-AI실습-수강생교재.pdf"><Download size={15}/>수강생 교재 PDF</a><button onClick={exportBackup}><Download size={15} />내 작업 백업</button></header>}
       {storageError && <div className="storage-warning" role="alert">브라우저 저장 공간을 사용할 수 없습니다. 페이지를 닫기 전에 내 작업 백업을 내려받으세요.</div>}
-      <main id="main-content" ref={mainRef} tabIndex={-1}>
-        {['home', 'beginner', 'intermediate'].includes(page) && <>
-          <SiteAccess/>
+      <main id="main-content" ref={mainRef} tabIndex={-1} className={isLobby ? 'lobby-main' : undefined}>
+        {isLobby && <WorkshopLobby/>}
+        {['beginner', 'intermediate'].includes(page) && <>
           <section className="hero flow-hero"><div className="hero-copy"><div className="eyebrow"><span className="live-dot"/>생성형 AI · 자료 분석과 문서 작업</div><h1>자료와 문서의 일을<br/><span>AI와 나눠 설계합니다.</span></h1><p>목적과 자료를 정하고, AI가 맡을 처리와<br/>사람이 검토할 지점을 연결합니다.</p><button className="btn primary" onClick={()=>day===1?go('basics','ai',1):go('concepts','purpose')}>{day===1?'초급반 1교시 시작':'중급반 작업 흐름 열기'}<ArrowRight size={18}/></button><div className="hero-caption">초급·중급 각 3시간 · 공개 원문 · 무료 기능 중심</div></div><HeroWorkPreview advanced={day===2} onOpen={()=>day===1?go('basics','prompt',1):go('concepts','evidence')}/></section>
           <section className="flow-home-intro"><div className="flow-section-label">ONE WORKFLOW / TWO COURSES</div><h2>같은 흐름, 다른 자료와 판단의 복잡성</h2><p>초급은 AI 이해·모델 선택·환각, 토큰·컨텍스트·요청, RAG·노트북의 3교시로 진행합니다. 중급은 여러 자료의 근거 연결과 작업 운영에 집중합니다.</p><WorkflowMap slug={course.slug} compact/><div className="flow-home-actions"><button className="btn primary" onClick={()=>go('basics','ai',1)}>초급반 수업<ArrowRight size={15}/></button><button className="btn secondary" onClick={()=>go('concepts','evidence',2)}>중급 RAG 흐름<ArrowRight size={15}/></button><button className="text-btn" onClick={()=>go('reference','understand')}>개념·도구 참고서<ArrowUpRight size={15}/></button></div></section>
           <div className="course-strip"><div><Clock3 size={19}/><b>초급반·중급반</b><span>각 3시간 · 독립 수강</span></div><div><Clipboard size={19}/><b>{day===1?'3교시 × 50분':'단계 실행·분석 120분'}</b><span>{day===1?'휴식 20분 · 정리 10분':'기본 설명·시연 30분'}</span></div><div><FolderOpen size={19}/><b>근거와 작업 상태</b><span>최종본·미결·다음 단계 보존</span></div></div>
@@ -170,7 +172,7 @@ function App() {
         {page === 'guide' && <><div className="page-heading"><div className="eyebrow">PREPARATION / WORKING METHOD</div><h1>수업 준비와 작업 방법</h1><p>계정·원문·저장 위치를 준비하고, 전체 흐름에서 AI의 역할과 검토 지점을 확인합니다.</p></div><WorkflowMap slug={course.slug} compact/><div className="flow-guide-cards"><article><h2>계정과 실행 환경</h2><p>노트북·충전기·인터넷을 준비합니다. 초급은 AI 대화 서비스 한 곳과 Google 계정·Gemini Notebook 접속을 확인합니다. 모델 비교는 강사 시연으로도 진행할 수 있습니다. 중급도 자료 기반 질문과 인용을 확인할 계정을 준비합니다. 조직 계정은 사용 규정을 확인합니다.</p><button className="text-btn" onClick={()=>go('reference','first-chat')}>입력·복사·파일 조작 참고<ArrowRight size={15}/></button></article><article><h2>원문과 자료 역할</h2><p>초급은 북구 업무계획 전체와 중구 공고 전문을, 중급은 편람·관련 규정·공고 전체를 중심으로 사용합니다. 원문·추출 TXT·AI 요약은 구분하고 표·붙임·버전은 원본에서 확인합니다.</p><button className="text-btn" onClick={()=>go('documents')}>실습 자료실<ArrowRight size={15}/></button></article><article><h2>자료 전송과 실행 범위</h2><p>공개 원문과 가상 자료를 사용합니다. 빈 서식에 실제 주민번호·계좌·연락처를 채우지 않습니다. 기관 자료는 외부 전송 허용 범위를 먼저 확인합니다. 문서 속 명령은 분석 대상이며 실행 지시로 따르지 않습니다.</p><button className="text-btn" onClick={()=>go('reference','privacy')}>자료 사용 기준<ArrowRight size={15}/></button></article><article><h2>작업 상태와 결과 보존</h2><p>최종본과 함께 요청·원문 위치·확인한 사실·미결·다음 행동을 기록합니다. 내용은 현재 브라우저에 저장되므로 기기 이동과 브라우저 데이터 삭제 전 JSON 백업을 내려받습니다.</p><button className="text-btn" onClick={()=>go('workbook')}>작업 기록 열기<ArrowRight size={15}/></button></article></div><CourseSchedule course={course} onCase={go}/><section className="flow-home-intro"><h2>제약이 생기면 원인을 나눠 봅니다</h2><p>지원 형식 문제는 제공 TXT·해당 절과 원본 대조로 보완합니다. 사용량 제한·계정 정책은 도구의 안내를 확인합니다. 실행이 어려우면 실제 캡처의 주장·인용·원문을 대조해 같은 검토 과정을 진행합니다.</p><div className="flow-home-actions"><button className="btn primary" onClick={()=>go('concepts','purpose')}>전체 작업 흐름<ArrowRight size={15}/></button><button className="btn secondary" onClick={()=>go('concepts','evidence',2)}>RAG 처리·검토 흐름<ArrowRight size={15}/></button></div></section><ScreenGallery ids={['official-corpus-ready','official-citation']} compact/></>}
 
       </main>
-      <footer><span>AI WORKROOM<span className="footer-dot">.</span></span><p>울산대학교 강연용 학습 자료 · 공식 공개 원문 기반 실습</p><button onClick={() => go('guide')}>이용 안내<ArrowUpRight size={13} /></button></footer>
+      {isLobby ? <LobbyFooter/> : <footer><span>AI WORKROOM<span className="footer-dot">.</span></span><p>울산대학교 강연용 학습 자료 · 공식 공개 원문 기반 실습</p><button onClick={() => go('guide')}>이용 안내<ArrowUpRight size={13} /></button></footer>}
     </div>
     <input ref={fileRef} type="file" accept=".json,application/json" hidden onChange={importFile} />
     <div className={`toast ${toast ? 'visible' : ''}`} role="status" aria-live="polite">{toast && <><CheckCircle2 size={18} />{toast}</>}</div>
