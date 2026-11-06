@@ -5,7 +5,7 @@ import './lobby.css';
 
 const courses=[
   {id:'beginner',label:'기초반',number:'01',title:'AI 이해부터 첫 자료 기반 작업까지',description:'AI를 처음 쓰거나, 사용 방법을 체계적으로 정리하고 싶은 분을 위한 과정입니다.',topics:['AI 작동 원리 · 대표 모델 · 무료와 유료 · 환각','토큰과 컨텍스트 · 요청 설계와 수정','RAG 원리 · 노트북 · 공개 공문 실습'],start:'#basics?course=beginner&unit=ai'},
-  {id:'intermediate',label:'심화반',number:'02',title:'RAG와 AI로 엑셀·PPT 작업 자동화',description:'자료 전체를 읽힌 AI에게 실행 프롬프트를 받고, 원본 파일과 함께 다른 AI에 전달해 엑셀·PPT를 완성합니다.',topics:['기준 자료 전체를 RAG에 한 번에 등록','업무 기준·실행 프롬프트 받기 → AI 파일 작업','실제 화면을 보며 결과 다운로드·수정·반복'],start:'#automation?course=intermediate&unit=purpose'}
+  {id:'intermediate',label:'심화반',number:'02',title:'RAG와 AI로 엑셀·PPT 작업 자동화',description:'실제 울산 상가업소 두 분기 108,514행·39항목과 공식 설명서를 연결해 엑셀·PPT 보고를 만듭니다.',topics:['공식 가이드·항목 설명·코드표를 RAG에 등록','업무 기준·실행 프롬프트 받기 → AI 파일 작업','실제 화면을 보며 결과 다운로드·수정·반복'],start:'#automation?course=intermediate&unit=purpose'}
 ];
 
 export function LobbyHeader(){

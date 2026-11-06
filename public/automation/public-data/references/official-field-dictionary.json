@@ -1,0 +1,275 @@
+[
+  {
+    "csvName": "상가업소번호",
+    "apiName": "bizesId",
+    "officialDescription": "해당 상가업소에 부여된 일련번호",
+    "apiType": "string",
+    "instructorNote": "식별·분류용 텍스트로 보존한다. 덧셈 대상이 아니며 숫자형 자동변환·앞자리 손실을 피한다."
+  },
+  {
+    "csvName": "상호명",
+    "apiName": "bizesNm",
+    "officialDescription": "해당 상가업소의 상호명",
+    "apiType": "string",
+    "instructorNote": "원문 열을 보존하고 분석 목적에 필요한 경우에만 파생 열을 만든다."
+  },
+  {
+    "csvName": "지점명",
+    "apiName": "brchNm",
+    "officialDescription": "해당 상가업소가 지점인 경우 지점명",
+    "apiType": "string",
+    "instructorNote": "원문 열을 보존하고 분석 목적에 필요한 경우에만 파생 열을 만든다."
+  },
+  {
+    "csvName": "상권업종대분류코드",
+    "apiName": "indsLclsCd",
+    "officialDescription": "해당 상가업소의 상권업종대분류코드(2자리)",
+    "apiType": "string",
+    "instructorNote": "식별·분류용 텍스트로 보존한다. 덧셈 대상이 아니며 숫자형 자동변환·앞자리 손실을 피한다."
+  },
+  {
+    "csvName": "상권업종대분류명",
+    "apiName": "indsLclsNm",
+    "officialDescription": "해당 상가업소의 상권업종대분류명",
+    "apiType": "string",
+    "instructorNote": "원문 열을 보존하고 분석 목적에 필요한 경우에만 파생 열을 만든다."
+  },
+  {
+    "csvName": "상권업종중분류코드",
+    "apiName": "indsMclsCd",
+    "officialDescription": "해당 상가업소의 상권업종중분류코드(4자리)",
+    "apiType": "string",
+    "instructorNote": "식별·분류용 텍스트로 보존한다. 덧셈 대상이 아니며 숫자형 자동변환·앞자리 손실을 피한다."
+  },
+  {
+    "csvName": "상권업종중분류명",
+    "apiName": "indsMclsNm",
+    "officialDescription": "해당 상가업소의 상권업종중분류명",
+    "apiType": "string",
+    "instructorNote": "원문 열을 보존하고 분석 목적에 필요한 경우에만 파생 열을 만든다."
+  },
+  {
+    "csvName": "상권업종소분류코드",
+    "apiName": "indsSclsCd",
+    "officialDescription": "해당 상가업소의 상권업종소분류코드(6자리)",
+    "apiType": "string",
+    "instructorNote": "식별·분류용 텍스트로 보존한다. 덧셈 대상이 아니며 숫자형 자동변환·앞자리 손실을 피한다."
+  },
+  {
+    "csvName": "상권업종소분류명",
+    "apiName": "indsSclsNm",
+    "officialDescription": "해당 상가업소의 상권업종소분류명",
+    "apiType": "string",
+    "instructorNote": "원문 열을 보존하고 분석 목적에 필요한 경우에만 파생 열을 만든다."
+  },
+  {
+    "csvName": "표준산업분류코드",
+    "apiName": "ksicCd",
+    "officialDescription": "해당 상가업소의 표준산업분류코드(6자리)",
+    "apiType": "string",
+    "instructorNote": "식별·분류용 텍스트로 보존한다. 덧셈 대상이 아니며 숫자형 자동변환·앞자리 손실을 피한다."
+  },
+  {
+    "csvName": "표준산업분류명",
+    "apiName": "ksicNm",
+    "officialDescription": "해당 상가업소의 표준산업분류코드에 대한 명칭",
+    "apiType": "string",
+    "instructorNote": "원문 열을 보존하고 분석 목적에 필요한 경우에만 파생 열을 만든다."
+  },
+  {
+    "csvName": "시도코드",
+    "apiName": "ctprvnCd",
+    "officialDescription": "해당 상가업소의 시도 코드",
+    "apiType": "string",
+    "instructorNote": "식별·분류용 텍스트로 보존한다. 덧셈 대상이 아니며 숫자형 자동변환·앞자리 손실을 피한다."
+  },
+  {
+    "csvName": "시도명",
+    "apiName": "ctprvnNm",
+    "officialDescription": "해당 상가업소의 시도 명칭",
+    "apiType": "string",
+    "instructorNote": "원문 열을 보존하고 분석 목적에 필요한 경우에만 파생 열을 만든다."
+  },
+  {
+    "csvName": "시군구코드",
+    "apiName": "signguCd",
+    "officialDescription": "해당 상가업소의 시군구 코드",
+    "apiType": "string",
+    "instructorNote": "식별·분류용 텍스트로 보존한다. 덧셈 대상이 아니며 숫자형 자동변환·앞자리 손실을 피한다."
+  },
+  {
+    "csvName": "시군구명",
+    "apiName": "signguNm",
+    "officialDescription": "해당 상가업소의 시군구 명칭",
+    "apiType": "string",
+    "instructorNote": "원문 열을 보존하고 분석 목적에 필요한 경우에만 파생 열을 만든다."
+  },
+  {
+    "csvName": "행정동코드",
+    "apiName": "adongCd",
+    "officialDescription": "해당 상가업소의 행정동 코드",
+    "apiType": "string",
+    "instructorNote": "식별·분류용 텍스트로 보존한다. 덧셈 대상이 아니며 숫자형 자동변환·앞자리 손실을 피한다."
+  },
+  {
+    "csvName": "행정동명",
+    "apiName": "adongNm",
+    "officialDescription": "해당 상가업소의 행정동 명칭",
+    "apiType": "string",
+    "instructorNote": "행정동과 법정동은 다른 구분이다. 단순 명칭 동일성을 키 일치로 보지 않는다."
+  },
+  {
+    "csvName": "법정동코드",
+    "apiName": "ldongCd",
+    "officialDescription": "해당 상가업소의 법정동 코드",
+    "apiType": "string",
+    "instructorNote": "식별·분류용 텍스트로 보존한다. 덧셈 대상이 아니며 숫자형 자동변환·앞자리 손실을 피한다."
+  },
+  {
+    "csvName": "법정동명",
+    "apiName": "ldongNm",
+    "officialDescription": "해당 상가업소의 법정동 명칭",
+    "apiType": "string",
+    "instructorNote": "행정동과 법정동은 다른 구분이다. 단순 명칭 동일성을 키 일치로 보지 않는다."
+  },
+  {
+    "csvName": "지번코드",
+    "apiName": "lnoCd",
+    "officialDescription": "해당 상가업소 지번주소에 해당하는 PNU코드",
+    "apiType": "string",
+    "instructorNote": "식별·분류용 텍스트로 보존한다. 덧셈 대상이 아니며 숫자형 자동변환·앞자리 손실을 피한다."
+  },
+  {
+    "csvName": "대지구분코드",
+    "apiName": "plotSctCd",
+    "officialDescription": "해당 상가업소 지번주소의 대지구분 코드(1:대지, 2:산)",
+    "apiType": "string",
+    "instructorNote": "식별·분류용 텍스트로 보존한다. 덧셈 대상이 아니며 숫자형 자동변환·앞자리 손실을 피한다."
+  },
+  {
+    "csvName": "대지구분명",
+    "apiName": "plotSctNm",
+    "officialDescription": "해당 상가업소 지번주소의 대지구분 코드명(대지, 산)",
+    "apiType": "string",
+    "instructorNote": "원문 열을 보존하고 분석 목적에 필요한 경우에만 파생 열을 만든다."
+  },
+  {
+    "csvName": "지번본번지",
+    "apiName": "lnoMnno",
+    "officialDescription": "해당 상가업소 지번주소의 본번지",
+    "apiType": "string",
+    "instructorNote": "원문 열을 보존하고 분석 목적에 필요한 경우에만 파생 열을 만든다."
+  },
+  {
+    "csvName": "지번부번지",
+    "apiName": "lnoSlno",
+    "officialDescription": "해당 상가업소 지번주소의 부번지",
+    "apiType": "string",
+    "instructorNote": "원문 열을 보존하고 분석 목적에 필요한 경우에만 파생 열을 만든다."
+  },
+  {
+    "csvName": "지번주소",
+    "apiName": "lnoAdr",
+    "officialDescription": "해당 상가업소 지번기준 전체주소",
+    "apiType": "string",
+    "instructorNote": "원문 열을 보존하고 분석 목적에 필요한 경우에만 파생 열을 만든다."
+  },
+  {
+    "csvName": "도로명코드",
+    "apiName": "rdnmCd",
+    "officialDescription": "해당 상가업소 도로명주소 도로명코드",
+    "apiType": "string",
+    "instructorNote": "식별·분류용 텍스트로 보존한다. 덧셈 대상이 아니며 숫자형 자동변환·앞자리 손실을 피한다."
+  },
+  {
+    "csvName": "도로명",
+    "apiName": "rdnm",
+    "officialDescription": "해당 상가업소 도로명주소 도로명코드에 대한 명칭",
+    "apiType": "string",
+    "instructorNote": "원문 열을 보존하고 분석 목적에 필요한 경우에만 파생 열을 만든다."
+  },
+  {
+    "csvName": "건물본번지",
+    "apiName": "bldMnno",
+    "officialDescription": "해당 상가업소 도로명주소 기준 건물 본번지",
+    "apiType": "string",
+    "instructorNote": "원문 열을 보존하고 분석 목적에 필요한 경우에만 파생 열을 만든다."
+  },
+  {
+    "csvName": "건물부번지",
+    "apiName": "bldSlno",
+    "officialDescription": "해당 상가업소 도로명주소 기준 건물 부번지",
+    "apiType": "string",
+    "instructorNote": "원문 열을 보존하고 분석 목적에 필요한 경우에만 파생 열을 만든다."
+  },
+  {
+    "csvName": "건물관리번호",
+    "apiName": "bldMngNo",
+    "officialDescription": "해당 상가업소 도로명주소 기준 건물관리번호",
+    "apiType": "string",
+    "instructorNote": "식별·분류용 텍스트로 보존한다. 덧셈 대상이 아니며 숫자형 자동변환·앞자리 손실을 피한다."
+  },
+  {
+    "csvName": "건물명",
+    "apiName": "bldNm",
+    "officialDescription": "해당 상가업소 도로명주소 기준 건물명",
+    "apiType": "string",
+    "instructorNote": "원문 열을 보존하고 분석 목적에 필요한 경우에만 파생 열을 만든다."
+  },
+  {
+    "csvName": "도로명주소",
+    "apiName": "rdnmAdr",
+    "officialDescription": "해당 상가업소 도로명 주소기준 전체주소",
+    "apiType": "string",
+    "instructorNote": "원문 열을 보존하고 분석 목적에 필요한 경우에만 파생 열을 만든다."
+  },
+  {
+    "csvName": "구우편번호",
+    "apiName": "oldZipcd",
+    "officialDescription": "해당 상가업소 구우편번호(개편전 우편번호)",
+    "apiType": "string",
+    "instructorNote": "식별·분류용 텍스트로 보존한다. 덧셈 대상이 아니며 숫자형 자동변환·앞자리 손실을 피한다."
+  },
+  {
+    "csvName": "신우편번호",
+    "apiName": "newZipcd",
+    "officialDescription": "해당 상가업소 신우편번호(개편후 우편번호)",
+    "apiType": "string",
+    "instructorNote": "식별·분류용 텍스트로 보존한다. 덧셈 대상이 아니며 숫자형 자동변환·앞자리 손실을 피한다."
+  },
+  {
+    "csvName": "동정보",
+    "apiName": "dongNo",
+    "officialDescription": "해당 상가업소가 소재한 동정보",
+    "apiType": "string",
+    "instructorNote": "원문 열을 보존하고 분석 목적에 필요한 경우에만 파생 열을 만든다."
+  },
+  {
+    "csvName": "층정보",
+    "apiName": "flrNo",
+    "officialDescription": "해당 상가업소가 소재한 층정보",
+    "apiType": "string",
+    "instructorNote": "원문 열을 보존하고 분석 목적에 필요한 경우에만 파생 열을 만든다."
+  },
+  {
+    "csvName": "호정보",
+    "apiName": "hoNo",
+    "officialDescription": "해당 상가업소가 소재한 호정보",
+    "apiType": "string",
+    "instructorNote": "원문 열을 보존하고 분석 목적에 필요한 경우에만 파생 열을 만든다."
+  },
+  {
+    "csvName": "경도",
+    "apiName": "lon",
+    "officialDescription": "해당 상가업소의 WGS84기준 위도 좌표값",
+    "apiType": "string",
+    "instructorNote": "공식 Swagger 원문은 위도라고 되어 있어 lat 설명과 충돌한다. 원문을 수정하지 않는다. 실제 CSV 경도 열· 가이드의 경도 문맥· 값 범위를 함께 대조한다."
+  },
+  {
+    "csvName": "위도",
+    "apiName": "lat",
+    "officialDescription": "해당 상가업소의 WGS84기준 위도 좌표값",
+    "apiType": "string",
+    "instructorNote": "공식 Swagger 원문은 위도. 실제 CSV 위도 열과 값 범위를 대조한다. lon 설명과의 충돌은 별도 기록한다."
+  }
+]

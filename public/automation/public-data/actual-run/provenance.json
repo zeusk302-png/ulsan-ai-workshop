@@ -1,0 +1,35 @@
+{
+  "createdOn": "2026-11-06",
+  "createdWith": "Actual ChatGPT web file-generation run, reasoning UI label High",
+  "inputs": [
+    "ulsan-two-quarters.zip",
+    "industry-codes-2023.csv",
+    "ulsan-report-template.pptx"
+  ],
+  "criteria": "Actual two-part Gemini Notebook response, linked separately as guide/rag-generated-handoff.txt",
+  "scope": "Full two-quarter 108514 rows, each39 fields",
+  "correction": "v1 described216/206rows without naming the classification level; actual follow-up corrected both outputs to explicitly say small-category names and added separate large/medium/any counts.",
+  "review": {
+    "numericComparisonsPassed": 800,
+    "worksheets": 13,
+    "formulasWithPreservedCaches": 2193,
+    "storedFormulaErrors": 0,
+    "excelCharts": 4,
+    "slides": 5,
+    "editablePptTables": 6,
+    "limitations": "Coordinate range checks are broad sanity checks, not proof of Ulsan administrative-boundary inclusion. Classroom simultaneous use and time savings not measured."
+  },
+  "files": [
+    {
+      "file": "ulsan-analysis-v2.xlsx",
+      "bytes": 136592,
+      "sha256": "6700add82e91d40e8efaa52373b2ef17ef60ec36790a81aa75b0ccf01bcab730"
+    },
+    {
+      "file": "ulsan-presentation-v2.pptx",
+      "bytes": 37959,
+      "sha256": "35ee35c3350b0502f9a1b6f32a1a69bbd0a1cfeec87b5ed860cbf3d86030b0c9"
+    }
+  ],
+  "distinction": "These actual service outputs are separate from artifact-tool instructor examples under examples/."
+}

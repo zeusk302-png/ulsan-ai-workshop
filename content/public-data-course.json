@@ -1,0 +1,4747 @@
+{
+  "generatedOn": "2026-11-06",
+  "scope": "울산광역시 전체 상가업소의 2026년 6월·9월 공식 공개 스냅샷",
+  "source": "https://www.data.go.kr/data/15083033/fileData.do",
+  "fields": [
+    "상가업소번호",
+    "상호명",
+    "지점명",
+    "상권업종대분류코드",
+    "상권업종대분류명",
+    "상권업종중분류코드",
+    "상권업종중분류명",
+    "상권업종소분류코드",
+    "상권업종소분류명",
+    "표준산업분류코드",
+    "표준산업분류명",
+    "시도코드",
+    "시도명",
+    "시군구코드",
+    "시군구명",
+    "행정동코드",
+    "행정동명",
+    "법정동코드",
+    "법정동명",
+    "지번코드",
+    "대지구분코드",
+    "대지구분명",
+    "지번본번지",
+    "지번부번지",
+    "지번주소",
+    "도로명코드",
+    "도로명",
+    "건물본번지",
+    "건물부번지",
+    "건물관리번호",
+    "건물명",
+    "도로명주소",
+    "구우편번호",
+    "신우편번호",
+    "동정보",
+    "층정보",
+    "호정보",
+    "경도",
+    "위도"
+  ],
+  "snapshots": {
+    "202606": {
+      "asOf": "2026-06-30",
+      "rows": 54737,
+      "columns": 39,
+      "uniqueIds": 54737,
+      "duplicateIdRows": 0,
+      "missingIdRows": 0,
+      "districts": {
+        "남구": 20277,
+        "동구": 6262,
+        "북구": 8005,
+        "울주군": 10504,
+        "중구": 9689
+      },
+      "largeIndustries": {
+        "수리·개인": 7668,
+        "소매": 12591,
+        "과학·기술": 3570,
+        "음식": 19736,
+        "교육": 3024,
+        "예술·스포츠": 2549,
+        "숙박": 1081,
+        "시설관리·임대": 2120,
+        "보건의료": 518,
+        "부동산": 1880
+      },
+      "districtByLarge": [
+        {
+          "district": "남구",
+          "industry": "과학·기술",
+          "count": 1751
+        },
+        {
+          "district": "남구",
+          "industry": "교육",
+          "count": 1144
+        },
+        {
+          "district": "남구",
+          "industry": "보건의료",
+          "count": 266
+        },
+        {
+          "district": "남구",
+          "industry": "부동산",
+          "count": 827
+        },
+        {
+          "district": "남구",
+          "industry": "소매",
+          "count": 4481
+        },
+        {
+          "district": "남구",
+          "industry": "수리·개인",
+          "count": 2932
+        },
+        {
+          "district": "남구",
+          "industry": "숙박",
+          "count": 359
+        },
+        {
+          "district": "남구",
+          "industry": "시설관리·임대",
+          "count": 847
+        },
+        {
+          "district": "남구",
+          "industry": "예술·스포츠",
+          "count": 848
+        },
+        {
+          "district": "남구",
+          "industry": "음식",
+          "count": 6822
+        },
+        {
+          "district": "동구",
+          "industry": "과학·기술",
+          "count": 226
+        },
+        {
+          "district": "동구",
+          "industry": "교육",
+          "count": 289
+        },
+        {
+          "district": "동구",
+          "industry": "보건의료",
+          "count": 41
+        },
+        {
+          "district": "동구",
+          "industry": "부동산",
+          "count": 129
+        },
+        {
+          "district": "동구",
+          "industry": "소매",
+          "count": 1510
+        },
+        {
+          "district": "동구",
+          "industry": "수리·개인",
+          "count": 849
+        },
+        {
+          "district": "동구",
+          "industry": "숙박",
+          "count": 101
+        },
+        {
+          "district": "동구",
+          "industry": "시설관리·임대",
+          "count": 161
+        },
+        {
+          "district": "동구",
+          "industry": "예술·스포츠",
+          "count": 338
+        },
+        {
+          "district": "동구",
+          "industry": "음식",
+          "count": 2618
+        },
+        {
+          "district": "북구",
+          "industry": "과학·기술",
+          "count": 361
+        },
+        {
+          "district": "북구",
+          "industry": "교육",
+          "count": 564
+        },
+        {
+          "district": "북구",
+          "industry": "보건의료",
+          "count": 69
+        },
+        {
+          "district": "북구",
+          "industry": "부동산",
+          "count": 263
+        },
+        {
+          "district": "북구",
+          "industry": "소매",
+          "count": 1757
+        },
+        {
+          "district": "북구",
+          "industry": "수리·개인",
+          "count": 1229
+        },
+        {
+          "district": "북구",
+          "industry": "숙박",
+          "count": 123
+        },
+        {
+          "district": "북구",
+          "industry": "시설관리·임대",
+          "count": 208
+        },
+        {
+          "district": "북구",
+          "industry": "예술·스포츠",
+          "count": 450
+        },
+        {
+          "district": "북구",
+          "industry": "음식",
+          "count": 2981
+        },
+        {
+          "district": "울주군",
+          "industry": "과학·기술",
+          "count": 548
+        },
+        {
+          "district": "울주군",
+          "industry": "교육",
+          "count": 471
+        },
+        {
+          "district": "울주군",
+          "industry": "보건의료",
+          "count": 67
+        },
+        {
+          "district": "울주군",
+          "industry": "부동산",
+          "count": 375
+        },
+        {
+          "district": "울주군",
+          "industry": "소매",
+          "count": 2287
+        },
+        {
+          "district": "울주군",
+          "industry": "수리·개인",
+          "count": 1231
+        },
+        {
+          "district": "울주군",
+          "industry": "숙박",
+          "count": 385
+        },
+        {
+          "district": "울주군",
+          "industry": "시설관리·임대",
+          "count": 545
+        },
+        {
+          "district": "울주군",
+          "industry": "예술·스포츠",
+          "count": 476
+        },
+        {
+          "district": "울주군",
+          "industry": "음식",
+          "count": 4119
+        },
+        {
+          "district": "중구",
+          "industry": "과학·기술",
+          "count": 684
+        },
+        {
+          "district": "중구",
+          "industry": "교육",
+          "count": 556
+        },
+        {
+          "district": "중구",
+          "industry": "보건의료",
+          "count": 75
+        },
+        {
+          "district": "중구",
+          "industry": "부동산",
+          "count": 286
+        },
+        {
+          "district": "중구",
+          "industry": "소매",
+          "count": 2556
+        },
+        {
+          "district": "중구",
+          "industry": "수리·개인",
+          "count": 1427
+        },
+        {
+          "district": "중구",
+          "industry": "숙박",
+          "count": 113
+        },
+        {
+          "district": "중구",
+          "industry": "시설관리·임대",
+          "count": 359
+        },
+        {
+          "district": "중구",
+          "industry": "예술·스포츠",
+          "count": 437
+        },
+        {
+          "district": "중구",
+          "industry": "음식",
+          "count": 3196
+        }
+      ],
+      "smallIndustries": [
+        {
+          "code": "I20101",
+          "name": "백반/한정식",
+          "count": 4413
+        },
+        {
+          "code": "S20701",
+          "name": "미용실",
+          "count": 3098
+        },
+        {
+          "code": "I21201",
+          "name": "카페",
+          "count": 2553
+        },
+        {
+          "code": "L10203",
+          "name": "부동산 중개/대리업",
+          "count": 1880
+        },
+        {
+          "code": "I20107",
+          "name": "돼지고기 구이/찜",
+          "count": 1600
+        },
+        {
+          "code": "I21104",
+          "name": "요리 주점",
+          "count": 1364
+        },
+        {
+          "code": "G20404",
+          "name": "슈퍼마켓",
+          "count": 1313
+        },
+        {
+          "code": "G20405",
+          "name": "편의점",
+          "count": 1125
+        },
+        {
+          "code": "G20905",
+          "name": "기타 의류 소매업",
+          "count": 1093
+        },
+        {
+          "code": "I21006",
+          "name": "치킨",
+          "count": 1050
+        },
+        {
+          "code": "P10501",
+          "name": "입시·교과학원",
+          "count": 1044
+        },
+        {
+          "code": "I21101",
+          "name": "일반 유흥 주점",
+          "count": 942
+        },
+        {
+          "code": "I21007",
+          "name": "김밥/만두/분식",
+          "count": 934
+        },
+        {
+          "code": "S20301",
+          "name": "자동차 정비소",
+          "count": 912
+        },
+        {
+          "code": "S20702",
+          "name": "피부 관리실",
+          "count": 841
+        },
+        {
+          "code": "G20902",
+          "name": "여성 의류 소매업",
+          "count": 750
+        },
+        {
+          "code": "I20102",
+          "name": "국/탕/찌개류",
+          "count": 707
+        },
+        {
+          "code": "G21503",
+          "name": "화장품 소매업",
+          "count": 688
+        },
+        {
+          "code": "S20703",
+          "name": "네일숍",
+          "count": 686
+        },
+        {
+          "code": "I21001",
+          "name": "빵/도넛",
+          "count": 651
+        },
+        {
+          "code": "I10102",
+          "name": "여관/모텔",
+          "count": 595
+        },
+        {
+          "code": "I20111",
+          "name": "횟집",
+          "count": 589
+        },
+        {
+          "code": "R10407",
+          "name": "노래방",
+          "count": 581
+        },
+        {
+          "code": "I20201",
+          "name": "중국집",
+          "count": 568
+        },
+        {
+          "code": "G20802",
+          "name": "핸드폰 소매업",
+          "count": 494
+        },
+        {
+          "code": "I20105",
+          "name": "국수/칼국수",
+          "count": 493
+        },
+        {
+          "code": "P10603",
+          "name": "요가/필라테스 학원",
+          "count": 445
+        },
+        {
+          "code": "G21501",
+          "name": "약국",
+          "count": 436
+        },
+        {
+          "code": "N10201",
+          "name": "건축물 일반 청소업",
+          "count": 436
+        },
+        {
+          "code": "G20503",
+          "name": "정육점",
+          "count": 396
+        },
+        {
+          "code": "M11201",
+          "name": "인테리어 디자인업",
+          "count": 395
+        },
+        {
+          "code": "S20901",
+          "name": "세탁소",
+          "count": 393
+        },
+        {
+          "code": "M10703",
+          "name": "경영 컨설팅업",
+          "count": 392
+        },
+        {
+          "code": "M10999",
+          "name": "기타 엔지니어링 서비스업",
+          "count": 390
+        },
+        {
+          "code": "I20401",
+          "name": "경양식",
+          "count": 366
+        },
+        {
+          "code": "I20112",
+          "name": "해산물 구이/찜",
+          "count": 366
+        },
+        {
+          "code": "I20301",
+          "name": "일식 회/초밥",
+          "count": 360
+        },
+        {
+          "code": "M10901",
+          "name": "건축 설계 및 관련 서비스업",
+          "count": 348
+        },
+        {
+          "code": "I21003",
+          "name": "피자",
+          "count": 345
+        },
+        {
+          "code": "R10310",
+          "name": "당구장",
+          "count": 342
+        },
+        {
+          "code": "R10311",
+          "name": "골프 연습장",
+          "count": 337
+        },
+        {
+          "code": "S20302",
+          "name": "자동차 세차장",
+          "count": 334
+        },
+        {
+          "code": "M11401",
+          "name": "명함/간판/광고물 제작",
+          "count": 330
+        },
+        {
+          "code": "P10625",
+          "name": "기타 기술/직업 훈련학원",
+          "count": 327
+        },
+        {
+          "code": "I10103",
+          "name": "펜션",
+          "count": 311
+        },
+        {
+          "code": "G20509",
+          "name": "반찬/식료품 소매업",
+          "count": 304
+        },
+        {
+          "code": "G21901",
+          "name": "꽃집",
+          "count": 297
+        },
+        {
+          "code": "I21103",
+          "name": "생맥주 전문",
+          "count": 291
+        },
+        {
+          "code": "M11301",
+          "name": "사진촬영업",
+          "count": 291
+        },
+        {
+          "code": "R10307",
+          "name": "헬스장",
+          "count": 282
+        },
+        {
+          "code": "G21001",
+          "name": "철물/공구 소매업",
+          "count": 270
+        },
+        {
+          "code": "G21401",
+          "name": "주유소",
+          "count": 268
+        },
+        {
+          "code": "G21701",
+          "name": "시계/귀금속 소매업",
+          "count": 241
+        },
+        {
+          "code": "R10202",
+          "name": "독서실/스터디 카페",
+          "count": 230
+        },
+        {
+          "code": "S20501",
+          "name": "가전제품 수리업",
+          "count": 229
+        },
+        {
+          "code": "G21602",
+          "name": "안경렌즈 소매업",
+          "count": 226
+        },
+        {
+          "code": "G22199",
+          "name": "그 외 기타 상품 전문 소매업",
+          "count": 224
+        },
+        {
+          "code": "I21002",
+          "name": "떡/한과",
+          "count": 224
+        },
+        {
+          "code": "M10501",
+          "name": "광고 대행업",
+          "count": 222
+        },
+        {
+          "code": "G20508",
+          "name": "건강보조식품 소매업",
+          "count": 216
+        },
+        {
+          "code": "G20906",
+          "name": "침구류/커튼 소매업",
+          "count": 213
+        },
+        {
+          "code": "G22001",
+          "name": "애완동물/애완용품 소매업",
+          "count": 206
+        },
+        {
+          "code": "P10609",
+          "name": "음악학원",
+          "count": 206
+        },
+        {
+          "code": "G21304",
+          "name": "운동용품 소매업",
+          "count": 200
+        },
+        {
+          "code": "M10402",
+          "name": "세무사",
+          "count": 200
+        },
+        {
+          "code": "I20110",
+          "name": "닭/오리고기 구이/찜",
+          "count": 196
+        },
+        {
+          "code": "G21101",
+          "name": "가구 소매업",
+          "count": 195
+        },
+        {
+          "code": "G20506",
+          "name": "채소/과일 소매업",
+          "count": 194
+        },
+        {
+          "code": "N10802",
+          "name": "전시/컨벤션/행사 대행 서비스업",
+          "count": 190
+        },
+        {
+          "code": "G21302",
+          "name": "문구/회화용품 소매업",
+          "count": 189
+        },
+        {
+          "code": "I21099",
+          "name": "그 외 기타 간이 음식점",
+          "count": 188
+        },
+        {
+          "code": "I20103",
+          "name": "족발/보쌈",
+          "count": 186
+        },
+        {
+          "code": "R10406",
+          "name": "PC방",
+          "count": 186
+        },
+        {
+          "code": "N10501",
+          "name": "여행사",
+          "count": 186
+        },
+        {
+          "code": "N10402",
+          "name": "임시/일용 인력 공급업",
+          "count": 185
+        },
+        {
+          "code": "P10601",
+          "name": "태권도/무술학원",
+          "count": 180
+        },
+        {
+          "code": "G21202",
+          "name": "주방/가정용품 소매업",
+          "count": 179
+        },
+        {
+          "code": "R10410",
+          "name": "복권 발행/판매업",
+          "count": 178
+        },
+        {
+          "code": "N10401",
+          "name": "고용 알선업",
+          "count": 171
+        },
+        {
+          "code": "G20803",
+          "name": "가전제품 소매업",
+          "count": 170
+        },
+        {
+          "code": "G20505",
+          "name": "수산물 소매업",
+          "count": 166
+        },
+        {
+          "code": "S20801",
+          "name": "목욕탕/사우나",
+          "count": 164
+        },
+        {
+          "code": "I20109",
+          "name": "곱창 전골/구이",
+          "count": 163
+        },
+        {
+          "code": "I20701",
+          "name": "구내식당",
+          "count": 162
+        },
+        {
+          "code": "G20901",
+          "name": "남성 의류 소매업",
+          "count": 161
+        },
+        {
+          "code": "S20101",
+          "name": "컴퓨터/노트북/프린터 수리업",
+          "count": 160
+        },
+        {
+          "code": "P10611",
+          "name": "미술학원",
+          "count": 159
+        },
+        {
+          "code": "M10301",
+          "name": "변호사",
+          "count": 158
+        },
+        {
+          "code": "S20802",
+          "name": "마사지/안마",
+          "count": 157
+        },
+        {
+          "code": "G22201",
+          "name": "중고 상품 소매업",
+          "count": 147
+        },
+        {
+          "code": "G20910",
+          "name": "신발 소매업",
+          "count": 143
+        },
+        {
+          "code": "I20108",
+          "name": "소고기 구이/찜",
+          "count": 143
+        },
+        {
+          "code": "G20202",
+          "name": "자동차 부품 소매업",
+          "count": 140
+        },
+        {
+          "code": "I21004",
+          "name": "버거",
+          "count": 136
+        },
+        {
+          "code": "M10303",
+          "name": "법무사",
+          "count": 136
+        },
+        {
+          "code": "N10101",
+          "name": "사업시설 유지·관리 서비스업",
+          "count": 134
+        },
+        {
+          "code": "S20601",
+          "name": "의류/이불 수선업",
+          "count": 132
+        },
+        {
+          "code": "G20499",
+          "name": "그 외 기타 종합 소매업",
+          "count": 127
+        },
+        {
+          "code": "P10629",
+          "name": "그 외 기타 교육기관",
+          "count": 126
+        },
+        {
+          "code": "G21502",
+          "name": "의료기기 소매업",
+          "count": 125
+        },
+        {
+          "code": "G21002",
+          "name": "벽지/장판/마루 소매업",
+          "count": 122
+        },
+        {
+          "code": "I20106",
+          "name": "냉면/밀면",
+          "count": 122
+        },
+        {
+          "code": "M10903",
+          "name": "건물 및 토목 엔지니어링 서비스업",
+          "count": 119
+        },
+        {
+          "code": "G20903",
+          "name": "유아용 의류 소매업",
+          "count": 115
+        },
+        {
+          "code": "M11203",
+          "name": "시각 디자인업",
+          "count": 114
+        },
+        {
+          "code": "S20803",
+          "name": "체형/비만 관리",
+          "count": 114
+        },
+        {
+          "code": "G21802",
+          "name": "기념품점",
+          "count": 109
+        },
+        {
+          "code": "N10203",
+          "name": "소독; 구충 및 방제 서비스업",
+          "count": 109
+        },
+        {
+          "code": "P10799",
+          "name": "기타 교육지원 서비스업",
+          "count": 108
+        },
+        {
+          "code": "S20902",
+          "name": "셀프 빨래방",
+          "count": 108
+        },
+        {
+          "code": "N10202",
+          "name": "산업설비; 운송장비 및 공공장소 청소업",
+          "count": 107
+        },
+        {
+          "code": "P10615",
+          "name": "외국어학원",
+          "count": 105
+        },
+        {
+          "code": "I10201",
+          "name": "기숙사/고시원",
+          "count": 104
+        },
+        {
+          "code": "G21201",
+          "name": "전기용품/조명장치 소매업",
+          "count": 103
+        },
+        {
+          "code": "P10605",
+          "name": "레크리에이션 교육기관",
+          "count": 102
+        },
+        {
+          "code": "G21301",
+          "name": "서점",
+          "count": 99
+        },
+        {
+          "code": "G20801",
+          "name": "컴퓨터/소프트웨어 소매업",
+          "count": 98
+        },
+        {
+          "code": "S20699",
+          "name": "그 외 기타 개인/가정용품 수리업",
+          "count": 97
+        },
+        {
+          "code": "G21306",
+          "name": "장난감 소매업",
+          "count": 97
+        },
+        {
+          "code": "Q10210",
+          "name": "치과의원",
+          "count": 96
+        },
+        {
+          "code": "R10405",
+          "name": "기타 오락장",
+          "count": 95
+        },
+        {
+          "code": "G20907",
+          "name": "액세서리/잡화 소매업",
+          "count": 93
+        },
+        {
+          "code": "I20202",
+          "name": "마라탕/훠궈",
+          "count": 93
+        },
+        {
+          "code": "S20401",
+          "name": "모터사이클 수리업",
+          "count": 91
+        },
+        {
+          "code": "G21801",
+          "name": "예술품 소매업",
+          "count": 90
+        },
+        {
+          "code": "M10504",
+          "name": "광고물 설계/제작업",
+          "count": 84
+        },
+        {
+          "code": "I20501",
+          "name": "베트남식 전문",
+          "count": 82
+        },
+        {
+          "code": "Q10204",
+          "name": "피부/비뇨기과 의원",
+          "count": 82
+        },
+        {
+          "code": "P10613",
+          "name": "기타 예술/스포츠 교육기관",
+          "count": 80
+        },
+        {
+          "code": "N11101",
+          "name": "건설기계/장비 대여업",
+          "count": 79
+        },
+        {
+          "code": "N11199",
+          "name": "기타 산업용 기계/장비 대여업",
+          "count": 75
+        },
+        {
+          "code": "G21403",
+          "name": "가정용 연료 소매업",
+          "count": 73
+        },
+        {
+          "code": "I21005",
+          "name": "토스트/샌드위치/샐러드",
+          "count": 73
+        },
+        {
+          "code": "N11099",
+          "name": "기타 개인/가정용품 대여업",
+          "count": 70
+        },
+        {
+          "code": "G20301",
+          "name": "모터사이클 및 부품 소매업",
+          "count": 70
+        },
+        {
+          "code": "R10499",
+          "name": "기타 오락관련 서비스업",
+          "count": 70
+        },
+        {
+          "code": "G20504",
+          "name": "건어물/젓갈 소매업",
+          "count": 68
+        },
+        {
+          "code": "M11101",
+          "name": "동물병원",
+          "count": 65
+        },
+        {
+          "code": "G20701",
+          "name": "담배/전자담배 소매업",
+          "count": 65
+        },
+        {
+          "code": "P10701",
+          "name": "교육컨설팅업",
+          "count": 60
+        },
+        {
+          "code": "M10306",
+          "name": "행정사",
+          "count": 60
+        },
+        {
+          "code": "N10805",
+          "name": "포장/충전업",
+          "count": 58
+        },
+        {
+          "code": "G21305",
+          "name": "자전거 소매업",
+          "count": 58
+        },
+        {
+          "code": "N10901",
+          "name": "자동차 대여업",
+          "count": 56
+        },
+        {
+          "code": "G20909",
+          "name": "실/섬유제품 소매업",
+          "count": 56
+        },
+        {
+          "code": "Q10201",
+          "name": "내과/소아과 의원",
+          "count": 55
+        },
+        {
+          "code": "Q10402",
+          "name": "유사 의료업",
+          "count": 55
+        },
+        {
+          "code": "S21001",
+          "name": "장례식장",
+          "count": 54
+        },
+        {
+          "code": "Q10211",
+          "name": "한의원",
+          "count": 53
+        },
+        {
+          "code": "G20911",
+          "name": "가방 소매업",
+          "count": 52
+        },
+        {
+          "code": "I21008",
+          "name": "아이스크림/빙수",
+          "count": 49
+        },
+        {
+          "code": "I20303",
+          "name": "일식 면 요리",
+          "count": 49
+        },
+        {
+          "code": "N10403",
+          "name": "상용 인력 공급 및 인사관리 서비스업",
+          "count": 48
+        },
+        {
+          "code": "R10313",
+          "name": "탁구장",
+          "count": 46
+        },
+        {
+          "code": "I10101",
+          "name": "호텔/리조트",
+          "count": 44
+        },
+        {
+          "code": "I20199",
+          "name": "기타 한식 음식점",
+          "count": 42
+        },
+        {
+          "code": "I21102",
+          "name": "무도 유흥 주점",
+          "count": 42
+        },
+        {
+          "code": "I20302",
+          "name": "일식 카레/돈가스/덮밥",
+          "count": 42
+        },
+        {
+          "code": "I20702",
+          "name": "뷔페",
+          "count": 42
+        },
+        {
+          "code": "R10314",
+          "name": "기타 스포츠시설 운영업",
+          "count": 42
+        },
+        {
+          "code": "R10404",
+          "name": "전자 게임장",
+          "count": 41
+        },
+        {
+          "code": "R10312",
+          "name": "테니스장",
+          "count": 41
+        },
+        {
+          "code": "M10904",
+          "name": "환경 관련 엔지니어링 서비스업",
+          "count": 40
+        },
+        {
+          "code": "G20904",
+          "name": "한복 소매업",
+          "count": 39
+        },
+        {
+          "code": "G21099",
+          "name": "기타 건설/건축자재 소매업",
+          "count": 37
+        },
+        {
+          "code": "M10502",
+          "name": "옥외/전시 광고 대행업",
+          "count": 36
+        },
+        {
+          "code": "P10621",
+          "name": "직원 훈련기관",
+          "count": 36
+        },
+        {
+          "code": "G20201",
+          "name": "타이어 소매업",
+          "count": 35
+        },
+        {
+          "code": "N11004",
+          "name": "의류 대여업",
+          "count": 35
+        },
+        {
+          "code": "N10999",
+          "name": "기타 운송장비 대여업",
+          "count": 34
+        },
+        {
+          "code": "G21601",
+          "name": "사무기기 소매업",
+          "count": 34
+        },
+        {
+          "code": "M10307",
+          "name": "공인노무사",
+          "count": 32
+        },
+        {
+          "code": "I20402",
+          "name": "파스타/스테이크",
+          "count": 32
+        },
+        {
+          "code": "G20603",
+          "name": "생수/음료 소매업",
+          "count": 31
+        },
+        {
+          "code": "N11102",
+          "name": "컴퓨터/사무기기 대여업",
+          "count": 30
+        },
+        {
+          "code": "N10703",
+          "name": "복사업",
+          "count": 30
+        },
+        {
+          "code": "Q10105",
+          "name": "요양병원",
+          "count": 30
+        },
+        {
+          "code": "N10301",
+          "name": "조경 유지·관리 서비스업",
+          "count": 28
+        },
+        {
+          "code": "Q10209",
+          "name": "기타 의원",
+          "count": 28
+        },
+        {
+          "code": "G21402",
+          "name": "가스 충전소",
+          "count": 27
+        },
+        {
+          "code": "G21203",
+          "name": "악기 소매업",
+          "count": 27
+        },
+        {
+          "code": "M11202",
+          "name": "제품 디자인업",
+          "count": 26
+        },
+        {
+          "code": "G21003",
+          "name": "건설/건축자재 소매업",
+          "count": 26
+        },
+        {
+          "code": "Q10202",
+          "name": "외과 의원",
+          "count": 26
+        },
+        {
+          "code": "M11502",
+          "name": "번역/통역 서비스업",
+          "count": 25
+        },
+        {
+          "code": "R10309",
+          "name": "볼링장",
+          "count": 24
+        },
+        {
+          "code": "M10599",
+          "name": "기타 광고 관련 서비스업",
+          "count": 24
+        },
+        {
+          "code": "Q10102",
+          "name": "일반병원",
+          "count": 23
+        },
+        {
+          "code": "S20602",
+          "name": "가죽/가방/신발 수선업",
+          "count": 22
+        },
+        {
+          "code": "S21105",
+          "name": "결혼 상담 서비스업",
+          "count": 22
+        },
+        {
+          "code": "I20113",
+          "name": "복 요리 전문",
+          "count": 21
+        },
+        {
+          "code": "N11001",
+          "name": "스포츠/레크리에이션 용품 대여업",
+          "count": 20
+        },
+        {
+          "code": "S20201",
+          "name": "핸드폰/통신장비 수리업",
+          "count": 20
+        },
+        {
+          "code": "N10799",
+          "name": "기타 사무 지원 서비스업",
+          "count": 19
+        },
+        {
+          "code": "M11504",
+          "name": "사업/무형 재산권 중개업",
+          "count": 19
+        },
+        {
+          "code": "I10104",
+          "name": "캠핑/글램핑",
+          "count": 18
+        },
+        {
+          "code": "P10627",
+          "name": "컴퓨터 학원",
+          "count": 18
+        },
+        {
+          "code": "R10409",
+          "name": "수상/해양 레저업",
+          "count": 18
+        },
+        {
+          "code": "M10401",
+          "name": "공인회계사",
+          "count": 17
+        },
+        {
+          "code": "M10902",
+          "name": "도시 계획 및 조경 설계 서비스업",
+          "count": 17
+        },
+        {
+          "code": "I20399",
+          "name": "기타 일식 음식점",
+          "count": 17
+        },
+        {
+          "code": "Q10208",
+          "name": "성형외과 의원",
+          "count": 17
+        },
+        {
+          "code": "G20908",
+          "name": "가발 소매업",
+          "count": 16
+        },
+        {
+          "code": "S21002",
+          "name": "화장터/묘지/납골당",
+          "count": 15
+        },
+        {
+          "code": "Q10207",
+          "name": "산부인과 의원",
+          "count": 14
+        },
+        {
+          "code": "S21101",
+          "name": "예식장업",
+          "count": 14
+        },
+        {
+          "code": "I20104",
+          "name": "전/부침개",
+          "count": 14
+        },
+        {
+          "code": "G20602",
+          "name": "주류 소매업",
+          "count": 12
+        },
+        {
+          "code": "I20403",
+          "name": "패밀리레스토랑",
+          "count": 11
+        },
+        {
+          "code": "P10619",
+          "name": "사회교육시설",
+          "count": 11
+        },
+        {
+          "code": "Q10203",
+          "name": "신경/정신과 의원",
+          "count": 11
+        },
+        {
+          "code": "G20501",
+          "name": "곡물/곡분 소매업",
+          "count": 11
+        },
+        {
+          "code": "I20499",
+          "name": "기타 서양식 음식점",
+          "count": 11
+        },
+        {
+          "code": "N10599",
+          "name": "기타 여행 보조/예약 서비스업",
+          "count": 10
+        },
+        {
+          "code": "N11003",
+          "name": "만화방",
+          "count": 10
+        },
+        {
+          "code": "R10414",
+          "name": "바둑/장기/체스 경기 운영업",
+          "count": 10
+        },
+        {
+          "code": "M11204",
+          "name": "패션/섬유/기타 전문 디자인업",
+          "count": 9
+        },
+        {
+          "code": "Q10101",
+          "name": "종합병원",
+          "count": 9
+        },
+        {
+          "code": "I10299",
+          "name": "그 외 기타 숙박업",
+          "count": 9
+        },
+        {
+          "code": "R10308",
+          "name": "수영장",
+          "count": 8
+        },
+        {
+          "code": "P10607",
+          "name": "청소년 수련시설",
+          "count": 8
+        },
+        {
+          "code": "G20604",
+          "name": "우유 소매업",
+          "count": 8
+        },
+        {
+          "code": "R10408",
+          "name": "낚시터 운영업",
+          "count": 7
+        },
+        {
+          "code": "R10306",
+          "name": "종합 스포츠시설",
+          "count": 7
+        },
+        {
+          "code": "G20502",
+          "name": "가축 사료 소매업",
+          "count": 7
+        },
+        {
+          "code": "P10623",
+          "name": "운전학원",
+          "count": 6
+        },
+        {
+          "code": "M10302",
+          "name": "변리사",
+          "count": 6
+        },
+        {
+          "code": "M10601",
+          "name": "시장 조사 및 여론 조사업",
+          "count": 6
+        },
+        {
+          "code": "M10399",
+          "name": "기타 법무관련 서비스업",
+          "count": 6
+        },
+        {
+          "code": "G21303",
+          "name": "음반/비디오물 소매업",
+          "count": 5
+        },
+        {
+          "code": "S20603",
+          "name": "시계/귀금속/악기 수리업",
+          "count": 5
+        },
+        {
+          "code": "Q10104",
+          "name": "한방병원",
+          "count": 5
+        },
+        {
+          "code": "Q10206",
+          "name": "이비인후과 의원",
+          "count": 5
+        },
+        {
+          "code": "G20601",
+          "name": "얼음 소매업",
+          "count": 5
+        },
+        {
+          "code": "G21603",
+          "name": "사진기/기타 광학기기 소매업",
+          "count": 4
+        },
+        {
+          "code": "Q10212",
+          "name": "방사선 진단/병리 검사 의원",
+          "count": 4
+        },
+        {
+          "code": "I20599",
+          "name": "기타 동남아식 전문",
+          "count": 4
+        },
+        {
+          "code": "R10402",
+          "name": "비디오방",
+          "count": 3
+        },
+        {
+          "code": "Q10103",
+          "name": "치과병원",
+          "count": 3
+        },
+        {
+          "code": "P10617",
+          "name": "전문자격/고시학원",
+          "count": 3
+        },
+        {
+          "code": "G20507",
+          "name": "아이스크림 할인점",
+          "count": 3
+        },
+        {
+          "code": "M10503",
+          "name": "광고 매체 판매업",
+          "count": 2
+        },
+        {
+          "code": "Q10205",
+          "name": "안과 의원",
+          "count": 2
+        },
+        {
+          "code": "M10499",
+          "name": "기타 회계 관련 서비스업",
+          "count": 1
+        },
+        {
+          "code": "R10316",
+          "name": "스쿼시/라켓볼장",
+          "count": 1
+        }
+      ],
+      "cafeByDong": [
+        {
+          "district": "남구",
+          "dongCode": "31140570",
+          "dong": "삼산동",
+          "count": 261
+        },
+        {
+          "district": "울주군",
+          "dongCode": "31710259",
+          "dong": "범서읍",
+          "count": 130
+        },
+        {
+          "district": "남구",
+          "dongCode": "31140595",
+          "dong": "무거동",
+          "count": 103
+        },
+        {
+          "district": "중구",
+          "dongCode": "31110585",
+          "dong": "중앙동",
+          "count": 94
+        },
+        {
+          "district": "남구",
+          "dongCode": "31140600",
+          "dong": "옥동",
+          "count": 84
+        },
+        {
+          "district": "울주군",
+          "dongCode": "31710253",
+          "dong": "언양읍",
+          "count": 82
+        },
+        {
+          "district": "남구",
+          "dongCode": "31140560",
+          "dong": "달동",
+          "count": 81
+        },
+        {
+          "district": "북구",
+          "dongCode": "31200540",
+          "dong": "강동동",
+          "count": 72
+        },
+        {
+          "district": "북구",
+          "dongCode": "31200560",
+          "dong": "효문동",
+          "count": 71
+        },
+        {
+          "district": "동구",
+          "dongCode": "31170510",
+          "dong": "방어동",
+          "count": 69
+        },
+        {
+          "district": "울주군",
+          "dongCode": "31710265",
+          "dong": "삼남읍",
+          "count": 68
+        },
+        {
+          "district": "북구",
+          "dongCode": "31200570",
+          "dong": "송정동",
+          "count": 68
+        },
+        {
+          "district": "북구",
+          "dongCode": "31200510",
+          "dong": "농소1동",
+          "count": 65
+        },
+        {
+          "district": "중구",
+          "dongCode": "31110600",
+          "dong": "태화동",
+          "count": 65
+        },
+        {
+          "district": "동구",
+          "dongCode": "31170520",
+          "dong": "일산동",
+          "count": 54
+        },
+        {
+          "district": "남구",
+          "dongCode": "31140520",
+          "dong": "신정2동",
+          "count": 52
+        },
+        {
+          "district": "울주군",
+          "dongCode": "31710380",
+          "dong": "상북면",
+          "count": 51
+        },
+        {
+          "district": "북구",
+          "dongCode": "31200520",
+          "dong": "농소2동",
+          "count": 51
+        },
+        {
+          "district": "울주군",
+          "dongCode": "31710310",
+          "dong": "서생면",
+          "count": 50
+        },
+        {
+          "district": "울주군",
+          "dongCode": "31710262",
+          "dong": "청량읍",
+          "count": 49
+        },
+        {
+          "district": "울주군",
+          "dongCode": "31710256",
+          "dong": "온양읍",
+          "count": 48
+        },
+        {
+          "district": "울주군",
+          "dongCode": "31710250",
+          "dong": "온산읍",
+          "count": 48
+        },
+        {
+          "district": "남구",
+          "dongCode": "31140585",
+          "dong": "삼호동",
+          "count": 46
+        },
+        {
+          "district": "동구",
+          "dongCode": "31170560",
+          "dong": "전하2동",
+          "count": 43
+        },
+        {
+          "district": "남구",
+          "dongCode": "31140530",
+          "dong": "신정3동",
+          "count": 42
+        },
+        {
+          "district": "남구",
+          "dongCode": "31140510",
+          "dong": "신정1동",
+          "count": 41
+        },
+        {
+          "district": "중구",
+          "dongCode": "31110650",
+          "dong": "성안동",
+          "count": 39
+        },
+        {
+          "district": "북구",
+          "dongCode": "31200530",
+          "dong": "농소3동",
+          "count": 37
+        },
+        {
+          "district": "중구",
+          "dongCode": "31110610",
+          "dong": "다운동",
+          "count": 36
+        },
+        {
+          "district": "남구",
+          "dongCode": "31140625",
+          "dong": "대현동",
+          "count": 35
+        },
+        {
+          "district": "중구",
+          "dongCode": "31110555",
+          "dong": "복산동",
+          "count": 33
+        },
+        {
+          "district": "남구",
+          "dongCode": "31140540",
+          "dong": "신정4동",
+          "count": 33
+        },
+        {
+          "district": "동구",
+          "dongCode": "31170600",
+          "dong": "남목3동",
+          "count": 32
+        },
+        {
+          "district": "울주군",
+          "dongCode": "31710360",
+          "dong": "두동면",
+          "count": 31
+        },
+        {
+          "district": "동구",
+          "dongCode": "31170530",
+          "dong": "화정동",
+          "count": 30
+        },
+        {
+          "district": "중구",
+          "dongCode": "31110620",
+          "dong": "병영1동",
+          "count": 28
+        },
+        {
+          "district": "중구",
+          "dongCode": "31110590",
+          "dong": "우정동",
+          "count": 28
+        },
+        {
+          "district": "중구",
+          "dongCode": "31110520",
+          "dong": "반구1동",
+          "count": 26
+        },
+        {
+          "district": "남구",
+          "dongCode": "31140640",
+          "dong": "선암동",
+          "count": 26
+        },
+        {
+          "district": "남구",
+          "dongCode": "31140670",
+          "dong": "야음장생포동",
+          "count": 25
+        },
+        {
+          "district": "중구",
+          "dongCode": "31110630",
+          "dong": "병영2동",
+          "count": 24
+        },
+        {
+          "district": "남구",
+          "dongCode": "31140550",
+          "dong": "신정5동",
+          "count": 22
+        },
+        {
+          "district": "동구",
+          "dongCode": "31170540",
+          "dong": "대송동",
+          "count": 19
+        },
+        {
+          "district": "동구",
+          "dongCode": "31170590",
+          "dong": "남목2동",
+          "count": 17
+        },
+        {
+          "district": "동구",
+          "dongCode": "31170550",
+          "dong": "전하1동",
+          "count": 17
+        },
+        {
+          "district": "동구",
+          "dongCode": "31170580",
+          "dong": "남목1동",
+          "count": 16
+        },
+        {
+          "district": "중구",
+          "dongCode": "31110640",
+          "dong": "약사동",
+          "count": 16
+        },
+        {
+          "district": "북구",
+          "dongCode": "31200580",
+          "dong": "양정동",
+          "count": 15
+        },
+        {
+          "district": "중구",
+          "dongCode": "31110510",
+          "dong": "학성동",
+          "count": 15
+        },
+        {
+          "district": "중구",
+          "dongCode": "31110530",
+          "dong": "반구2동",
+          "count": 15
+        },
+        {
+          "district": "남구",
+          "dongCode": "31140635",
+          "dong": "수암동",
+          "count": 15
+        },
+        {
+          "district": "울주군",
+          "dongCode": "31710340",
+          "dong": "웅촌면",
+          "count": 14
+        },
+        {
+          "district": "울주군",
+          "dongCode": "31710400",
+          "dong": "삼동면",
+          "count": 13
+        },
+        {
+          "district": "북구",
+          "dongCode": "31200590",
+          "dong": "염포동",
+          "count": 5
+        },
+        {
+          "district": "울주군",
+          "dongCode": "31710370",
+          "dong": "두서면",
+          "count": 3
+        }
+      ],
+      "missingByField": {
+        "상가업소번호": 0,
+        "상호명": 0,
+        "지점명": 49344,
+        "상권업종대분류코드": 0,
+        "상권업종대분류명": 0,
+        "상권업종중분류코드": 0,
+        "상권업종중분류명": 0,
+        "상권업종소분류코드": 0,
+        "상권업종소분류명": 0,
+        "표준산업분류코드": 8,
+        "표준산업분류명": 8,
+        "시도코드": 0,
+        "시도명": 0,
+        "시군구코드": 0,
+        "시군구명": 0,
+        "행정동코드": 0,
+        "행정동명": 0,
+        "법정동코드": 0,
+        "법정동명": 0,
+        "지번코드": 0,
+        "대지구분코드": 0,
+        "대지구분명": 0,
+        "지번본번지": 55,
+        "지번부번지": 5255,
+        "지번주소": 0,
+        "도로명코드": 0,
+        "도로명": 0,
+        "건물본번지": 0,
+        "건물부번지": 45380,
+        "건물관리번호": 375,
+        "건물명": 44104,
+        "도로명주소": 0,
+        "구우편번호": 0,
+        "신우편번호": 0,
+        "동정보": 54737,
+        "층정보": 24657,
+        "호정보": 54737,
+        "경도": 0,
+        "위도": 0
+      },
+      "classificationUnknownRows": 0,
+      "classificationUnknownCodes": {},
+      "invalidCoordinates": 0,
+      "coordinateRange": {
+        "longitude": [
+          129.007411476243,
+          129.463286306698
+        ],
+        "latitude": [
+          35.3338740822421,
+          35.718265270713
+        ]
+      },
+      "hierarchyCodeMismatchRows": 0,
+      "classificationLabelDifferenceRows": 54737,
+      "classificationLabelDifferenceCodes": {
+        "S20699": 97,
+        "G22199": 224,
+        "G20404": 1313,
+        "M11502": 25,
+        "G21304": 200,
+        "I21001": 651,
+        "G20905": 1093,
+        "G20503": 396,
+        "I20101": 4413,
+        "P10501": 1044,
+        "G21301": 99,
+        "I20301": 360,
+        "I21201": 2553,
+        "G21101": 195,
+        "G21403": 73,
+        "G21302": 189,
+        "G21401": 268,
+        "I20401": 366,
+        "M10501": 222,
+        "G21503": 688,
+        "R10404": 41,
+        "I21004": 136,
+        "G21802": 109,
+        "I10102": 595,
+        "G20405": 1125,
+        "G20202": 140,
+        "G22001": 206,
+        "G20906": 213,
+        "M10999": 390,
+        "I21003": 345,
+        "G20908": 16,
+        "I10101": 44,
+        "S20302": 334,
+        "N10901": 56,
+        "M10301": 158,
+        "S20101": 160,
+        "I20102": 707,
+        "Q10201": 55,
+        "S20701": 3098,
+        "Q10210": 96,
+        "I20111": 589,
+        "S20901": 393,
+        "I20107": 1600,
+        "S20702": 841,
+        "I21104": 1364,
+        "I21006": 1050,
+        "G21501": 436,
+        "I21103": 291,
+        "G21502": 125,
+        "L10203": 1880,
+        "N11199": 75,
+        "I20105": 493,
+        "P10603": 445,
+        "M11203": 114,
+        "G20802": 494,
+        "M11401": 330,
+        "S20301": 912,
+        "R10410": 178,
+        "R10310": 342,
+        "G21901": 297,
+        "M10901": 348,
+        "N10201": 436,
+        "N10402": 185,
+        "I20201": 568,
+        "G20902": 750,
+        "P10799": 108,
+        "S20703": 686,
+        "I21007": 934,
+        "I20112": 366,
+        "Q10402": 55,
+        "N10999": 34,
+        "I10104": 18,
+        "G20509": 304,
+        "N11099": 70,
+        "G20505": 166,
+        "G20911": 52,
+        "I21101": 942,
+        "M11101": 65,
+        "P10611": 159,
+        "M10402": 200,
+        "G21099": 37,
+        "G20508": 216,
+        "P10701": 60,
+        "N10202": 107,
+        "Q10211": 53,
+        "M11201": 395,
+        "S20401": 91,
+        "M11301": 291,
+        "S20801": 164,
+        "N10301": 28,
+        "P10601": 180,
+        "G20803": 170,
+        "I20103": 186,
+        "G20506": 194,
+        "P10625": 327,
+        "I20199": 42,
+        "R10405": 95,
+        "G20901": 161,
+        "R10407": 581,
+        "G20701": 65,
+        "P10613": 80,
+        "G20910": 143,
+        "G20201": 35,
+        "G20801": 98,
+        "G22201": 147,
+        "G20301": 70,
+        "N10403": 48,
+        "G21601": 34,
+        "P10609": 206,
+        "G21602": 226,
+        "G21001": 270,
+        "G21801": 90,
+        "M10502": 36,
+        "R10402": 3,
+        "S21002": 15,
+        "I20403": 11,
+        "I10103": 311,
+        "G21002": 122,
+        "R10312": 41,
+        "P10629": 126,
+        "R10202": 230,
+        "N10805": 58,
+        "P10605": 102,
+        "N11102": 30,
+        "G20904": 39,
+        "G21305": 58,
+        "G20499": 127,
+        "G21202": 179,
+        "Q10209": 28,
+        "S20501": 229,
+        "N10203": 109,
+        "P10621": 36,
+        "M10703": 392,
+        "S20601": 132,
+        "R10307": 282,
+        "G21701": 241,
+        "G20909": 56,
+        "P10627": 18,
+        "R10309": 24,
+        "I20110": 196,
+        "M10303": 136,
+        "I21008": 49,
+        "S20902": 108,
+        "N10703": 30,
+        "I20501": 82,
+        "S21001": 54,
+        "I20106": 122,
+        "I10201": 104,
+        "G21303": 5,
+        "I20109": 163,
+        "I20108": 143,
+        "G20504": 68,
+        "M10904": 40,
+        "N10401": 171,
+        "R10311": 337,
+        "R10406": 186,
+        "N11004": 35,
+        "Q10105": 30,
+        "S20802": 157,
+        "G20903": 115,
+        "M10401": 17,
+        "N11101": 79,
+        "N10101": 134,
+        "N10501": 186,
+        "M10903": 119,
+        "M10902": 17,
+        "R10308": 8,
+        "I21005": 73,
+        "N10802": 190,
+        "G21402": 27,
+        "I21102": 42,
+        "G21203": 27,
+        "I20701": 162,
+        "G20602": 12,
+        "M11202": 26,
+        "N10799": 19,
+        "G20907": 93,
+        "P10619": 11,
+        "I21099": 188,
+        "G21201": 103,
+        "M10599": 24,
+        "P10623": 6,
+        "G21003": 26,
+        "G21306": 97,
+        "I21002": 224,
+        "M10307": 32,
+        "I20302": 42,
+        "I20702": 42,
+        "M10306": 60,
+        "S20602": 22,
+        "M10504": 84,
+        "Q10204": 82,
+        "P10615": 105,
+        "S20803": 114,
+        "R10408": 7,
+        "Q10207": 14,
+        "I20202": 93,
+        "Q10103": 3,
+        "M11504": 19,
+        "R10499": 70,
+        "G21603": 4,
+        "I20399": 17,
+        "S20603": 5,
+        "M11204": 9,
+        "S21101": 14,
+        "I20104": 14,
+        "Q10101": 9,
+        "S21105": 22,
+        "R10409": 18,
+        "N11001": 20,
+        "I20303": 49,
+        "Q10203": 11,
+        "P10607": 8,
+        "G20501": 11,
+        "Q10202": 26,
+        "Q10208": 17,
+        "Q10104": 5,
+        "G20604": 8,
+        "R10313": 46,
+        "Q10102": 23,
+        "I20113": 21,
+        "Q10212": 4,
+        "R10314": 42,
+        "S20201": 20,
+        "G20603": 31,
+        "R10306": 7,
+        "I20402": 32,
+        "I10299": 9,
+        "G20502": 7,
+        "N10599": 10,
+        "M10302": 6,
+        "I20499": 11,
+        "P10617": 3,
+        "M10499": 1,
+        "M10601": 6,
+        "Q10206": 5,
+        "N11003": 10,
+        "G20601": 5,
+        "G20507": 3,
+        "R10414": 10,
+        "M10399": 6,
+        "M10503": 2,
+        "I20599": 4,
+        "R10316": 1,
+        "Q10205": 2
+      },
+      "classificationLabelDifferenceByField": {
+        "상권업종대분류명": 54737,
+        "상권업종중분류명": 54274,
+        "상권업종소분류명": 216
+      },
+      "classificationLabelExamples": [
+        {
+          "code": "S20699",
+          "snapshotLarge": "수리·개인",
+          "codebookLarge": "수리 및 개인 서비스업",
+          "snapshotMedium": "기타 가정용품 수리",
+          "codebookMedium": "기타 개인 및 가정용품 수리업",
+          "snapshotSmall": "그 외 기타 개인/가정용품 수리업",
+          "codebookSmall": "그 외 기타 개인/가정용품 수리업"
+        },
+        {
+          "code": "G22199",
+          "snapshotLarge": "소매",
+          "codebookLarge": "소매업",
+          "snapshotMedium": "기타 상품 소매",
+          "codebookMedium": "기타 상품 전문 소매업",
+          "snapshotSmall": "그 외 기타 상품 전문 소매업",
+          "codebookSmall": "그 외 기타 상품 전문 소매업"
+        },
+        {
+          "code": "G20404",
+          "snapshotLarge": "소매",
+          "codebookLarge": "소매업",
+          "snapshotMedium": "종합 소매",
+          "codebookMedium": "종합 소매업",
+          "snapshotSmall": "슈퍼마켓",
+          "codebookSmall": "슈퍼마켓"
+        },
+        {
+          "code": "M11502",
+          "snapshotLarge": "과학·기술",
+          "codebookLarge": "전문, 과학 및 기술 서비스업",
+          "snapshotMedium": "기타 전문 과학",
+          "codebookMedium": "그 외 기타 전문, 과학 및 기술 서비스업",
+          "snapshotSmall": "번역/통역 서비스업",
+          "codebookSmall": "번역/통역 서비스업"
+        },
+        {
+          "code": "G21304",
+          "snapshotLarge": "소매",
+          "codebookLarge": "소매업",
+          "snapshotMedium": "오락용품 소매",
+          "codebookMedium": "문화, 오락 및 여가 용품 소매업",
+          "snapshotSmall": "운동용품 소매업",
+          "codebookSmall": "운동용품 소매업"
+        },
+        {
+          "code": "I21001",
+          "snapshotLarge": "음식",
+          "codebookLarge": "음식점업",
+          "snapshotMedium": "기타 간이",
+          "codebookMedium": "기타 간이 음식점업",
+          "snapshotSmall": "빵/도넛",
+          "codebookSmall": "빵/도넛"
+        },
+        {
+          "code": "G20905",
+          "snapshotLarge": "소매",
+          "codebookLarge": "소매업",
+          "snapshotMedium": "섬유·의복·신발 소매",
+          "codebookMedium": "섬유, 의복, 신발 및 가죽제품 소매업",
+          "snapshotSmall": "기타 의류 소매업",
+          "codebookSmall": "기타 의류 소매업"
+        },
+        {
+          "code": "G20503",
+          "snapshotLarge": "소매",
+          "codebookLarge": "소매업",
+          "snapshotMedium": "식료품 소매",
+          "codebookMedium": "식료품 소매업",
+          "snapshotSmall": "정육점",
+          "codebookSmall": "정육점"
+        },
+        {
+          "code": "I20101",
+          "snapshotLarge": "음식",
+          "codebookLarge": "음식점업",
+          "snapshotMedium": "한식",
+          "codebookMedium": "한식 음식점업",
+          "snapshotSmall": "백반/한정식",
+          "codebookSmall": "백반/한정식"
+        },
+        {
+          "code": "P10501",
+          "snapshotLarge": "교육",
+          "codebookLarge": "교육 서비스업",
+          "snapshotMedium": "일반 교육",
+          "codebookMedium": "일반 교육기관",
+          "snapshotSmall": "입시·교과학원",
+          "codebookSmall": "입시·교과학원"
+        },
+        {
+          "code": "G21301",
+          "snapshotLarge": "소매",
+          "codebookLarge": "소매업",
+          "snapshotMedium": "오락용품 소매",
+          "codebookMedium": "문화, 오락 및 여가 용품 소매업",
+          "snapshotSmall": "서점",
+          "codebookSmall": "서점"
+        },
+        {
+          "code": "I20301",
+          "snapshotLarge": "음식",
+          "codebookLarge": "음식점업",
+          "snapshotMedium": "일식",
+          "codebookMedium": "일식 음식점업",
+          "snapshotSmall": "일식 회/초밥",
+          "codebookSmall": "일식 회/초밥"
+        }
+      ],
+      "sampleRow": {
+        "상가업소번호": "MA0106202201A1890350",
+        "상호명": "비엔나커피천곡점",
+        "지점명": "",
+        "상권업종대분류코드": "I2",
+        "상권업종대분류명": "음식",
+        "상권업종중분류코드": "I212",
+        "상권업종중분류명": "비알코올 ",
+        "상권업종소분류코드": "I21201",
+        "상권업종소분류명": "카페",
+        "표준산업분류코드": "I56111",
+        "표준산업분류명": "한식 일반 음식점업",
+        "시도코드": "31",
+        "시도명": "울산광역시",
+        "시군구코드": "31200",
+        "시군구명": "북구",
+        "행정동코드": "31200530",
+        "행정동명": "농소3동",
+        "법정동코드": "3120010800",
+        "법정동명": "천곡동",
+        "지번코드": "3120010800104510004",
+        "대지구분코드": "1",
+        "대지구분명": "대지",
+        "지번본번지": "451",
+        "지번부번지": "4",
+        "지번주소": "울산광역시 북구 천곡동 451-4",
+        "도로명코드": "312003172026",
+        "도로명": "울산광역시 북구 천곡남로",
+        "건물본번지": "86",
+        "건물부번지": "",
+        "건물관리번호": "3120010800104510004000001",
+        "건물명": "",
+        "도로명주소": "울산광역시 북구 천곡남로 86",
+        "구우편번호": "683500",
+        "신우편번호": "44203",
+        "동정보": "",
+        "층정보": "",
+        "호정보": "",
+        "경도": "129.334606688467",
+        "위도": "35.6362892124302"
+      }
+    },
+    "202609": {
+      "asOf": "2026-09-30",
+      "rows": 53777,
+      "columns": 39,
+      "uniqueIds": 53777,
+      "duplicateIdRows": 0,
+      "missingIdRows": 0,
+      "districts": {
+        "중구": 9499,
+        "동구": 6183,
+        "북구": 7852,
+        "울주군": 10384,
+        "남구": 19859
+      },
+      "largeIndustries": {
+        "보건의료": 540,
+        "수리·개인": 7580,
+        "교육": 3089,
+        "소매": 12504,
+        "부동산": 1809,
+        "음식": 18972,
+        "숙박": 1067,
+        "과학·기술": 3568,
+        "시설관리·임대": 2148,
+        "예술·스포츠": 2500
+      },
+      "districtByLarge": [
+        {
+          "district": "남구",
+          "industry": "과학·기술",
+          "count": 1748
+        },
+        {
+          "district": "남구",
+          "industry": "교육",
+          "count": 1181
+        },
+        {
+          "district": "남구",
+          "industry": "보건의료",
+          "count": 272
+        },
+        {
+          "district": "남구",
+          "industry": "부동산",
+          "count": 801
+        },
+        {
+          "district": "남구",
+          "industry": "소매",
+          "count": 4421
+        },
+        {
+          "district": "남구",
+          "industry": "수리·개인",
+          "count": 2897
+        },
+        {
+          "district": "남구",
+          "industry": "숙박",
+          "count": 346
+        },
+        {
+          "district": "남구",
+          "industry": "시설관리·임대",
+          "count": 853
+        },
+        {
+          "district": "남구",
+          "industry": "예술·스포츠",
+          "count": 830
+        },
+        {
+          "district": "남구",
+          "industry": "음식",
+          "count": 6510
+        },
+        {
+          "district": "동구",
+          "industry": "과학·기술",
+          "count": 226
+        },
+        {
+          "district": "동구",
+          "industry": "교육",
+          "count": 296
+        },
+        {
+          "district": "동구",
+          "industry": "보건의료",
+          "count": 42
+        },
+        {
+          "district": "동구",
+          "industry": "부동산",
+          "count": 122
+        },
+        {
+          "district": "동구",
+          "industry": "소매",
+          "count": 1507
+        },
+        {
+          "district": "동구",
+          "industry": "수리·개인",
+          "count": 855
+        },
+        {
+          "district": "동구",
+          "industry": "숙박",
+          "count": 105
+        },
+        {
+          "district": "동구",
+          "industry": "시설관리·임대",
+          "count": 167
+        },
+        {
+          "district": "동구",
+          "industry": "예술·스포츠",
+          "count": 333
+        },
+        {
+          "district": "동구",
+          "industry": "음식",
+          "count": 2530
+        },
+        {
+          "district": "북구",
+          "industry": "과학·기술",
+          "count": 363
+        },
+        {
+          "district": "북구",
+          "industry": "교육",
+          "count": 569
+        },
+        {
+          "district": "북구",
+          "industry": "보건의료",
+          "count": 72
+        },
+        {
+          "district": "북구",
+          "industry": "부동산",
+          "count": 250
+        },
+        {
+          "district": "북구",
+          "industry": "소매",
+          "count": 1741
+        },
+        {
+          "district": "북구",
+          "industry": "수리·개인",
+          "count": 1213
+        },
+        {
+          "district": "북구",
+          "industry": "숙박",
+          "count": 121
+        },
+        {
+          "district": "북구",
+          "industry": "시설관리·임대",
+          "count": 216
+        },
+        {
+          "district": "북구",
+          "industry": "예술·스포츠",
+          "count": 447
+        },
+        {
+          "district": "북구",
+          "industry": "음식",
+          "count": 2860
+        },
+        {
+          "district": "울주군",
+          "industry": "과학·기술",
+          "count": 552
+        },
+        {
+          "district": "울주군",
+          "industry": "교육",
+          "count": 482
+        },
+        {
+          "district": "울주군",
+          "industry": "보건의료",
+          "count": 73
+        },
+        {
+          "district": "울주군",
+          "industry": "부동산",
+          "count": 360
+        },
+        {
+          "district": "울주군",
+          "industry": "소매",
+          "count": 2283
+        },
+        {
+          "district": "울주군",
+          "industry": "수리·개인",
+          "count": 1211
+        },
+        {
+          "district": "울주군",
+          "industry": "숙박",
+          "count": 385
+        },
+        {
+          "district": "울주군",
+          "industry": "시설관리·임대",
+          "count": 548
+        },
+        {
+          "district": "울주군",
+          "industry": "예술·스포츠",
+          "count": 469
+        },
+        {
+          "district": "울주군",
+          "industry": "음식",
+          "count": 4021
+        },
+        {
+          "district": "중구",
+          "industry": "과학·기술",
+          "count": 679
+        },
+        {
+          "district": "중구",
+          "industry": "교육",
+          "count": 561
+        },
+        {
+          "district": "중구",
+          "industry": "보건의료",
+          "count": 81
+        },
+        {
+          "district": "중구",
+          "industry": "부동산",
+          "count": 276
+        },
+        {
+          "district": "중구",
+          "industry": "소매",
+          "count": 2552
+        },
+        {
+          "district": "중구",
+          "industry": "수리·개인",
+          "count": 1404
+        },
+        {
+          "district": "중구",
+          "industry": "숙박",
+          "count": 110
+        },
+        {
+          "district": "중구",
+          "industry": "시설관리·임대",
+          "count": 364
+        },
+        {
+          "district": "중구",
+          "industry": "예술·스포츠",
+          "count": 421
+        },
+        {
+          "district": "중구",
+          "industry": "음식",
+          "count": 3051
+        }
+      ],
+      "smallIndustries": [
+        {
+          "code": "I20101",
+          "name": "백반/한정식",
+          "count": 4309
+        },
+        {
+          "code": "S20701",
+          "name": "미용실",
+          "count": 3057
+        },
+        {
+          "code": "I21201",
+          "name": "카페",
+          "count": 2464
+        },
+        {
+          "code": "L10203",
+          "name": "부동산 중개/대리업",
+          "count": 1809
+        },
+        {
+          "code": "I20107",
+          "name": "돼지고기 구이/찜",
+          "count": 1529
+        },
+        {
+          "code": "G20404",
+          "name": "슈퍼마켓",
+          "count": 1389
+        },
+        {
+          "code": "I21104",
+          "name": "요리 주점",
+          "count": 1248
+        },
+        {
+          "code": "G20405",
+          "name": "편의점",
+          "count": 1148
+        },
+        {
+          "code": "P10501",
+          "name": "입시·교과학원",
+          "count": 1089
+        },
+        {
+          "code": "G20905",
+          "name": "기타 의류 소매업",
+          "count": 1047
+        },
+        {
+          "code": "I21006",
+          "name": "치킨",
+          "count": 1004
+        },
+        {
+          "code": "S20301",
+          "name": "자동차 정비소",
+          "count": 901
+        },
+        {
+          "code": "I21007",
+          "name": "김밥/만두/분식",
+          "count": 887
+        },
+        {
+          "code": "I21101",
+          "name": "일반 유흥 주점",
+          "count": 879
+        },
+        {
+          "code": "S20702",
+          "name": "피부 관리실",
+          "count": 834
+        },
+        {
+          "code": "G20902",
+          "name": "여성 의류 소매업",
+          "count": 720
+        },
+        {
+          "code": "S20703",
+          "name": "네일숍",
+          "count": 675
+        },
+        {
+          "code": "I20102",
+          "name": "국/탕/찌개류",
+          "count": 664
+        },
+        {
+          "code": "G21503",
+          "name": "화장품 소매업",
+          "count": 661
+        },
+        {
+          "code": "I21001",
+          "name": "빵/도넛",
+          "count": 627
+        },
+        {
+          "code": "I10102",
+          "name": "여관/모텔",
+          "count": 578
+        },
+        {
+          "code": "I20111",
+          "name": "횟집",
+          "count": 551
+        },
+        {
+          "code": "I20201",
+          "name": "중국집",
+          "count": 549
+        },
+        {
+          "code": "R10407",
+          "name": "노래방",
+          "count": 545
+        },
+        {
+          "code": "G20802",
+          "name": "핸드폰 소매업",
+          "count": 494
+        },
+        {
+          "code": "I20105",
+          "name": "국수/칼국수",
+          "count": 460
+        },
+        {
+          "code": "N10201",
+          "name": "건축물 일반 청소업",
+          "count": 451
+        },
+        {
+          "code": "P10603",
+          "name": "요가/필라테스 학원",
+          "count": 448
+        },
+        {
+          "code": "G21501",
+          "name": "약국",
+          "count": 431
+        },
+        {
+          "code": "M10703",
+          "name": "경영 컨설팅업",
+          "count": 408
+        },
+        {
+          "code": "M10999",
+          "name": "기타 엔지니어링 서비스업",
+          "count": 388
+        },
+        {
+          "code": "I20401",
+          "name": "경양식",
+          "count": 386
+        },
+        {
+          "code": "S20901",
+          "name": "세탁소",
+          "count": 384
+        },
+        {
+          "code": "M11201",
+          "name": "인테리어 디자인업",
+          "count": 381
+        },
+        {
+          "code": "G20503",
+          "name": "정육점",
+          "count": 380
+        },
+        {
+          "code": "I20301",
+          "name": "일식 회/초밥",
+          "count": 362
+        },
+        {
+          "code": "I20112",
+          "name": "해산물 구이/찜",
+          "count": 350
+        },
+        {
+          "code": "M10901",
+          "name": "건축 설계 및 관련 서비스업",
+          "count": 349
+        },
+        {
+          "code": "R10311",
+          "name": "골프 연습장",
+          "count": 340
+        },
+        {
+          "code": "P10625",
+          "name": "기타 기술/직업 훈련학원",
+          "count": 337
+        },
+        {
+          "code": "S20302",
+          "name": "자동차 세차장",
+          "count": 333
+        },
+        {
+          "code": "I21003",
+          "name": "피자",
+          "count": 331
+        },
+        {
+          "code": "R10310",
+          "name": "당구장",
+          "count": 328
+        },
+        {
+          "code": "M11401",
+          "name": "명함/간판/광고물 제작",
+          "count": 326
+        },
+        {
+          "code": "I10103",
+          "name": "펜션",
+          "count": 316
+        },
+        {
+          "code": "R10307",
+          "name": "헬스장",
+          "count": 301
+        },
+        {
+          "code": "G21901",
+          "name": "꽃집",
+          "count": 295
+        },
+        {
+          "code": "I21103",
+          "name": "생맥주 전문",
+          "count": 292
+        },
+        {
+          "code": "M11301",
+          "name": "사진촬영업",
+          "count": 289
+        },
+        {
+          "code": "G20509",
+          "name": "반찬/식료품 소매업",
+          "count": 284
+        },
+        {
+          "code": "G21001",
+          "name": "철물/공구 소매업",
+          "count": 270
+        },
+        {
+          "code": "G21401",
+          "name": "주유소",
+          "count": 268
+        },
+        {
+          "code": "G21701",
+          "name": "시계/귀금속 소매업",
+          "count": 241
+        },
+        {
+          "code": "G22199",
+          "name": "그 외 기타 상품 전문 소매업",
+          "count": 237
+        },
+        {
+          "code": "S20501",
+          "name": "가전제품 수리업",
+          "count": 227
+        },
+        {
+          "code": "R10202",
+          "name": "독서실/스터디 카페",
+          "count": 226
+        },
+        {
+          "code": "G21602",
+          "name": "안경렌즈 소매업",
+          "count": 223
+        },
+        {
+          "code": "I21002",
+          "name": "떡/한과",
+          "count": 222
+        },
+        {
+          "code": "M10501",
+          "name": "광고 대행업",
+          "count": 217
+        },
+        {
+          "code": "G20508",
+          "name": "건강보조식품 소매업",
+          "count": 207
+        },
+        {
+          "code": "G20906",
+          "name": "침구류/커튼 소매업",
+          "count": 207
+        },
+        {
+          "code": "P10609",
+          "name": "음악학원",
+          "count": 207
+        },
+        {
+          "code": "G21304",
+          "name": "운동용품 소매업",
+          "count": 205
+        },
+        {
+          "code": "G22001",
+          "name": "애완동물/애완용품 소매업",
+          "count": 202
+        },
+        {
+          "code": "G20506",
+          "name": "채소/과일 소매업",
+          "count": 201
+        },
+        {
+          "code": "M10402",
+          "name": "세무사",
+          "count": 199
+        },
+        {
+          "code": "N10402",
+          "name": "임시/일용 인력 공급업",
+          "count": 192
+        },
+        {
+          "code": "G21101",
+          "name": "가구 소매업",
+          "count": 190
+        },
+        {
+          "code": "N10802",
+          "name": "전시/컨벤션/행사 대행 서비스업",
+          "count": 190
+        },
+        {
+          "code": "P10601",
+          "name": "태권도/무술학원",
+          "count": 185
+        },
+        {
+          "code": "N10501",
+          "name": "여행사",
+          "count": 185
+        },
+        {
+          "code": "I20103",
+          "name": "족발/보쌈",
+          "count": 183
+        },
+        {
+          "code": "I20110",
+          "name": "닭/오리고기 구이/찜",
+          "count": 182
+        },
+        {
+          "code": "I21099",
+          "name": "그 외 기타 간이 음식점",
+          "count": 180
+        },
+        {
+          "code": "G21302",
+          "name": "문구/회화용품 소매업",
+          "count": 177
+        },
+        {
+          "code": "R10410",
+          "name": "복권 발행/판매업",
+          "count": 174
+        },
+        {
+          "code": "G21202",
+          "name": "주방/가정용품 소매업",
+          "count": 174
+        },
+        {
+          "code": "G20505",
+          "name": "수산물 소매업",
+          "count": 172
+        },
+        {
+          "code": "R10406",
+          "name": "PC방",
+          "count": 170
+        },
+        {
+          "code": "S20801",
+          "name": "목욕탕/사우나",
+          "count": 169
+        },
+        {
+          "code": "I20701",
+          "name": "구내식당",
+          "count": 169
+        },
+        {
+          "code": "G20803",
+          "name": "가전제품 소매업",
+          "count": 168
+        },
+        {
+          "code": "N10401",
+          "name": "고용 알선업",
+          "count": 164
+        },
+        {
+          "code": "S20101",
+          "name": "컴퓨터/노트북/프린터 수리업",
+          "count": 159
+        },
+        {
+          "code": "M10301",
+          "name": "변호사",
+          "count": 159
+        },
+        {
+          "code": "P10611",
+          "name": "미술학원",
+          "count": 157
+        },
+        {
+          "code": "I20109",
+          "name": "곱창 전골/구이",
+          "count": 155
+        },
+        {
+          "code": "G22201",
+          "name": "중고 상품 소매업",
+          "count": 148
+        },
+        {
+          "code": "G20901",
+          "name": "남성 의류 소매업",
+          "count": 148
+        },
+        {
+          "code": "S20802",
+          "name": "마사지/안마",
+          "count": 147
+        },
+        {
+          "code": "G20202",
+          "name": "자동차 부품 소매업",
+          "count": 144
+        },
+        {
+          "code": "I20108",
+          "name": "소고기 구이/찜",
+          "count": 141
+        },
+        {
+          "code": "G20910",
+          "name": "신발 소매업",
+          "count": 139
+        },
+        {
+          "code": "I21004",
+          "name": "버거",
+          "count": 137
+        },
+        {
+          "code": "N10101",
+          "name": "사업시설 유지·관리 서비스업",
+          "count": 135
+        },
+        {
+          "code": "M10303",
+          "name": "법무사",
+          "count": 135
+        },
+        {
+          "code": "S20601",
+          "name": "의류/이불 수선업",
+          "count": 130
+        },
+        {
+          "code": "G20499",
+          "name": "그 외 기타 종합 소매업",
+          "count": 127
+        },
+        {
+          "code": "P10629",
+          "name": "그 외 기타 교육기관",
+          "count": 123
+        },
+        {
+          "code": "G21502",
+          "name": "의료기기 소매업",
+          "count": 121
+        },
+        {
+          "code": "G21002",
+          "name": "벽지/장판/마루 소매업",
+          "count": 120
+        },
+        {
+          "code": "M10903",
+          "name": "건물 및 토목 엔지니어링 서비스업",
+          "count": 118
+        },
+        {
+          "code": "M11203",
+          "name": "시각 디자인업",
+          "count": 116
+        },
+        {
+          "code": "S20803",
+          "name": "체형/비만 관리",
+          "count": 114
+        },
+        {
+          "code": "I20106",
+          "name": "냉면/밀면",
+          "count": 112
+        },
+        {
+          "code": "P10799",
+          "name": "기타 교육지원 서비스업",
+          "count": 112
+        },
+        {
+          "code": "S20902",
+          "name": "셀프 빨래방",
+          "count": 109
+        },
+        {
+          "code": "G21802",
+          "name": "기념품점",
+          "count": 109
+        },
+        {
+          "code": "G21301",
+          "name": "서점",
+          "count": 107
+        },
+        {
+          "code": "P10615",
+          "name": "외국어학원",
+          "count": 106
+        },
+        {
+          "code": "N10202",
+          "name": "산업설비; 운송장비 및 공공장소 청소업",
+          "count": 106
+        },
+        {
+          "code": "G20903",
+          "name": "유아용 의류 소매업",
+          "count": 103
+        },
+        {
+          "code": "I10201",
+          "name": "기숙사/고시원",
+          "count": 101
+        },
+        {
+          "code": "G21201",
+          "name": "전기용품/조명장치 소매업",
+          "count": 101
+        },
+        {
+          "code": "Q10210",
+          "name": "치과의원",
+          "count": 100
+        },
+        {
+          "code": "N10203",
+          "name": "소독; 구충 및 방제 서비스업",
+          "count": 100
+        },
+        {
+          "code": "S20699",
+          "name": "그 외 기타 개인/가정용품 수리업",
+          "count": 99
+        },
+        {
+          "code": "P10605",
+          "name": "레크리에이션 교육기관",
+          "count": 98
+        },
+        {
+          "code": "G20801",
+          "name": "컴퓨터/소프트웨어 소매업",
+          "count": 96
+        },
+        {
+          "code": "G21306",
+          "name": "장난감 소매업",
+          "count": 96
+        },
+        {
+          "code": "G21801",
+          "name": "예술품 소매업",
+          "count": 93
+        },
+        {
+          "code": "R10405",
+          "name": "기타 오락장",
+          "count": 91
+        },
+        {
+          "code": "G20907",
+          "name": "액세서리/잡화 소매업",
+          "count": 90
+        },
+        {
+          "code": "S20401",
+          "name": "모터사이클 수리업",
+          "count": 90
+        },
+        {
+          "code": "P10613",
+          "name": "기타 예술/스포츠 교육기관",
+          "count": 89
+        },
+        {
+          "code": "I20501",
+          "name": "베트남식 전문",
+          "count": 86
+        },
+        {
+          "code": "I20202",
+          "name": "마라탕/훠궈",
+          "count": 86
+        },
+        {
+          "code": "M10504",
+          "name": "광고물 설계/제작업",
+          "count": 83
+        },
+        {
+          "code": "Q10204",
+          "name": "피부/비뇨기과 의원",
+          "count": 82
+        },
+        {
+          "code": "N11199",
+          "name": "기타 산업용 기계/장비 대여업",
+          "count": 78
+        },
+        {
+          "code": "N11101",
+          "name": "건설기계/장비 대여업",
+          "count": 77
+        },
+        {
+          "code": "I21005",
+          "name": "토스트/샌드위치/샐러드",
+          "count": 74
+        },
+        {
+          "code": "N11099",
+          "name": "기타 개인/가정용품 대여업",
+          "count": 74
+        },
+        {
+          "code": "G21403",
+          "name": "가정용 연료 소매업",
+          "count": 73
+        },
+        {
+          "code": "G20301",
+          "name": "모터사이클 및 부품 소매업",
+          "count": 69
+        },
+        {
+          "code": "R10499",
+          "name": "기타 오락관련 서비스업",
+          "count": 69
+        },
+        {
+          "code": "G20504",
+          "name": "건어물/젓갈 소매업",
+          "count": 67
+        },
+        {
+          "code": "Q10201",
+          "name": "내과/소아과 의원",
+          "count": 65
+        },
+        {
+          "code": "G20701",
+          "name": "담배/전자담배 소매업",
+          "count": 65
+        },
+        {
+          "code": "M11101",
+          "name": "동물병원",
+          "count": 63
+        },
+        {
+          "code": "N10901",
+          "name": "자동차 대여업",
+          "count": 62
+        },
+        {
+          "code": "M10306",
+          "name": "행정사",
+          "count": 61
+        },
+        {
+          "code": "P10701",
+          "name": "교육컨설팅업",
+          "count": 58
+        },
+        {
+          "code": "G20909",
+          "name": "실/섬유제품 소매업",
+          "count": 57
+        },
+        {
+          "code": "G21305",
+          "name": "자전거 소매업",
+          "count": 57
+        },
+        {
+          "code": "Q10211",
+          "name": "한의원",
+          "count": 56
+        },
+        {
+          "code": "N10805",
+          "name": "포장/충전업",
+          "count": 55
+        },
+        {
+          "code": "S21001",
+          "name": "장례식장",
+          "count": 53
+        },
+        {
+          "code": "G20911",
+          "name": "가방 소매업",
+          "count": 52
+        },
+        {
+          "code": "N10403",
+          "name": "상용 인력 공급 및 인사관리 서비스업",
+          "count": 50
+        },
+        {
+          "code": "Q10402",
+          "name": "유사 의료업",
+          "count": 50
+        },
+        {
+          "code": "I21008",
+          "name": "아이스크림/빙수",
+          "count": 49
+        },
+        {
+          "code": "I20303",
+          "name": "일식 면 요리",
+          "count": 49
+        },
+        {
+          "code": "R10313",
+          "name": "탁구장",
+          "count": 48
+        },
+        {
+          "code": "I10101",
+          "name": "호텔/리조트",
+          "count": 45
+        },
+        {
+          "code": "R10404",
+          "name": "전자 게임장",
+          "count": 45
+        },
+        {
+          "code": "R10314",
+          "name": "기타 스포츠시설 운영업",
+          "count": 45
+        },
+        {
+          "code": "R10312",
+          "name": "테니스장",
+          "count": 42
+        },
+        {
+          "code": "I20199",
+          "name": "기타 한식 음식점",
+          "count": 41
+        },
+        {
+          "code": "M10904",
+          "name": "환경 관련 엔지니어링 서비스업",
+          "count": 40
+        },
+        {
+          "code": "I21102",
+          "name": "무도 유흥 주점",
+          "count": 38
+        },
+        {
+          "code": "G20904",
+          "name": "한복 소매업",
+          "count": 37
+        },
+        {
+          "code": "G21099",
+          "name": "기타 건설/건축자재 소매업",
+          "count": 37
+        },
+        {
+          "code": "I20702",
+          "name": "뷔페",
+          "count": 37
+        },
+        {
+          "code": "M10502",
+          "name": "옥외/전시 광고 대행업",
+          "count": 36
+        },
+        {
+          "code": "N11004",
+          "name": "의류 대여업",
+          "count": 35
+        },
+        {
+          "code": "N10999",
+          "name": "기타 운송장비 대여업",
+          "count": 35
+        },
+        {
+          "code": "G21601",
+          "name": "사무기기 소매업",
+          "count": 35
+        },
+        {
+          "code": "G20201",
+          "name": "타이어 소매업",
+          "count": 34
+        },
+        {
+          "code": "I20302",
+          "name": "일식 카레/돈가스/덮밥",
+          "count": 33
+        },
+        {
+          "code": "M11502",
+          "name": "번역/통역 서비스업",
+          "count": 33
+        },
+        {
+          "code": "P10621",
+          "name": "직원 훈련기관",
+          "count": 33
+        },
+        {
+          "code": "N11102",
+          "name": "컴퓨터/사무기기 대여업",
+          "count": 31
+        },
+        {
+          "code": "N10703",
+          "name": "복사업",
+          "count": 31
+        },
+        {
+          "code": "I20402",
+          "name": "파스타/스테이크",
+          "count": 31
+        },
+        {
+          "code": "G20603",
+          "name": "생수/음료 소매업",
+          "count": 31
+        },
+        {
+          "code": "Q10105",
+          "name": "요양병원",
+          "count": 30
+        },
+        {
+          "code": "Q10209",
+          "name": "기타 의원",
+          "count": 30
+        },
+        {
+          "code": "M10307",
+          "name": "공인노무사",
+          "count": 29
+        },
+        {
+          "code": "N10301",
+          "name": "조경 유지·관리 서비스업",
+          "count": 29
+        },
+        {
+          "code": "Q10202",
+          "name": "외과 의원",
+          "count": 28
+        },
+        {
+          "code": "G21402",
+          "name": "가스 충전소",
+          "count": 27
+        },
+        {
+          "code": "M11202",
+          "name": "제품 디자인업",
+          "count": 27
+        },
+        {
+          "code": "G21203",
+          "name": "악기 소매업",
+          "count": 27
+        },
+        {
+          "code": "G21003",
+          "name": "건설/건축자재 소매업",
+          "count": 27
+        },
+        {
+          "code": "R10309",
+          "name": "볼링장",
+          "count": 24
+        },
+        {
+          "code": "N11001",
+          "name": "스포츠/레크리에이션 용품 대여업",
+          "count": 24
+        },
+        {
+          "code": "M10599",
+          "name": "기타 광고 관련 서비스업",
+          "count": 23
+        },
+        {
+          "code": "Q10102",
+          "name": "일반병원",
+          "count": 23
+        },
+        {
+          "code": "N10799",
+          "name": "기타 사무 지원 서비스업",
+          "count": 22
+        },
+        {
+          "code": "S20602",
+          "name": "가죽/가방/신발 수선업",
+          "count": 22
+        },
+        {
+          "code": "S20201",
+          "name": "핸드폰/통신장비 수리업",
+          "count": 22
+        },
+        {
+          "code": "M10401",
+          "name": "공인회계사",
+          "count": 21
+        },
+        {
+          "code": "M11504",
+          "name": "사업/무형 재산권 중개업",
+          "count": 20
+        },
+        {
+          "code": "I20113",
+          "name": "복 요리 전문",
+          "count": 20
+        },
+        {
+          "code": "R10409",
+          "name": "수상/해양 레저업",
+          "count": 19
+        },
+        {
+          "code": "S21105",
+          "name": "결혼 상담 서비스업",
+          "count": 19
+        },
+        {
+          "code": "P10627",
+          "name": "컴퓨터 학원",
+          "count": 18
+        },
+        {
+          "code": "I10104",
+          "name": "캠핑/글램핑",
+          "count": 18
+        },
+        {
+          "code": "I20399",
+          "name": "기타 일식 음식점",
+          "count": 17
+        },
+        {
+          "code": "Q10208",
+          "name": "성형외과 의원",
+          "count": 17
+        },
+        {
+          "code": "S21002",
+          "name": "화장터/묘지/납골당",
+          "count": 17
+        },
+        {
+          "code": "M10902",
+          "name": "도시 계획 및 조경 설계 서비스업",
+          "count": 17
+        },
+        {
+          "code": "G20502",
+          "name": "가축 사료 소매업",
+          "count": 15
+        },
+        {
+          "code": "I20104",
+          "name": "전/부침개",
+          "count": 14
+        },
+        {
+          "code": "Q10207",
+          "name": "산부인과 의원",
+          "count": 14
+        },
+        {
+          "code": "S21101",
+          "name": "예식장업",
+          "count": 14
+        },
+        {
+          "code": "Q10101",
+          "name": "종합병원",
+          "count": 13
+        },
+        {
+          "code": "G20602",
+          "name": "주류 소매업",
+          "count": 13
+        },
+        {
+          "code": "G20908",
+          "name": "가발 소매업",
+          "count": 13
+        },
+        {
+          "code": "N11003",
+          "name": "만화방",
+          "count": 12
+        },
+        {
+          "code": "Q10203",
+          "name": "신경/정신과 의원",
+          "count": 11
+        },
+        {
+          "code": "P10619",
+          "name": "사회교육시설",
+          "count": 11
+        },
+        {
+          "code": "I20403",
+          "name": "패밀리레스토랑",
+          "count": 10
+        },
+        {
+          "code": "G20501",
+          "name": "곡물/곡분 소매업",
+          "count": 10
+        },
+        {
+          "code": "N10599",
+          "name": "기타 여행 보조/예약 서비스업",
+          "count": 10
+        },
+        {
+          "code": "I20499",
+          "name": "기타 서양식 음식점",
+          "count": 10
+        },
+        {
+          "code": "M11204",
+          "name": "패션/섬유/기타 전문 디자인업",
+          "count": 9
+        },
+        {
+          "code": "I10299",
+          "name": "그 외 기타 숙박업",
+          "count": 9
+        },
+        {
+          "code": "G20604",
+          "name": "우유 소매업",
+          "count": 8
+        },
+        {
+          "code": "P10607",
+          "name": "청소년 수련시설",
+          "count": 8
+        },
+        {
+          "code": "R10414",
+          "name": "바둑/장기/체스 경기 운영업",
+          "count": 8
+        },
+        {
+          "code": "R10408",
+          "name": "낚시터 운영업",
+          "count": 7
+        },
+        {
+          "code": "R10308",
+          "name": "수영장",
+          "count": 7
+        },
+        {
+          "code": "R10306",
+          "name": "종합 스포츠시설",
+          "count": 7
+        },
+        {
+          "code": "P10623",
+          "name": "운전학원",
+          "count": 7
+        },
+        {
+          "code": "M10302",
+          "name": "변리사",
+          "count": 6
+        },
+        {
+          "code": "M10601",
+          "name": "시장 조사 및 여론 조사업",
+          "count": 6
+        },
+        {
+          "code": "M10399",
+          "name": "기타 법무관련 서비스업",
+          "count": 6
+        },
+        {
+          "code": "S20603",
+          "name": "시계/귀금속/악기 수리업",
+          "count": 5
+        },
+        {
+          "code": "Q10103",
+          "name": "치과병원",
+          "count": 5
+        },
+        {
+          "code": "G21303",
+          "name": "음반/비디오물 소매업",
+          "count": 5
+        },
+        {
+          "code": "Q10104",
+          "name": "한방병원",
+          "count": 5
+        },
+        {
+          "code": "G20601",
+          "name": "얼음 소매업",
+          "count": 5
+        },
+        {
+          "code": "Q10206",
+          "name": "이비인후과 의원",
+          "count": 5
+        },
+        {
+          "code": "G21603",
+          "name": "사진기/기타 광학기기 소매업",
+          "count": 4
+        },
+        {
+          "code": "I20599",
+          "name": "기타 동남아식 전문",
+          "count": 4
+        },
+        {
+          "code": "Q10212",
+          "name": "방사선 진단/병리 검사 의원",
+          "count": 4
+        },
+        {
+          "code": "P10617",
+          "name": "전문자격/고시학원",
+          "count": 3
+        },
+        {
+          "code": "G20507",
+          "name": "아이스크림 할인점",
+          "count": 3
+        },
+        {
+          "code": "R10402",
+          "name": "비디오방",
+          "count": 3
+        },
+        {
+          "code": "Q10205",
+          "name": "안과 의원",
+          "count": 2
+        },
+        {
+          "code": "M10503",
+          "name": "광고 매체 판매업",
+          "count": 2
+        },
+        {
+          "code": "M10499",
+          "name": "기타 회계 관련 서비스업",
+          "count": 1
+        },
+        {
+          "code": "R10316",
+          "name": "스쿼시/라켓볼장",
+          "count": 1
+        }
+      ],
+      "cafeByDong": [
+        {
+          "district": "남구",
+          "dongCode": "31140570",
+          "dong": "삼산동",
+          "count": 256
+        },
+        {
+          "district": "울주군",
+          "dongCode": "31710259",
+          "dong": "범서읍",
+          "count": 127
+        },
+        {
+          "district": "남구",
+          "dongCode": "31140595",
+          "dong": "무거동",
+          "count": 100
+        },
+        {
+          "district": "중구",
+          "dongCode": "31110585",
+          "dong": "중앙동",
+          "count": 84
+        },
+        {
+          "district": "울주군",
+          "dongCode": "31710253",
+          "dong": "언양읍",
+          "count": 82
+        },
+        {
+          "district": "남구",
+          "dongCode": "31140600",
+          "dong": "옥동",
+          "count": 80
+        },
+        {
+          "district": "남구",
+          "dongCode": "31140560",
+          "dong": "달동",
+          "count": 75
+        },
+        {
+          "district": "북구",
+          "dongCode": "31200560",
+          "dong": "효문동",
+          "count": 70
+        },
+        {
+          "district": "북구",
+          "dongCode": "31200570",
+          "dong": "송정동",
+          "count": 68
+        },
+        {
+          "district": "북구",
+          "dongCode": "31200540",
+          "dong": "강동동",
+          "count": 67
+        },
+        {
+          "district": "울주군",
+          "dongCode": "31710265",
+          "dong": "삼남읍",
+          "count": 66
+        },
+        {
+          "district": "동구",
+          "dongCode": "31170510",
+          "dong": "방어동",
+          "count": 66
+        },
+        {
+          "district": "북구",
+          "dongCode": "31200510",
+          "dong": "농소1동",
+          "count": 64
+        },
+        {
+          "district": "중구",
+          "dongCode": "31110600",
+          "dong": "태화동",
+          "count": 62
+        },
+        {
+          "district": "동구",
+          "dongCode": "31170520",
+          "dong": "일산동",
+          "count": 53
+        },
+        {
+          "district": "북구",
+          "dongCode": "31200520",
+          "dong": "농소2동",
+          "count": 53
+        },
+        {
+          "district": "울주군",
+          "dongCode": "31710380",
+          "dong": "상북면",
+          "count": 52
+        },
+        {
+          "district": "울주군",
+          "dongCode": "31710310",
+          "dong": "서생면",
+          "count": 50
+        },
+        {
+          "district": "울주군",
+          "dongCode": "31710262",
+          "dong": "청량읍",
+          "count": 49
+        },
+        {
+          "district": "울주군",
+          "dongCode": "31710250",
+          "dong": "온산읍",
+          "count": 49
+        },
+        {
+          "district": "울주군",
+          "dongCode": "31710256",
+          "dong": "온양읍",
+          "count": 48
+        },
+        {
+          "district": "남구",
+          "dongCode": "31140520",
+          "dong": "신정2동",
+          "count": 48
+        },
+        {
+          "district": "동구",
+          "dongCode": "31170560",
+          "dong": "전하2동",
+          "count": 44
+        },
+        {
+          "district": "남구",
+          "dongCode": "31140585",
+          "dong": "삼호동",
+          "count": 43
+        },
+        {
+          "district": "남구",
+          "dongCode": "31140530",
+          "dong": "신정3동",
+          "count": 41
+        },
+        {
+          "district": "남구",
+          "dongCode": "31140510",
+          "dong": "신정1동",
+          "count": 41
+        },
+        {
+          "district": "중구",
+          "dongCode": "31110610",
+          "dong": "다운동",
+          "count": 36
+        },
+        {
+          "district": "중구",
+          "dongCode": "31110650",
+          "dong": "성안동",
+          "count": 35
+        },
+        {
+          "district": "북구",
+          "dongCode": "31200530",
+          "dong": "농소3동",
+          "count": 34
+        },
+        {
+          "district": "남구",
+          "dongCode": "31140625",
+          "dong": "대현동",
+          "count": 31
+        },
+        {
+          "district": "동구",
+          "dongCode": "31170600",
+          "dong": "남목3동",
+          "count": 30
+        },
+        {
+          "district": "남구",
+          "dongCode": "31140540",
+          "dong": "신정4동",
+          "count": 30
+        },
+        {
+          "district": "중구",
+          "dongCode": "31110620",
+          "dong": "병영1동",
+          "count": 29
+        },
+        {
+          "district": "울주군",
+          "dongCode": "31710360",
+          "dong": "두동면",
+          "count": 29
+        },
+        {
+          "district": "중구",
+          "dongCode": "31110555",
+          "dong": "복산동",
+          "count": 28
+        },
+        {
+          "district": "중구",
+          "dongCode": "31110590",
+          "dong": "우정동",
+          "count": 27
+        },
+        {
+          "district": "동구",
+          "dongCode": "31170530",
+          "dong": "화정동",
+          "count": 26
+        },
+        {
+          "district": "중구",
+          "dongCode": "31110520",
+          "dong": "반구1동",
+          "count": 25
+        },
+        {
+          "district": "남구",
+          "dongCode": "31140640",
+          "dong": "선암동",
+          "count": 25
+        },
+        {
+          "district": "남구",
+          "dongCode": "31140670",
+          "dong": "야음장생포동",
+          "count": 24
+        },
+        {
+          "district": "중구",
+          "dongCode": "31110630",
+          "dong": "병영2동",
+          "count": 24
+        },
+        {
+          "district": "남구",
+          "dongCode": "31140550",
+          "dong": "신정5동",
+          "count": 20
+        },
+        {
+          "district": "동구",
+          "dongCode": "31170540",
+          "dong": "대송동",
+          "count": 19
+        },
+        {
+          "district": "동구",
+          "dongCode": "31170590",
+          "dong": "남목2동",
+          "count": 17
+        },
+        {
+          "district": "중구",
+          "dongCode": "31110510",
+          "dong": "학성동",
+          "count": 16
+        },
+        {
+          "district": "중구",
+          "dongCode": "31110640",
+          "dong": "약사동",
+          "count": 16
+        },
+        {
+          "district": "동구",
+          "dongCode": "31170550",
+          "dong": "전하1동",
+          "count": 16
+        },
+        {
+          "district": "동구",
+          "dongCode": "31170580",
+          "dong": "남목1동",
+          "count": 15
+        },
+        {
+          "district": "남구",
+          "dongCode": "31140635",
+          "dong": "수암동",
+          "count": 15
+        },
+        {
+          "district": "북구",
+          "dongCode": "31200580",
+          "dong": "양정동",
+          "count": 14
+        },
+        {
+          "district": "울주군",
+          "dongCode": "31710400",
+          "dong": "삼동면",
+          "count": 13
+        },
+        {
+          "district": "중구",
+          "dongCode": "31110530",
+          "dong": "반구2동",
+          "count": 13
+        },
+        {
+          "district": "울주군",
+          "dongCode": "31710340",
+          "dong": "웅촌면",
+          "count": 12
+        },
+        {
+          "district": "북구",
+          "dongCode": "31200590",
+          "dong": "염포동",
+          "count": 4
+        },
+        {
+          "district": "울주군",
+          "dongCode": "31710370",
+          "dong": "두서면",
+          "count": 3
+        }
+      ],
+      "missingByField": {
+        "상가업소번호": 0,
+        "상호명": 0,
+        "지점명": 48412,
+        "상권업종대분류코드": 0,
+        "상권업종대분류명": 0,
+        "상권업종중분류코드": 0,
+        "상권업종중분류명": 0,
+        "상권업종소분류코드": 0,
+        "상권업종소분류명": 0,
+        "표준산업분류코드": 7,
+        "표준산업분류명": 7,
+        "시도코드": 0,
+        "시도명": 0,
+        "시군구코드": 0,
+        "시군구명": 0,
+        "행정동코드": 0,
+        "행정동명": 0,
+        "법정동코드": 0,
+        "법정동명": 0,
+        "지번코드": 0,
+        "대지구분코드": 0,
+        "대지구분명": 0,
+        "지번본번지": 56,
+        "지번부번지": 5206,
+        "지번주소": 0,
+        "도로명코드": 0,
+        "도로명": 0,
+        "건물본번지": 0,
+        "건물부번지": 44654,
+        "건물관리번호": 0,
+        "건물명": 43374,
+        "도로명주소": 0,
+        "구우편번호": 0,
+        "신우편번호": 0,
+        "동정보": 53777,
+        "층정보": 24279,
+        "호정보": 53777,
+        "경도": 0,
+        "위도": 0
+      },
+      "classificationUnknownRows": 0,
+      "classificationUnknownCodes": {},
+      "invalidCoordinates": 0,
+      "coordinateRange": {
+        "longitude": [
+          129.007411476243,
+          129.463286306698
+        ],
+        "latitude": [
+          35.3338740822421,
+          35.718265270713
+        ]
+      },
+      "hierarchyCodeMismatchRows": 0,
+      "classificationLabelDifferenceRows": 53777,
+      "classificationLabelDifferenceCodes": {
+        "Q10201": 65,
+        "Q10210": 100,
+        "S20501": 227,
+        "P10501": 1089,
+        "G20503": 380,
+        "L10203": 1809,
+        "I20301": 362,
+        "G20905": 1047,
+        "I10103": 316,
+        "I20107": 1529,
+        "I20101": 4309,
+        "M10904": 40,
+        "G21002": 120,
+        "P10625": 337,
+        "N10799": 22,
+        "R10310": 328,
+        "S20301": 901,
+        "I20111": 551,
+        "I20501": 86,
+        "S20703": 675,
+        "G21101": 190,
+        "S20302": 333,
+        "R10410": 174,
+        "S20701": 3057,
+        "G20404": 1389,
+        "G20405": 1148,
+        "G21501": 431,
+        "M10901": 349,
+        "P10615": 106,
+        "I20105": 460,
+        "I21007": 887,
+        "G21602": 223,
+        "G20508": 207,
+        "I21101": 879,
+        "G21603": 4,
+        "R10311": 340,
+        "S20601": 130,
+        "G20902": 720,
+        "S20702": 834,
+        "S20801": 169,
+        "I21201": 2464,
+        "G20906": 207,
+        "G21503": 661,
+        "N10805": 55,
+        "G21302": 177,
+        "G22201": 148,
+        "G20802": 494,
+        "R10307": 301,
+        "I20102": 664,
+        "I10102": 578,
+        "G22199": 237,
+        "R10407": 545,
+        "I21006": 1004,
+        "I21104": 1248,
+        "I10201": 101,
+        "S20802": 147,
+        "P10601": 185,
+        "P10629": 123,
+        "G21304": 205,
+        "N10501": 185,
+        "G20904": 37,
+        "I20201": 549,
+        "N10101": 135,
+        "M11203": 116,
+        "G20505": 172,
+        "I20112": 350,
+        "M10999": 388,
+        "I21002": 222,
+        "G20509": 284,
+        "M10401": 21,
+        "N10402": 192,
+        "G22001": 202,
+        "I21099": 180,
+        "M10501": 217,
+        "N11101": 77,
+        "G20801": 96,
+        "R10405": 91,
+        "M10307": 29,
+        "I20302": 33,
+        "R10406": 170,
+        "P10613": 89,
+        "M10303": 135,
+        "M10703": 408,
+        "I20110": 182,
+        "I21005": 74,
+        "I20401": 386,
+        "G21306": 96,
+        "G20909": 57,
+        "P10603": 448,
+        "P10701": 58,
+        "P10609": 207,
+        "M11201": 381,
+        "S20101": 159,
+        "N10201": 451,
+        "G20701": 65,
+        "I21102": 38,
+        "G20903": 103,
+        "M11502": 33,
+        "I21003": 331,
+        "G20910": 139,
+        "I20399": 17,
+        "M10306": 61,
+        "P10621": 33,
+        "S20603": 5,
+        "M10301": 159,
+        "G20803": 168,
+        "M11101": 63,
+        "S20699": 99,
+        "S20902": 109,
+        "I21001": 627,
+        "G21301": 107,
+        "G21701": 241,
+        "S20901": 384,
+        "G20499": 127,
+        "N11004": 35,
+        "M10903": 118,
+        "G21402": 27,
+        "I20106": 112,
+        "M11401": 326,
+        "G21001": 270,
+        "M10502": 36,
+        "Q10101": 13,
+        "M10504": 83,
+        "G21202": 174,
+        "Q10204": 82,
+        "P10799": 112,
+        "G20901": 148,
+        "I20701": 169,
+        "I20109": 155,
+        "G20907": 90,
+        "G20202": 144,
+        "M11204": 9,
+        "I21103": 292,
+        "N10802": 190,
+        "S21001": 53,
+        "I20104": 14,
+        "G21201": 101,
+        "M11301": 289,
+        "G20504": 67,
+        "G21802": 109,
+        "Q10207": 14,
+        "N10901": 62,
+        "I20202": 86,
+        "S20401": 90,
+        "N11199": 78,
+        "S21101": 14,
+        "G21401": 268,
+        "G21801": 93,
+        "I20103": 183,
+        "N10202": 106,
+        "R10309": 24,
+        "M10402": 199,
+        "G21403": 73,
+        "G21502": 121,
+        "R10409": 19,
+        "N10403": 50,
+        "P10611": 157,
+        "I21004": 137,
+        "M11202": 27,
+        "G21305": 57,
+        "N11102": 31,
+        "I10101": 45,
+        "Q10103": 5,
+        "G21203": 27,
+        "N10999": 35,
+        "G20506": 201,
+        "G20911": 52,
+        "G20201": 34,
+        "I20403": 10,
+        "I21008": 49,
+        "P10627": 18,
+        "N10401": 164,
+        "I20108": 141,
+        "G20301": 69,
+        "R10202": 226,
+        "G21601": 35,
+        "Q10211": 56,
+        "Q10105": 30,
+        "G21901": 295,
+        "Q10203": 11,
+        "N10203": 100,
+        "I20303": 49,
+        "N11001": 24,
+        "N10703": 31,
+        "R10408": 7,
+        "P10605": 98,
+        "S20803": 114,
+        "G21303": 5,
+        "G20501": 10,
+        "R10404": 45,
+        "Q10202": 28,
+        "N11099": 74,
+        "M10599": 23,
+        "N10301": 29,
+        "Q10208": 17,
+        "R10308": 7,
+        "Q10209": 30,
+        "G21099": 37,
+        "Q10102": 23,
+        "N11003": 12,
+        "R10499": 69,
+        "G21003": 27,
+        "I20199": 41,
+        "R10313": 48,
+        "M11504": 20,
+        "S20602": 22,
+        "G20602": 13,
+        "R10314": 45,
+        "P10619": 11,
+        "S21002": 17,
+        "I20599": 4,
+        "Q10402": 50,
+        "I10299": 9,
+        "I10104": 18,
+        "M10902": 17,
+        "S20201": 22,
+        "I20402": 31,
+        "N10599": 10,
+        "G20604": 8,
+        "M10302": 6,
+        "I20113": 20,
+        "G20603": 31,
+        "G20908": 13,
+        "R10312": 42,
+        "R10306": 7,
+        "G20502": 15,
+        "Q10212": 4,
+        "I20702": 37,
+        "S21105": 19,
+        "I20499": 10,
+        "M10499": 1,
+        "P10617": 3,
+        "P10607": 8,
+        "M10601": 6,
+        "P10623": 7,
+        "Q10104": 5,
+        "G20601": 5,
+        "Q10206": 5,
+        "G20507": 3,
+        "R10414": 8,
+        "M10399": 6,
+        "R10402": 3,
+        "R10316": 1,
+        "Q10205": 2,
+        "M10503": 2
+      },
+      "classificationLabelDifferenceByField": {
+        "상권업종대분류명": 53777,
+        "상권업종중분류명": 53287,
+        "상권업종소분류명": 206
+      },
+      "classificationLabelExamples": [
+        {
+          "code": "Q10201",
+          "snapshotLarge": "보건의료",
+          "codebookLarge": "보건의료업",
+          "snapshotMedium": "의원",
+          "codebookMedium": "의원",
+          "snapshotSmall": "내과/소아과 의원",
+          "codebookSmall": "내과/소아과 의원"
+        },
+        {
+          "code": "Q10210",
+          "snapshotLarge": "보건의료",
+          "codebookLarge": "보건의료업",
+          "snapshotMedium": "의원",
+          "codebookMedium": "의원",
+          "snapshotSmall": "치과의원",
+          "codebookSmall": "치과의원"
+        },
+        {
+          "code": "S20501",
+          "snapshotLarge": "수리·개인",
+          "codebookLarge": "수리 및 개인 서비스업",
+          "snapshotMedium": "가전제품 수리",
+          "codebookMedium": "가전제품 수리업",
+          "snapshotSmall": "가전제품 수리업",
+          "codebookSmall": "가전제품 수리업"
+        },
+        {
+          "code": "P10501",
+          "snapshotLarge": "교육",
+          "codebookLarge": "교육 서비스업",
+          "snapshotMedium": "일반 교육",
+          "codebookMedium": "일반 교육기관",
+          "snapshotSmall": "입시·교과학원",
+          "codebookSmall": "입시·교과학원"
+        },
+        {
+          "code": "G20503",
+          "snapshotLarge": "소매",
+          "codebookLarge": "소매업",
+          "snapshotMedium": "식료품 소매",
+          "codebookMedium": "식료품 소매업",
+          "snapshotSmall": "정육점",
+          "codebookSmall": "정육점"
+        },
+        {
+          "code": "L10203",
+          "snapshotLarge": "부동산",
+          "codebookLarge": "부동산업",
+          "snapshotMedium": "부동산 서비스",
+          "codebookMedium": "부동산관련 서비스업",
+          "snapshotSmall": "부동산 중개/대리업",
+          "codebookSmall": "부동산 중개/대리업"
+        },
+        {
+          "code": "I20301",
+          "snapshotLarge": "음식",
+          "codebookLarge": "음식점업",
+          "snapshotMedium": "일식",
+          "codebookMedium": "일식 음식점업",
+          "snapshotSmall": "일식 회/초밥",
+          "codebookSmall": "일식 회/초밥"
+        },
+        {
+          "code": "G20905",
+          "snapshotLarge": "소매",
+          "codebookLarge": "소매업",
+          "snapshotMedium": "섬유·의복·신발 소매",
+          "codebookMedium": "섬유, 의복, 신발 및 가죽제품 소매업",
+          "snapshotSmall": "기타 의류 소매업",
+          "codebookSmall": "기타 의류 소매업"
+        },
+        {
+          "code": "I10103",
+          "snapshotLarge": "숙박",
+          "codebookLarge": "숙박업",
+          "snapshotMedium": "일반 숙박",
+          "codebookMedium": "일반 및 생활 숙박시설 운영업",
+          "snapshotSmall": "펜션",
+          "codebookSmall": "펜션"
+        },
+        {
+          "code": "I20107",
+          "snapshotLarge": "음식",
+          "codebookLarge": "음식점업",
+          "snapshotMedium": "한식",
+          "codebookMedium": "한식 음식점업",
+          "snapshotSmall": "돼지고기 구이/찜",
+          "codebookSmall": "돼지고기 구이/찜"
+        },
+        {
+          "code": "I20101",
+          "snapshotLarge": "음식",
+          "codebookLarge": "음식점업",
+          "snapshotMedium": "한식",
+          "codebookMedium": "한식 음식점업",
+          "snapshotSmall": "백반/한정식",
+          "codebookSmall": "백반/한정식"
+        },
+        {
+          "code": "M10904",
+          "snapshotLarge": "과학·기술",
+          "codebookLarge": "전문, 과학 및 기술 서비스업",
+          "snapshotMedium": "기술 서비스",
+          "codebookMedium": "건축 기술, 엔지니어링 및 관련 기술 서비스업",
+          "snapshotSmall": "환경 관련 엔지니어링 서비스업",
+          "codebookSmall": "환경 관련 엔지니어링 서비스업"
+        }
+      ],
+      "sampleRow": {
+        "상가업소번호": "MA010120220813106595",
+        "상호명": "커피꽃한송이",
+        "지점명": "",
+        "상권업종대분류코드": "I2",
+        "상권업종대분류명": "음식",
+        "상권업종중분류코드": "I212",
+        "상권업종중분류명": "비알코올 ",
+        "상권업종소분류코드": "I21201",
+        "상권업종소분류명": "카페",
+        "표준산업분류코드": "I56221",
+        "표준산업분류명": "커피 전문점",
+        "시도코드": "31",
+        "시도명": "울산광역시",
+        "시군구코드": "31170",
+        "시군구명": "동구",
+        "행정동코드": "31170560",
+        "행정동명": "전하2동",
+        "법정동코드": "3117010400",
+        "법정동명": "전하동",
+        "지번코드": "3117010400106390008",
+        "대지구분코드": "1",
+        "대지구분명": "대지",
+        "지번본번지": "639",
+        "지번부번지": "8",
+        "지번주소": "울산광역시 동구 전하동 639-8",
+        "도로명코드": "311702011001",
+        "도로명": "울산광역시 동구 방어진순환도로",
+        "건물본번지": "771",
+        "건물부번지": "",
+        "건물관리번호": "3117010400106390008004912",
+        "건물명": "에스오션타워",
+        "도로명주소": "울산광역시 동구 방어진순환도로 771",
+        "구우편번호": "682816",
+        "신우편번호": "44043",
+        "동정보": "",
+        "층정보": "1",
+        "호정보": "",
+        "경도": "129.430206174082",
+        "위도": "35.5105413096513"
+      }
+    }
+  },
+  "temporal": {
+    "previous": "2026-06-30",
+    "current": "2026-09-30",
+    "matchedIds": 51145,
+    "newlyObservedIds": 2632,
+    "noLongerObservedIds": 3592,
+    "netRows": -960,
+    "matchedFieldDifferences": {
+      "상호명": 0,
+      "상권업종소분류코드": 0,
+      "시군구코드": 0,
+      "행정동코드": 0,
+      "도로명주소": 0,
+      "경도": 1223,
+      "위도": 1223
+    },
+    "districtChanges": [
+      {
+        "district": "남구",
+        "previous": 20277,
+        "current": 19859,
+        "change": -418
+      },
+      {
+        "district": "동구",
+        "previous": 6262,
+        "current": 6183,
+        "change": -79
+      },
+      {
+        "district": "북구",
+        "previous": 8005,
+        "current": 7852,
+        "change": -153
+      },
+      {
+        "district": "울주군",
+        "previous": 10504,
+        "current": 10384,
+        "change": -120
+      },
+      {
+        "district": "중구",
+        "previous": 9689,
+        "current": 9499,
+        "change": -190
+      }
+    ],
+    "interpretation": "새로 관측/다음 분기 미관측이며 실제 개업/폐업 건수가 아니다. 주소/분류 정정·수집범위 변화도 포함될 수 있어 원인을 단정하지 않는다."
+  },
+  "codebook": {
+    "rows": 247,
+    "columns": [
+      "대분류코드",
+      "대분류명",
+      "중분류코드",
+      "중분류명",
+      "소분류코드",
+      "소분류명"
+    ],
+    "encoding": "CP949",
+    "joinKey": "상권업종소분류코드 = 소분류코드",
+    "sha256": "3055e458f887b3c0b94a2059c3a2571a28053de8b17a4e2e566d6b189f6e1948"
+  },
+  "provenance": [
+    {
+      "period": "202606",
+      "asOf": "2026-06-30",
+      "officialPage": "https://www.data.go.kr/data/15083033/fileData.do",
+      "downloadUrl": "https://www.data.go.kr/cmm/cmm/fileDownload.do?atchFileId=FILE_000000007754450&fileDetailSn=1",
+      "archiveName": "소상공인시장진흥공단_상가(상권)정보_20260630.zip",
+      "archiveBytes": 343556167,
+      "originalMember": "소상공인시장진흥공단_상가(상권)정보_울산_202606.csv",
+      "localPath": "automation/public-data/data/ulsan-202606.csv",
+      "bytes": 28962806,
+      "sha256": "208869175238b587c456cc42646ae1b028cba64d0bb9418ce5e593d79b7b66c1",
+      "encoding": "UTF-8",
+      "rows": 54737,
+      "columns": 39,
+      "extraction": "Original Ulsan CSV member, byte-identical; no sampling, row duplication, cell editing or synthetic error injection."
+    },
+    {
+      "period": "202609",
+      "asOf": "2026-09-30",
+      "officialPage": "https://www.data.go.kr/data/15083033/fileData.do",
+      "downloadUrl": "https://www.data.go.kr/cmm/cmm/fileDownload.do?atchFileId=FILE_000000007751774&fileDetailSn=1",
+      "archiveName": "소상공인시장진흥공단_상가(상권)정보_20260930.zip",
+      "archiveBytes": 349070686,
+      "originalMember": "소상공인시장진흥공단_상가(상권)정보_울산_202609.csv",
+      "localPath": "automation/public-data/data/ulsan-202609.csv",
+      "bytes": 28475731,
+      "sha256": "0ea27a783c042dfd6caf4a603f7fab5fbd684bd3677dfcaabd61abe7e7e861fa",
+      "encoding": "UTF-8",
+      "rows": 53777,
+      "columns": 39,
+      "extraction": "Original Ulsan CSV member, byte-identical; no sampling, row duplication, cell editing or synthetic error injection."
+    }
+  ],
+  "limitations": [
+    "매출·매출일자·영업상태 변경일·실제 개업일/폐업일·인구 분모가 없다.",
+    "원본 두 분기의 행·열을 변경하지 않았다. 공란은 실제 원본 값이며 임의 채움·행 삭제를 하지 않는다.",
+    "시군구/행정동/법정동과 상권업종/표준산업분류는 서로 구분한다.",
+    "CSV 업종코드표와 실제 코드 일치 여부를 검증한 뒤 집계한다.",
+    "원본 CSV는 별도 제공하며 강사 예시 XLSX는 원본 전체를 처리한 집계 결과를 담는다."
+  ]
+}

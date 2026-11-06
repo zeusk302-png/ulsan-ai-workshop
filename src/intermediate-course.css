@@ -141,3 +141,5 @@
 @media(max-width:760px){.ia-single-visual-header strong{font-size:15px}.ia-single-visual-panel.is-expanded{padding-top:12px}.ia-single-visual-header{top:-12px}}
 
 .ia-optional-reference{margin:38px 0;border:1px solid #bbcbb4;background:#f7f9f3;padding:20px;scroll-margin-top:90px}.ia-optional-reference>summary{font-size:17px;line-height:1.8;font-weight:650;cursor:pointer;min-height:40px}.ia-optional-reference>p{line-height:1.9;color:#445b40}.ia-novice-course{min-width:0}
+
+.ia-public-workspace-link{margin:26px;padding:20px 24px;border:1px solid #b8c8ac;background:#f6f9f1;line-height:1.8}.ia-public-workspace-link a{color:#315c3b;font-weight:600}@media(max-width:760px){.ia-public-workspace-link{margin:18px 12px;padding:17px}}

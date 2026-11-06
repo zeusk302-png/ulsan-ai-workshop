@@ -11,7 +11,9 @@ const output=new URL('../artifacts/reference-course-2026-11-06/ssr/',import.meta
 await fs.mkdir(output,{recursive:true});
 const server=await createServer({server:{middlewareMode:true,hmr:false,ws:false,watch:null},appType:'custom'});
 const checks=[];
-function rendered(element){return new Promise((resolve,reject)=>{const destination=new PassThrough();let html='';destination.on('data',chunk=>html+=chunk);destination.on('end',()=>resolve(html));destination.on('error',reject);const stream=renderToPipeableStream(element,{onAllReady(){stream.pipe(destination);},onError:reject});});}
+const publicCourse=JSON.parse(await fs.readFile(new URL('../content/public-data-course.json',import.meta.url),'utf8'));
+const totalRows=Object.values(publicCourse.snapshots).reduce((sum,m)=>sum+m.rows,0);
+function rendered(element){return new Promise((resolve,reject)=>{const destination=new PassThrough();let html='';destination.on('data',chunk=>html+=chunk);destination.on('end',()=>resolve(html.replace(/<!--.*?-->/gs,'')));destination.on('error',reject);const stream=renderToPipeableStream(element,{onAllReady(){stream.pipe(destination);},onError:reject});});}
 async function checkLinks(html){const paths=[...html.matchAll(/(?:href|src)="(?:\.\/|\/)?((?:automation|screens)\/[^"?#]+)"/g)].map(match=>match[1]);for(const path of new Set(paths))await fs.access(new URL('../public/'+path,import.meta.url));return new Set(paths).size;}
 try{
  const {IntermediateCourse,IntermediateCourseAdvanced}=await server.ssrLoadModule('/src/IntermediateCourse.jsx');
@@ -19,11 +21,13 @@ try{
  globalThis.location={hash:intermediateHref('purpose')};
  const novice=await rendered(React.createElement(IntermediateCourse,{onCopy:()=>{}}));
  assert.equal((novice.match(/class="ga-step"/g)||[]).length,4,'four complete novice stages');
- assert.ok(novice.includes('소스는 1개로 보여도 정상'));
+ assert.ok(novice.includes('통합 TXT 한 개'));
+ assert.ok(novice.includes(totalRows.toLocaleString('ko-KR')+'행')&&novice.includes(publicCourse.fields.length+'개 항목'));
  assert.ok(novice.includes('업무 기준과 주의사항')&&novice.includes('실행 프롬프트'));
- assert.ok(novice.includes('round-01.xlsx')&&novice.includes('report-template.pptx'));
- assert.ok(novice.includes('XLSX와 PPTX를 둘 다 다운로드'));
- assert.ok(novice.includes('선택 참고 · 자세한 작동 원리와 도구 설정'));
+ assert.ok(novice.includes('ulsan-202606.csv')&&novice.includes('ulsan-202609.csv')&&novice.includes('ulsan-two-quarters.zip'));
+ assert.ok(novice.includes('industry-codes-2023.csv')&&novice.includes('ulsan-report-template.pptx'));
+ assert.ok(novice.includes('실제 XLSX·PPTX 파일 이름 카드'));
+ assert.ok(novice.includes('선택 참고 ·'));
  assert.ok(!novice.includes('class="ia-reading-layout"'),'advanced material stays optional');
  assert.doesNotMatch(novice,/<textarea\b|type="(?:checkbox|radio|number|datetime-local)"|\b(?:A1|B2|COUNTIFS?|SUMIFS?)\b/);
  const noviceLinks=await checkLinks(novice);

@@ -1,2 +1,10 @@
 *.pdf binary
 public/automation/data/*.csv binary
+
+# Preserve official public-data member bytes, including source encoding and newlines.
+public/automation/public-data/data/*.csv binary
+public/automation/public-data/data/original-readme-*.txt -text -whitespace
+
+# Faithful source snapshots and quotations retain original line-end spaces.
+public/automation/public-data/references/** -whitespace
+public/automation/public-data/guide/rag-generated-handoff.txt -whitespace

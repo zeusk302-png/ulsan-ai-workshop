@@ -1,0 +1,391 @@
+{
+  "checkedOn": "2026-11-06",
+  "researchMethod": "Official HTTP downloads and official data.go.kr structured catalogs; no browser control. Mirrors and GitHub copies not used as evidence.",
+  "recommendation": {
+    "main": "Use the full actual Ulsan two-quarter snapshots acquired by root. Use the actual official guide and 2023 classification as RAG companion references.",
+    "noviceFlow": "Register the combined real documentation in the source AI; obtain applicable criteria and an execution request; copy both to a file-work AI with the actual spreadsheets and presentation template; open outputs. No manual cell/formula tasks or quizzes.",
+    "population": "Optional, not needed for two-quarter descriptive store analysis. Candidate15005995 does not yet establish a matching population denominator."
+  },
+  "sources": [
+    {
+      "id": "sbiz-api-guide",
+      "title": "소상공인시장진흥공단_상가(상권)정보_OpenApi 활용가이드_260805.zip",
+      "officialPage": "https://www.data.go.kr/data/15012005/openapi.do",
+      "catalog": "https://www.data.go.kr/catalog/15012005/openapi.json",
+      "downloadUrl": "https://www.data.go.kr/cmm/cmm/fileDownload.do?atchFileId=FILE_000000003706124&fileDetailSn=3",
+      "httpVerified": true,
+      "downloadBytes": 494378,
+      "sha256": "4ed2112e2a90e49e88243fa7963ae7d19628aed247b6492bcbae6a947534970e",
+      "originalLocalPath": "artifacts/public-data-2026-11-06/sbiz-openapi-guide-260805-original.zip",
+      "extractedLocalPath": "artifacts/public-data-2026-11-06/sbiz-openapi-guide-260805-extracted.txt",
+      "coverDate": "2026. 7",
+      "filenameDateToken": "260805",
+      "catalogModified": "2026-08-14",
+      "license": {
+        "name": "이용허락범위 제한 없음",
+        "url": "https://www.data.go.kr/ugs/selectPortalPolicyView.do",
+        "@type": "CreativeWork"
+      },
+      "licenseScopeNote": "License label verified on the official API catalog. No separate attachment-specific license statement was located. Preserve agency attribution and original source; extraction wrapper marks transformation.",
+      "extraction": {
+        "format": "ZIP containing one HWP; OLE BodyText paragraph records, raw DEFLATE where FileHeader compression flag is set; HWP extended control blocks skipped; paragraph text otherwise retained.",
+        "bodyCharacters": 100418,
+        "limitations": "Layout, table cell associations, images and page breaks are not preserved. Original HWP remains authoritative. No supplementary examples or inflated manual text added.",
+        "tableOfContents": "Actual TOC lists service overview, use, operations and field specifications through administrative code appendix; final TOC entry points to p102. Actual rendered page count not verified."
+      },
+      "ragRelevantParts": [
+        "서비스 개요 및 제공 범위",
+        "storeOne/storeListInDong 등 응답 항목명·설명·사례",
+        "상권정보 업종 대·중·소분류 조회",
+        "행정구역 조회: 시도·시군구·행정동·법정동",
+        "참조 행정구역 코드 부록"
+      ],
+      "cautions": [
+        "API authentication and request instructions are reference context; novice class can use downloaded files without an API key.",
+        "Guide service table says quarterly refresh; current API catalog says real-time. Keep file snapshot dates explicit instead of promising real-time coverage."
+      ]
+    },
+    {
+      "id": "sbiz-industry-2023",
+      "title": "소상공인시장진흥공단_상가(상권)정보 업종코드",
+      "officialPage": "https://www.data.go.kr/data/15067631/fileData.do",
+      "catalog": "https://www.data.go.kr/catalog/15067631/fileData.json",
+      "basisName": "소상공인시장진흥공단_상가(상권)정보 업종코드_20230228",
+      "catalogModified": "2025-08-26",
+      "downloadUrl": "https://www.data.go.kr/cmm/cmm/fileDownload.do?atchFileId=FILE_000000002719340&fileDetailSn=1",
+      "httpVerified": true,
+      "downloadBytes": 17747,
+      "sha256": "3055e458f887b3c0b94a2059c3a2571a28053de8b17a4e2e566d6b189f6e1948",
+      "encodingVerified": "cp949",
+      "dataRowsVerified": 247,
+      "columnsVerified": [
+        "대분류코드",
+        "대분류명",
+        "중분류코드",
+        "중분류명",
+        "소분류코드",
+        "소분류명"
+      ],
+      "distinctCountsVerified": {
+        "large": 10,
+        "middle": 75,
+        "small": 247
+      },
+      "license": {
+        "name": "이용허락범위 제한 없음",
+        "url": "https://www.data.go.kr/ugs/selectPortalPolicyView.do",
+        "@type": "CreativeWork"
+      },
+      "practicalJoin": "Main 상권업종소분류코드 = this 소분류코드; validate uniqueness and unmatched codes, then bring official large/middle/small names. Use codes as text.",
+      "officialWarnings": [
+        "Official catalog reports 837→247 classification reform, ninth→tenth KSIC revision and re-created store identifiers preventing linkage with older pre-reform data.",
+        "API official description warns cleaned KSIC values may differ from industry-to-KSIC linkage tables; industry code and KSIC must not be treated as the same code."
+      ],
+      "officialNoticeLink": "https://bigdata.sbiz.or.kr/#/notice/267352041576902656",
+      "noticeContentVerified": false
+    },
+    {
+      "id": "sbiz-field-dictionary",
+      "title": "Official API embedded Swagger storeOne response dictionary",
+      "officialPage": "https://www.data.go.kr/data/15012005/openapi.do",
+      "retrieval": "Embedded const swaggerJson, paths./storeOne.get.responses.200.schema.properties",
+      "version": "1.0.0",
+      "license": {
+        "name": "이용허락범위 제한 없음",
+        "url": "https://www.data.go.kr/ugs/selectPortalPolicyView.do",
+        "@type": "CreativeWork"
+      },
+      "responsePropertiesVerified": 44,
+      "storeFieldsAfterResponseMetadataRemoved": 39,
+      "removedResponseMetadata": [
+        "columns",
+        "description",
+        "resultCode",
+        "resultMsg",
+        "stdrYm"
+      ],
+      "fields": [
+        {
+          "apiName": "bizesId",
+          "description": "해당 상가업소에 부여된 일련번호",
+          "type": "string"
+        },
+        {
+          "apiName": "bizesNm",
+          "description": "해당 상가업소의 상호명",
+          "type": "string"
+        },
+        {
+          "apiName": "brchNm",
+          "description": "해당 상가업소가 지점인 경우 지점명",
+          "type": "string"
+        },
+        {
+          "apiName": "indsLclsCd",
+          "description": "해당 상가업소의 상권업종대분류코드(2자리)",
+          "type": "string"
+        },
+        {
+          "apiName": "indsLclsNm",
+          "description": "해당 상가업소의 상권업종대분류명",
+          "type": "string"
+        },
+        {
+          "apiName": "indsMclsCd",
+          "description": "해당 상가업소의 상권업종중분류코드(4자리)",
+          "type": "string"
+        },
+        {
+          "apiName": "indsMclsNm",
+          "description": "해당 상가업소의 상권업종중분류명",
+          "type": "string"
+        },
+        {
+          "apiName": "indsSclsCd",
+          "description": "해당 상가업소의 상권업종소분류코드(6자리)",
+          "type": "string"
+        },
+        {
+          "apiName": "indsSclsNm",
+          "description": "해당 상가업소의 상권업종소분류명",
+          "type": "string"
+        },
+        {
+          "apiName": "ksicCd",
+          "description": "해당 상가업소의 표준산업분류코드(6자리)",
+          "type": "string"
+        },
+        {
+          "apiName": "ksicNm",
+          "description": "해당 상가업소의 표준산업분류코드에 대한 명칭",
+          "type": "string"
+        },
+        {
+          "apiName": "ctprvnCd",
+          "description": "해당 상가업소의 시도 코드",
+          "type": "string"
+        },
+        {
+          "apiName": "ctprvnNm",
+          "description": "해당 상가업소의 시도 명칭",
+          "type": "string"
+        },
+        {
+          "apiName": "signguCd",
+          "description": "해당 상가업소의 시군구 코드",
+          "type": "string"
+        },
+        {
+          "apiName": "signguNm",
+          "description": "해당 상가업소의 시군구 명칭",
+          "type": "string"
+        },
+        {
+          "apiName": "adongCd",
+          "description": "해당 상가업소의 행정동 코드",
+          "type": "string"
+        },
+        {
+          "apiName": "adongNm",
+          "description": "해당 상가업소의 행정동 명칭",
+          "type": "string"
+        },
+        {
+          "apiName": "ldongCd",
+          "description": "해당 상가업소의 법정동 코드",
+          "type": "string"
+        },
+        {
+          "apiName": "ldongNm",
+          "description": "해당 상가업소의 법정동 명칭",
+          "type": "string"
+        },
+        {
+          "apiName": "lnoCd",
+          "description": "해당 상가업소 지번주소에 해당하는 PNU코드",
+          "type": "string"
+        },
+        {
+          "apiName": "plotSctCd",
+          "description": "해당 상가업소 지번주소의 대지구분 코드(1:대지, 2:산)",
+          "type": "string"
+        },
+        {
+          "apiName": "plotSctNm",
+          "description": "해당 상가업소 지번주소의 대지구분 코드명(대지, 산)",
+          "type": "string"
+        },
+        {
+          "apiName": "lnoMnno",
+          "description": "해당 상가업소 지번주소의 본번지",
+          "type": "string"
+        },
+        {
+          "apiName": "lnoSlno",
+          "description": "해당 상가업소 지번주소의 부번지",
+          "type": "string"
+        },
+        {
+          "apiName": "lnoAdr",
+          "description": "해당 상가업소 지번기준 전체주소",
+          "type": "string"
+        },
+        {
+          "apiName": "rdnmCd",
+          "description": "해당 상가업소 도로명주소 도로명코드",
+          "type": "string"
+        },
+        {
+          "apiName": "rdnm",
+          "description": "해당 상가업소 도로명주소 도로명코드에 대한 명칭",
+          "type": "string"
+        },
+        {
+          "apiName": "bldMnno",
+          "description": "해당 상가업소 도로명주소 기준 건물 본번지",
+          "type": "string"
+        },
+        {
+          "apiName": "bldSlno",
+          "description": "해당 상가업소 도로명주소 기준 건물 부번지",
+          "type": "string"
+        },
+        {
+          "apiName": "bldMngNo",
+          "description": "해당 상가업소 도로명주소 기준 건물관리번호",
+          "type": "string"
+        },
+        {
+          "apiName": "bldNm",
+          "description": "해당 상가업소 도로명주소 기준 건물명",
+          "type": "string"
+        },
+        {
+          "apiName": "rdnmAdr",
+          "description": "해당 상가업소 도로명 주소기준 전체주소",
+          "type": "string"
+        },
+        {
+          "apiName": "oldZipcd",
+          "description": "해당 상가업소 구우편번호(개편전 우편번호)",
+          "type": "string"
+        },
+        {
+          "apiName": "newZipcd",
+          "description": "해당 상가업소 신우편번호(개편후 우편번호)",
+          "type": "string"
+        },
+        {
+          "apiName": "dongNo",
+          "description": "해당 상가업소가 소재한 동정보",
+          "type": "string"
+        },
+        {
+          "apiName": "flrNo",
+          "description": "해당 상가업소가 소재한 층정보",
+          "type": "string"
+        },
+        {
+          "apiName": "hoNo",
+          "description": "해당 상가업소가 소재한 호정보",
+          "type": "string"
+        },
+        {
+          "apiName": "lon",
+          "description": "해당 상가업소의 WGS84기준 위도 좌표값",
+          "type": "string"
+        },
+        {
+          "apiName": "lat",
+          "description": "해당 상가업소의 WGS84기준 위도 좌표값",
+          "type": "string"
+        }
+      ],
+      "useNote": "The39 store fields align in concept with the39-column bulk schema reported by root, but validate actual bulk column names and values rather than assuming API order.",
+      "joinKeys": {
+        "bizesId": "상가업소번호; candidate cross-snapshot key within compatible post-reform releases, uniqueness/missing IDs must be checked. Appearance/disappearance alone is not proof of opening/closure.",
+        "indsSclsCd": "상권업종소분류코드; official247-row classification join",
+        "signguCd": "시군구코드; textual5-digit regional grouping",
+        "adongCd": "행정동코드; do not join to 법정동코드 without mapping",
+        "ldongCd": "법정동코드; distinct concept from 행정동",
+        "lon_lat": "WGS84 longitude/latitude; coordinate availability does not establish business activity or sales."
+      }
+    },
+    {
+      "id": "sbiz-ulsan-code-appendix",
+      "officialSourceId": "sbiz-api-guide",
+      "location": "참조. 행정구역 조회 → 시군구; text extraction near end",
+      "verifiedUlsanCodes": [
+        {
+          "sidoCode": "31",
+          "sidoName": "울산광역시",
+          "sigunguCode": "31110",
+          "sigunguName": "중구"
+        },
+        {
+          "sidoCode": "31",
+          "sidoName": "울산광역시",
+          "sigunguCode": "31140",
+          "sigunguName": "남구"
+        },
+        {
+          "sidoCode": "31",
+          "sidoName": "울산광역시",
+          "sigunguCode": "31170",
+          "sigunguName": "동구"
+        },
+        {
+          "sidoCode": "31",
+          "sidoName": "울산광역시",
+          "sigunguCode": "31200",
+          "sigunguName": "북구"
+        },
+        {
+          "sidoCode": "31",
+          "sidoName": "울산광역시",
+          "sigunguCode": "31710",
+          "sigunguName": "울주군"
+        }
+      ],
+      "practicalJoin": "Use main 시군구코드 as text; these official appendix codes allow a small region-name validation without unrelated external data."
+    },
+    {
+      "id": "optional-ulsan-population",
+      "title": "울산광역시_인구 현황",
+      "officialPage": "https://www.data.go.kr/data/15005995/fileData.do",
+      "catalog": "https://www.data.go.kr/catalog/15005995/fileData.json",
+      "catalogModified": "2025-11-12",
+      "basisName": "울산광역시_인구 현황_20251112",
+      "license": {
+        "name": "이용허락범위 제한 없음",
+        "url": "https://www.data.go.kr/ugs/selectPortalPolicyView.do",
+        "@type": "CreativeWork"
+      },
+      "columnsFromOfficialMetadata": [
+        "행정구역코드",
+        "행정구역명",
+        "행정구역레벨",
+        "성별",
+        "내국인",
+        "총 이동 전입",
+        "총 이동 전출",
+        "시군구내 전입",
+        "시군구내 전출",
+        "시군구간 전입",
+        "시군구간 전출",
+        "시도간 전입",
+        "시도간 전출",
+        "순이동"
+      ],
+      "status": "Catalog read only; actual CSV not downloaded and exact direct file URL not resolved. Do not use current metadata as a verified population denominator.",
+      "concern": "Metadata variable list contains migration columns and mixed administrative levels despite broad population title. Establish actual observation period, sex-total filtering, administrative level and matching region code before any ratio.",
+      "populationJoinCandidate": "행정구역코드 only after validating level/date and mapping to main 시군구코드 or 행정동코드; no name-only fuzzy join recommended."
+    }
+  ],
+  "notClaimed": [
+    "No main Ulsan row count independently verified by this agent.",
+    "No exact current business census coverage, revenue, footfall, opening/closure or causal effect inferred from store snapshots.",
+    "No mirror source used for final facts.",
+    "No actual page count claimed for HWP or successful source-AI ingestion claimed."
+  ]
+}

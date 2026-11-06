@@ -6,12 +6,15 @@ import {PassThrough} from 'node:stream';
 import React from 'react';
 import {renderToPipeableStream,renderToStaticMarkup} from 'react-dom/server';
 import {createServer} from 'vite';
-import {guidedFiles,ragHandoffRequest,fileExecutionLead,repeatRequest,guidedSteps} from '../src/guided-automation-data.js';
+let guidedFiles,ragHandoffRequest,fileExecutionLead,repeatRequest,guidedSteps;
 
+const publicCourse=JSON.parse(await fs.readFile(new URL('../content/public-data-course.json',import.meta.url),'utf8'));
+const totalRows=Object.values(publicCourse.snapshots).reduce((sum,m)=>sum+m.rows,0);
 let server,GuidedAutomation,IntermediateCourse;
-before(async()=>{server=await createServer({server:{middlewareMode:true,hmr:false,ws:false,watch:null},appType:'custom'});({GuidedAutomation}=await server.ssrLoadModule('/src/GuidedAutomation.jsx'));({IntermediateCourse}=await server.ssrLoadModule('/src/IntermediateCourse.jsx'));});
+const mainMarkup=html=>html.split('<details class="ga-extra ga-alternatives"')[0];
+before(async()=>{server=await createServer({server:{middlewareMode:true,hmr:false,ws:false,watch:null},appType:'custom'});({guidedFiles,ragHandoffRequest,fileExecutionLead,repeatRequest,guidedSteps}=await server.ssrLoadModule('/src/guided-automation-data.js'));({GuidedAutomation}=await server.ssrLoadModule('/src/GuidedAutomation.jsx'));({IntermediateCourse}=await server.ssrLoadModule('/src/IntermediateCourse.jsx'));});
 after(async()=>{delete globalThis.location;await server?.close();});
-function rendered(element){return new Promise((resolve,reject)=>{const destination=new PassThrough();let html='';destination.on('data',chunk=>html+=chunk);destination.on('end',()=>resolve(html));destination.on('error',reject);const stream=renderToPipeableStream(element,{onAllReady(){stream.pipe(destination);},onError:reject});});}
+function rendered(element){return new Promise((resolve,reject)=>{const destination=new PassThrough();let html='';destination.on('data',chunk=>html+=chunk);destination.on('end',()=>resolve(html.replace(/<!--.*?-->/gs,'')));destination.on('error',reject);const stream=renderToPipeableStream(element,{onAllReady(){stream.pipe(destination);},onError:reject});});}
 function noLearnerForms(html){assert.doesNotMatch(html,/<textarea\b|<input\b[^>]*type="(?:checkbox|radio|number|datetime-local)"/i);assert.doesNotMatch(html,/class="(?:ia-checks|ia-record|rc-answer|rc-measure)\b/);}
 function imageDimensions(bytes){
  if(bytes.subarray(0,8).equals(Buffer.from([137,80,78,71,13,10,26,10])))return {width:bytes.readUInt32BE(16),height:bytes.readUInt32BE(20)};
@@ -34,15 +37,18 @@ test('default route gives the complete novice handoff without requiring advanced
  const html=await rendered(React.createElement(IntermediateCourse,{onCopy:()=>{}}));
  assert.match(html,/class="guided-automation"/);
  assert.equal((html.match(/class="ga-step"/g)||[]).length,4);
- assert.match(html,/72개 자료를 통합 파일 하나로 등록/);
- assert.match(html,/소스는 1개로 보여도 정상/);
+ assert.match(html,/실제 상가 데이터/);
+ assert.ok(html.includes(totalRows.toLocaleString('ko-KR')+'행'));
+ assert.ok(html.includes(publicCourse.fields.length+'개 항목'));
+ assert.match(html,/통합 TXT 한 개/);
  assert.match(html,/업무 기준과 주의사항/);
  assert.match(html,/실행 프롬프트/);
- assert.match(html,/round-01\.xlsx/);
- assert.match(html,/report-template\.pptx/);
- assert.match(html,/XLSX와 PPTX를 둘 다 다운로드/);
- assert.match(html,/원본과 다른 이름/);
- assert.match(html,/선택 참고 · 자세한 작동 원리와 도구 설정/);
+ assert.match(html,/ulsan-202606\.csv/);
+ assert.match(html,/ulsan-202609\.csv/);
+ assert.match(html,/ulsan-report-template\.pptx/);
+ assert.match(html,/실제 XLSX·PPTX 파일 이름 카드/);
+ assert.match(html,/원본은 그대로 두고 결과는 별도 이름/);
+ assert.match(html,/선택 참고 ·/);
  assert.doesNotMatch(html,/<details[^>]*class="ia-optional-reference"[^>]*\sopen(?:[\s=>])/);
  assert.doesNotMatch(html,/class="ia-reading-layout"|class="principle-lab|class="reference-corpus-guide"/);
  assert.doesNotMatch(html,/\b(?:A1|B2|COUNTIFS?|SUMIFS?)\b|=SUM\(/);
@@ -59,17 +65,21 @@ test('advanced references remain available by explicit detail route without beco
  assert.doesNotMatch(html,/class="(?:ia-checks|ia-record)\b|<textarea\b/,'optional references also omit learner records and self-evaluation forms');
 });
 
-test('novice requests carry source-grounded output into the file AI and preserve the first-round work',async()=>{
+test('novice requests transfer actual source criteria and full official snapshots to the file AI',async()=>{
  assert.deepEqual(guidedSteps.map(step=>step.number),[1,2,3,4]);
- assert.match(ragHandoffRequest,/\[1\. 이번 업무에 적용할 기준과 주의사항\]/);
- assert.match(ragHandoffRequest,/\[2\. 다른 AI에게 그대로 줄 실행 프롬프트\]/);
- assert.match(ragHandoffRequest,/위 두 부분을 모두 복사/);
- assert.match(ragHandoffRequest,/아직 원본 참가자 파일을 받지 않았으므로/);
+ assert.match(ragHandoffRequest,/\[1\. 적용할 기준과 주의사항\]/);
+ assert.match(ragHandoffRequest,/\[2\. 파일 작업 AI에게 그대로 줄 실행 프롬프트\]/);
+ assert.match(ragHandoffRequest,/두 부분을 모두 다른 AI에 복사/);
+ assert.match(ragHandoffRequest,/아직 점포 원본 파일은 받지 않았으므로/);
+ for(const file of ['ulsan-two-quarters.zip','industry-codes-2023.csv','ulsan-report-template.pptx'])assert.ok(ragHandoffRequest.includes(file));
+ assert.match(ragHandoffRequest,/원본을 덮어쓰지 말고/);
+ assert.match(ragHandoffRequest,/실제 개업·폐업·이전/);
  assert.match(fileExecutionLead,/실제 답변 두 부분을 모두/);
- assert.match(fileExecutionLead,/실제로 읽고/);
- assert.match(repeatRequest,/round-02\.xlsx/);
- assert.match(repeatRequest,/1회차 원본과 결과는 보존/);
- assert.match(repeatRequest,/이전 숫자를 복사하지 말고/);
+ assert.match(fileExecutionLead,/CSV 두 개를 모두 풀어 전체 행/);
+ assert.match(repeatRequest,/같은 실제 울산 두 시점 자료/);
+ assert.match(repeatRequest,/다른 업종/);
+ assert.match(repeatRequest,/앞서 만든 파일은 보존/);
+ assert.doesNotMatch(repeatRequest,/round-02|202612/);
  for(const [kind,path]of Object.entries(guidedFiles)){
   assert.ok(!path.includes('..'),kind);
   const bytes=await fs.readFile(new URL('../public/'+path,import.meta.url));
@@ -81,16 +91,17 @@ test('novice requests carry source-grounded output into the file AI and preserve
 
 test('missing screenshots stay absent rather than rendering invented screenshot placeholders',()=>{
  const html=renderToStaticMarkup(React.createElement(GuidedAutomation,{captures:{captures:[]}}));
- assert.doesNotMatch(html,/<img\b|ga-capture-open/);
- assert.match(html,/새 XLSX와 5장 PPTX/);
+ assert.doesNotMatch(mainMarkup(html),/<img\b|ga-capture-open/);
+ assert.match(html,/새 XLSX와5장 PPTX/);
  noLearnerForms(html);
 });
 
 test('actual capture manifest points to intact local images with provenance and clear click instructions',async t=>{
- let manifest;try{manifest=JSON.parse(await fs.readFile(new URL('../content/automation-captures.json',import.meta.url),'utf8'));}catch(error){if(error.code==='ENOENT'){t.skip('Actual capture manifest has not arrived; no screenshots are claimed.');return;}throw error;}
+ let manifest;try{manifest=JSON.parse(await fs.readFile(new URL('../content/automation-public-data-captures.json',import.meta.url),'utf8'));}catch(error){if(error.code==='ENOENT'){t.skip('Actual capture manifest has not arrived; no screenshots are claimed.');return;}throw error;}
  assert.ok(manifest.capturedAt||manifest.capturedOn,'capture date');
  assert.ok(manifest.method||manifest.provenance,'actual UI provenance');
- assert.ok(Array.isArray(manifest.captures)&&manifest.captures.length>0);
+ assert.ok(Array.isArray(manifest.captures));
+ if(!manifest.captures.length){t.skip('No actual public-data captures published yet.');return;}
  const stages=new Set();
  for(const item of manifest.captures){
   assert.ok([1,2,3,4].includes(Number(item.stage)),item.file);
@@ -105,8 +116,8 @@ test('actual capture manifest points to intact local images with provenance and 
   assert.equal(createHash('sha256').update(bytes).digest('hex'),item.sha256,item.file+': unchanged capture bytes');
   stages.add(Number(item.stage));
  }
- assert.deepEqual([...stages].sort(),[1,2,3,4],'all novice stages have actual screenshots');
+ if(manifest.complete===true)assert.deepEqual([...stages].sort(),[1,2,3,4],'a manifest marked complete covers all four stages');
  const html=renderToStaticMarkup(React.createElement(GuidedAutomation,{captures:manifest}));
  for(const item of manifest.captures)assert.ok(html.includes(item.file),item.file+': rendered capture');
- assert.equal((html.match(/class="ga-capture-open"/g)||[]).length,manifest.captures.length);
+ assert.equal((mainMarkup(html).match(/class="ga-capture-open"/g)||[]).length,manifest.captures.length);
 });

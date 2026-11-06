@@ -12,6 +12,10 @@ def fixtures():
             (p.suffix.lower() in ('.xlsx','.pptx','.pdf') or p.parent.name=='data')}
 
 def main():
+    # This generator belongs to the preserved synthetic case.
+    if "automation/public-data/" in (ROOT/'src/guided-automation-data.js').read_text(encoding='utf-8-sig'):
+        print('Preserved legacy synthetic pack; use build-public-data-pack.py for the current main course')
+        return
     before=fixtures()
     source=(ROOT/'src/guided-automation-data.js').read_text(encoding='utf-8-sig')
     guide=OUT/'guide/start-here.html'
