@@ -13,5 +13,7 @@
     "warmup": 48,
     "mainPerRound": 10000,
     "extension": 100000
-  }
+  },
+  "pptReferenceRevision": "ppt-resources-2026-11-06",
+  "pptReferenceCount": 11
 }

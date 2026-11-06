@@ -5,7 +5,7 @@ import './lobby.css';
 
 const courses=[
   {id:'beginner',label:'기초반',number:'01',title:'AI 이해부터 첫 자료 기반 작업까지',description:'AI를 처음 쓰거나, 사용 방법을 체계적으로 정리하고 싶은 분을 위한 과정입니다.',topics:['AI 작동 원리 · 대표 모델 · 무료와 유료 · 환각','토큰과 컨텍스트 · 요청 설계와 수정','RAG 원리 · 노트북 · 공개 공문 실습'],start:'#basics?course=beginner&unit=ai'},
-  {id:'intermediate',label:'심화반',number:'02',title:'RAG와 AI로 엑셀·PPT 작업 자동화',description:'AI 작업 지침과 폴더를 구성하고, 엑셀 분석부터 발표 자료까지 직접 완성하는 과정입니다.',topics:['AGENTS.md · CLAUDE.md · 작업 폴더의 역할과 이유','RAG 근거 → 엑셀 정리·수식·집계·차트','PPT 제작 · 원본 대조 · 새 데이터로 반복 실행'],start:'#automation?course=intermediate&unit=purpose'}
+  {id:'intermediate',label:'심화반',number:'02',title:'RAG와 AI로 엑셀·PPT 작업 자동화',description:'AI 작업 지침과 폴더를 구성하고, 엑셀 분석부터 발표 자료까지 직접 완성하는 과정입니다.',topics:['AGENTS.md · CLAUDE.md · 작업 폴더의 역할과 이유','RAG 근거 → 엑셀 정리·수식·집계·차트','PPT 제작 · 스킬·디자인 참고 · 검토와 재실행'],start:'#automation?course=intermediate&unit=purpose'}
 ];
 
 export function LobbyHeader(){
