@@ -15,5 +15,11 @@
     "extension": 100000
   },
   "pptReferenceRevision": "ppt-resources-2026-11-06",
-  "pptReferenceCount": 11
+  "pptReferenceCount": 11,
+  "referenceCourseRevision": "corpus-principles-2026-11-06",
+  "referenceDocumentCount": 72,
+  "principleLabKinds": 10,
+  "assessmentForms": false,
+  "referenceBodyCharacters": 88874,
+  "referencePdfPages": 77
 }

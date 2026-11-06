@@ -239,9 +239,10 @@ Excel 파일은 수식·계산 캐시를 포함합니다. 다른 앱에서 값�
     for pattern in ('*.png','*-validation.json','workbook-error-scan.json','rerun-verification.json'):
         for p in BUILD.glob(pattern): shutil.copy2(p,evidence_dir/p.name)
     # ZIP paths mirror the folder instructions; examples remain clearly separate.
+    subprocess.run([sys.executable,str(ROOT/'scripts/integrate-reference-pack.py'),'--no-zip'],check=True)
     with zipfile.ZipFile(OUT/'report-workspace.zip','w',zipfile.ZIP_DEFLATED) as z:
         for p in sorted(OUT.rglob('*')):
-            if p.is_file() and p.name not in ('report-workspace.zip','extension-100000.csv') and p.suffix not in ('.png','.webp','.ndjson'):
+            if p.is_file() and p.name not in ('report-workspace.zip','extension-100000.csv') and p.suffix not in ('.png','.webp','.ndjson','.zip'):
                 z.write(p,'report-workspace/'+p.relative_to(OUT).as_posix())
     # Reopen the actual outputs. openpyxl is used for reading only.
     import openpyxl

@@ -4,6 +4,7 @@ import {intermediatePeriods,intermediateUnits,intermediateReferences,intermediat
 import {DataScaleGuide,IntermediateVisual} from './intermediate-visuals';
 import './intermediate-course.css';
 const PptResourceGuide=lazy(()=>import('./PptResourceGuide').then(module=>({default:module.PptResourceGuide})));
+const ReferenceCorpusGuide=lazy(()=>import('./ReferenceCorpusGuide').then(module=>({default:module.ReferenceCorpusGuide})));
 
 const REVISION='automation-volume-2026-11-06';
 function safeRecord(value){
@@ -18,7 +19,36 @@ function isComplete(unit,entry){return unit.checks.length>0&&unit.checks.every((
 
 export function IntermediateOverview(){return <section className="ia-overview" aria-label="중급반 3교시 구성"><span className="ia-kicker">INTERMEDIATE / 3 CLASSES</span><h2>근거를 찾고, 계산하고, 보고 자료로 완성합니다</h2><div className="ia-period-grid">{intermediatePeriods.map(period=><a key={period.id} href={intermediateHref((period.units||period.unitsIds)[0])}><span>{period.id}교시 <small>50분</small></span><h3>{period.title}</h3><p>{period.description}</p><div>{(period.units||period.unitsIds).length}개 단원<ArrowUpRight size={17}/></div></a>)}</div><p className="ia-time-note">수업 50분 × 3교시 · 휴식 10분 × 2회 · 마무리 10분 = 180분</p></section>;}
 
-function Diagram({kind,title}){const dialog=useRef(null);return <figure className="ia-diagram"><figcaption><div><span className="ia-kicker">원리를 보며 직접 조작</span><h3>{title} · 작업 도식</h3></div><button type="button" className="text-btn" onClick={()=>dialog.current?.showModal()} aria-label={`${title} 도식 확대`}><Expand size={16}/>확대</button></figcaption><p className="ia-illustration-label">설명용 도식 · 실제 서비스 화면 캡처가 아닙니다. 본실습 검산값은 제공한 가상 자료 기준이며 별도 오류 예시는 따로 표시합니다.</p><IntermediateVisual kind={kind}/><dialog ref={dialog} className="ia-visual-dialog" aria-label={`${title} 도식 확대`} onClick={event=>{if(event.target===dialog.current)dialog.current.close();}}><header><strong>{title} · 작업 도식</strong><button type="button" onClick={()=>dialog.current.close()} aria-label="확대 도식 닫기"><X size={22}/></button></header><p className="ia-illustration-label">설명용 도식 · 실제 화면 캡처가 아닙니다. Escape 키로 닫을 수 있습니다.</p><IntermediateVisual kind={kind}/></dialog></figure>;}
+function Diagram({kind,title}){
+  const [expanded,setExpanded]=useState(false);
+  const panel=useRef(null),opener=useRef(null);
+  useEffect(()=>setExpanded(false),[kind]);
+  useEffect(()=>{
+    if(!expanded)return;
+    const previous=document.body.style.overflow;
+    document.body.style.overflow='hidden';
+    panel.current?.focus({preventScroll:true});
+    return()=>{document.body.style.overflow=previous;opener.current?.focus({preventScroll:true});};
+  },[expanded]);
+  function modalKeys(event){
+    if(!expanded)return;
+    if(event.key==='Escape'){event.preventDefault();setExpanded(false);return;}
+    if(event.key==='Tab'){
+      const items=[...panel.current.querySelectorAll('button,a[href],input,select,textarea,[tabindex="0"]')].filter(el=>!el.disabled&&el.getClientRects().length);
+      const first=items[0],last=items.at(-1);
+      if(!first){event.preventDefault();return;}
+      if(event.shiftKey&&(document.activeElement===first||document.activeElement===panel.current)){event.preventDefault();last.focus();}
+      else if(!event.shiftKey&&(document.activeElement===last||document.activeElement===panel.current)){event.preventDefault();first.focus();}
+    }
+  }
+  return <figure className="ia-diagram"><figcaption><div><span className="ia-kicker">원리를 보며 직접 조작</span><h3>{title} · 작업 도식</h3></div><button ref={opener} type="button" className="text-btn" onClick={()=>setExpanded(true)} aria-label={`${title} 도식 확대`}><Expand size={16}/>확대</button></figcaption>
+    <div ref={panel} className={`ia-single-visual-panel${expanded?' is-expanded':''}`} role={expanded?'dialog':undefined} aria-modal={expanded?'true':undefined} aria-label={expanded?`${title} 도식 확대`:undefined} tabIndex={expanded?-1:undefined} onKeyDown={modalKeys}>
+      {expanded&&<header className="ia-single-visual-header"><strong>{title} · 작업 도식</strong><button type="button" onClick={()=>setExpanded(false)} aria-label="확대 도식 닫기"><X size={22}/></button></header>}
+      <p key="label" className="ia-illustration-label">설명용 도식 · 실제 서비스 화면 캡처가 아닙니다. 작은 8행 원리 모형과 본실습 1만 행을 구분합니다.{expanded?' Escape 키로 닫으면 현재 선택을 유지합니다.':''}</p>
+      <IntermediateVisual key="visual" kind={kind}/>
+    </div>
+  </figure>;
+}
 
 function DownloadLinks({files,compact=false}){return <div className={`ia-download-links ${compact?'compact':''}`}>{files.map(file=><a key={`${file.path}-${file.name}`} href={assetUrl(file.path)} download><Download size={17}/><span><strong>{file.name}</strong>{file.note&&<small>{file.note}</small>}</span><ArrowDownIcon/></a>)}</div>;}
 function ArrowDownIcon(){return <span className="ia-download-arrow" aria-hidden="true">↓</span>;}
@@ -47,8 +77,9 @@ function LiveInstructionFiles({onCopy}){
   ].map(([title,text])=><article key={title}><h4>{title}</h4><p>{text}</p></article>)}</div>{instructionFiles.map(file=>{const entry=files[file.name]||{status:'loading'};return <article className="ia-source-file" key={file.name} aria-busy={entry.status==='loading'}><header><div><strong>{file.name}</strong><span>실습 폴더 루트 · 원문</span></div><div>{entry.status==='ready'&&<button type="button" className="text-btn" onClick={()=>onCopy?.(entry.text)} aria-label={`${file.name} 원문 복사`}><Clipboard size={15}/>원문 복사</button>}<a href={assetUrl(file.path)} download aria-label={`${file.name} 원본 다운로드`}><Download size={15}/>파일 받기</a></div></header>{entry.status==='ready'?<pre><code>{entry.text}</code></pre>:entry.status==='error'?<div className="ia-source-error" role="status"><p>원문을 불러오지 못했습니다. 위 ‘파일 받기’ 또는 전체 ZIP을 내려받아 텍스트 편집기로 열어 읽으세요.</p><button type="button" className="text-btn" onClick={()=>setAttempt(value=>value+1)}>원문 다시 불러오기</button></div>:<p className="ia-source-loading" role="status">{file.name} 원문을 불러오는 중입니다. 파일 다운로드는 바로 사용할 수 있습니다.</p>}</article>;})}<p className="ia-instruction-boundary">원문을 화면에서 읽거나 복사했다고 외부 AI에 적용되는 것은 아닙니다. 웹 AI에서는 필요한 파일을 직접 첨부하고, 로컬 에이전트에서는 지원하는 지침 파일과 적용 범위를 확인합니다.</p></section>;
 }
 
-function ActualFolderTree(){return <section className="ia-unit-section ia-actual-tree"><span className="ia-kicker">MATCH YOUR EXTRACTED FOLDER</span><h3>압축을 푼 실제 폴더와 비교하세요</h3><p>아래는 실습의 핵심 여섯 폴더와 루트 지침 네 파일입니다. 위 도식에서 각 항목을 누르면 역할을 볼 수 있고, 아래 표에서는 읽을 위치와 저장할 위치를 비교할 수 있습니다.</p><pre aria-label="실습 핵심 폴더와 루트 지침 파일 구조">{`report-workspace/
+function ActualFolderTree(){return <section className="ia-unit-section ia-actual-tree"><span className="ia-kicker">MATCH YOUR EXTRACTED FOLDER</span><h3>압축을 푼 실제 폴더와 비교하세요</h3><p>아래는 실습의 핵심 폴더와 루트 지침 네 파일입니다. 위 도식에서 각 항목을 누르면 역할을 볼 수 있고, 아래 표에서는 읽을 위치와 저장할 위치를 비교할 수 있습니다.</p><pre aria-label="실습 핵심 폴더와 루트 지침 파일 구조">{`report-workspace/
 ├─ sources/        기준·근거 문서
+├─ reference-corpus/ 기준·개정·예외 문서 묶음
 ├─ data/           회차별 원본 XLSX
 ├─ templates/      보고 PPT 양식
 ├─ work/           중간 작업 기록
@@ -74,17 +105,19 @@ export function IntermediateCourse({onCopy,record,onRecord}){
   function exportUnit(){const entry=latest.current?.units?.[unit.id]||current;const references=(unit.refs||[]).map(id=>intermediateReferences[id]).filter(Boolean);const text=[`중급반 · ${unit.number} ${unit.title}`,`편성: ${REVISION}`,`검토: ${entry.checks.length}/${unit.checks.length}`,`\n내 작업 기록\n${entry.note||'(아직 작성한 기록이 없습니다.)'}`,`\n검토 기준\n${unit.checks.map((check,i)=>`${entry.checks.includes(i)?'[확인]':'[미확인]'} ${check}`).join('\n')}`,`\n실행 요청\n${unit.prompt||''}`,`\n공식 참고 자료\n${references.map(ref=>`${ref[0]}\n${ref[1]}`).join('\n\n')}`,'\n이 기록은 수강생이 입력한 확인 내용입니다. 외부 AI의 실제 실행이나 자동 검증을 의미하지 않습니다.'].join('\n');saveText(`중급반-${unit.number}-${unit.id}-작업기록.txt`,text);setExported(true);}
   useEffect(()=>{const handler=()=>setUnit(readUnit());window.addEventListener('hashchange',handler);return()=>window.removeEventListener('hashchange',handler);},[]);
   useEffect(()=>{setUnit(readUnit());},[currentHash]);
-  useEffect(()=>{setExported(false);const showPreparation=firstEntry.current&&unit.id==='purpose';firstEntry.current=false;const params=new URLSearchParams(location.hash.split('?')[1]||'');if(unit.id==='ppt'&&params.get('focus')==='resources')return;if(!showPreparation&&params.has('unit'))focusUnit();},[unit.id,currentHash]);
+  useEffect(()=>{setExported(false);const showPreparation=firstEntry.current&&unit.id==='purpose';firstEntry.current=false;const params=new URLSearchParams(location.hash.split('?')[1]||'');if((unit.id==='ppt'&&params.get('focus')==='resources')||(unit.id==='rag'&&params.get('focus')==='documents'))return;if(!showPreparation&&params.has('unit'))focusUnit();},[unit.id,currentHash]);
   return <div className="intermediate-course">
-    <div className="page-heading"><div className="eyebrow">RAG / EXCEL / PRESENTATION</div><h1>중급반 · AI로 엑셀·PPT 업무 자동화하기</h1><p>자료에서 기준을 찾고, 회차당 1만 행 전체를 정리·계산·검토한 뒤, 다음 회차에도 쓸 보고 자료를 만듭니다.</p></div>
+    <div className="page-heading"><div className="eyebrow">RAG / EXCEL / PRESENTATION</div><h1>중급반 · AI로 엑셀·PPT 업무 자동화하기</h1><p>여러 기준·개정·예외 문서에서 적용할 근거를 찾고, 회차당 1만 행을 정리·계산·검토해 다음 회차에도 쓸 보고 자료를 만듭니다.</p></div>
     <IntermediateOverview/>
-    <section className="ia-preparation" aria-label="실습 준비와 자료"><header><div><span className="ia-kicker">BEFORE YOU START</span><h2>자료를 준비하고 실행 환경을 선택하세요</h2></div><FolderOpen size={25}/></header><p>본실습은 1·2회차 각각 10,000행입니다. 48행은 규칙을 손으로 검산하는 선택 준비 연습이고, 100,000행 CSV는 별도로 받는 선택 확장입니다. 파일 처리는 외부 AI 도구에서 실행하고, 엑셀·PPT 파일은 내려받아 직접 확인합니다.</p><a className="btn primary ia-bundle-link" href={assetUrl('automation/report-workspace.zip')} download><Download size={17}/>실습 작업 폴더 전체 받기 · ZIP</a><details><summary>실행 환경에 따라 따라갈 방법 확인</summary><div className="ia-environments"><article><h3>로컬 에이전트로 진행할 때</h3><p>압축을 풀고 해당 작업 폴더를 엽니다. 에이전트가 파일을 읽을 수 있는지, 어떤 작업 지침을 자동 인식하는지 확인합니다. 도구마다 지원 파일명·적용 범위가 다릅니다.</p></article><article><h3>웹 AI로 진행할 때</h3><p>필요한 지침과 기준·원본 파일을 직접 첨부합니다. 파일 역할과 작업 순서를 요청에 함께 적습니다. 내 컴퓨터의 폴더를 만들었다고 웹 AI가 자동으로 읽지는 않습니다.</p></article></div><p className="ia-prep-note">자료 기반 질문 도구, 파일을 만들 수 있는 AI, XLSX·PPTX를 열 수 있는 프로그램을 준비합니다. 파일 생성·다운로드와 계정 사용량은 수업 전에 확인하세요. 제한이 생기면 제공 예시와 템플릿으로 계산·검토를 이어갑니다.</p></details><details><summary>단계별로 필요한 자료만 받기 · {allDownloads.length}개</summary><DownloadLinks files={allDownloads} compact/></details><DataScaleGuide compact/><p className="ia-volume-record-note">현재 체크와 메모는 1만 행 본실습의 새 검토 기록입니다. 기존 48행 실습 기록은 내 작업함의 이전 기록에서 확인하며, 새 기준의 완료로 자동 승계하지 않습니다.</p></section>
+    <div className="ia-corpus-entry"><p><strong>문서 탐색부터 반복 보고까지 하나의 업무로 실습합니다.</strong><br/>가상 교육사업의 기준·개정·예외·과거 보고 문서 묶음에서 질문 2개를 골라 근거표를 만들고, 기존 1만 행 데이터의 XLSX·PPT와 연결합니다. 작은 8행 모형에서는 각 판정을 직접 추적합니다.</p><a className="btn secondary" href="#automation?course=intermediate&unit=rag&focus=documents">기준 문서 묶음과 따라하기 열기<ArrowRight size={16}/></a></div>
+    <section className="ia-preparation" aria-label="실습 준비와 자료"><header><div><span className="ia-kicker">BEFORE YOU START</span><h2>자료를 준비하고 실행 환경을 선택하세요</h2></div><FolderOpen size={25}/></header><p>본실습은 1·2회차 각각 10,000행입니다. 48행은 규칙을 손으로 검산하는 선택 준비 연습이고, 100,000행 CSV는 별도로 받는 선택 확장입니다. 파일 처리는 외부 AI 도구에서 실행하고, 엑셀·PPT 파일은 내려받아 직접 확인합니다.</p><a className="btn primary ia-bundle-link" href={assetUrl('automation/report-workspace.zip')} download><Download size={17}/>실습 작업 폴더 전체 받기 · ZIP</a><details><summary>실행 환경에 따라 따라갈 방법 확인</summary><div className="ia-environments"><article><h3>로컬 에이전트로 진행할 때</h3><p>압축을 풀고 해당 작업 폴더를 엽니다. 에이전트가 파일을 읽을 수 있는지, 어떤 작업 지침을 자동 인식하는지 확인합니다. 도구마다 지원 파일명·적용 범위가 다릅니다.</p></article><article><h3>웹 AI로 진행할 때</h3><p>필요한 지침과 기준·원본 파일을 직접 첨부합니다. 파일 역할과 작업 순서를 요청에 함께 적습니다. 내 컴퓨터의 폴더를 만들었다고 웹 AI가 자동으로 읽지는 않습니다.</p></article></div><p className="ia-prep-note">자료 기반 질문 도구, 파일을 만들 수 있는 AI, XLSX·PPTX를 열 수 있는 프로그램을 준비합니다. 파일 생성·다운로드와 계정 사용량은 수업 전에 확인하세요. 제한이 생기면 제공 예시와 템플릿으로 계산·검토를 이어갑니다.</p></details><details><summary>단계별로 필요한 자료만 받기 · {allDownloads.length}개</summary><DownloadLinks files={allDownloads} compact/></details><DataScaleGuide compact/><p className="ia-volume-record-note">기존 1만 행 체크·메모와 이전 48행 기록을 보존합니다. 문서 탐색과 실행 중 필요한 내용은 단원 메모에 선택해서 남길 수 있습니다. 체크는 직접 검토한 내용의 기록입니다.</p></section>
     <div className="ia-reading-layout"><nav className="ia-contents" ref={contents} tabIndex={-1} aria-label="중급반 교시별 단원 목차"><div className="ia-progress"><span>내 검토 기록</span><strong>{done} / {intermediateUnits.length} 단원</strong><progress value={done} max={intermediateUnits.length} aria-label="중급반 검토 완료 단원"/></div>{intermediatePeriods.map(item=><section key={item.id}><h2><span>{item.id}교시</span>{item.title}<small>50분</small></h2><ol>{(item.units||item.unitsIds).map(id=>{const entry=intermediateUnits.find(u=>u.id===id);if(!entry)return null;return <li key={id}><a href={intermediateHref(id)} aria-current={unit.id===id?'page':undefined} onClick={event=>{if(unit.id===id&&location.hash===intermediateHref(id)&&!event.ctrlKey&&!event.metaKey&&!event.shiftKey){event.preventDefault();focusUnit();}}}><span>{entry.number}</span><strong>{entry.title}</strong>{isComplete(entry,clean.units[id])?<CheckCircle2 size={15} aria-label="검토 완료"/>:<small>{entry.minutes}분</small>}</a></li>;})}</ol></section>)}<a className="ia-old-reference" href="#concepts?course=intermediate&stage=evidence">기존 RAG 작업 흐름 참고<ArrowRight size={15}/></a></nav>
     <article className="ia-unit" key={unit.id}><header className="ia-unit-heading" tabIndex={-1} ref={heading}><button type="button" className="text-btn" onClick={()=>{contents.current?.focus({preventScroll:true});if(contents.current)window.scrollTo({top:contents.current.getBoundingClientRect().top+scrollY-82,behavior:'instant'});}}><ArrowLeft size={14}/>전체 목차 보기</button><div className="ia-unit-meta"><span>{period?.id||unit.period}교시 · {period?.title}</span><span>{unit.number} · {unit.minutes}분</span></div><h2>{unit.title}</h2><p>{unit.lead}</p>{unit.id==='ppt'&&<a className="btn secondary" href="#automation?course=intermediate&unit=ppt&focus=resources"><FileText size={16} aria-hidden="true"/>스킬·디자인·GitHub 참고 안내 열기<ArrowRight size={15}/></a>}</header>
     {unit.why&&<section className="ia-why ia-unit-section"><span className="ia-kicker">WHY THIS STEP</span><h3>왜 이 작업을 하나요?</h3><div>{[['지금 생기는 문제',unit.why.problem],['이 단계가 필요한 이유',unit.why.reason],['작업 후 얻는 것',unit.why.benefit]].map(([label,text])=><article key={label}><span>{label}</span><p>{text}</p></article>)}</div></section>}
     <section className="ia-concepts ia-unit-section"><span className="ia-kicker">소단원 / 알아둘 개념</span>{(unit.concepts||[]).map(([title,text],i)=><section key={title}><h3><span>{unit.number}-{i+1}</span>{title}</h3><p>{text}</p></section>)}</section>
     {['data','excel'].includes(unit.id)&&<div className="ia-unit-section ia-data-scale-unit"><DataScaleGuide/></div>}
     <Diagram kind={unit.diagram} title={unit.title}/>
+    {unit.id==='rag'&&<Suspense fallback={<p className="ia-unit-section">기준·개정·예외 문서 묶음을 불러오는 중입니다.</p>}><ReferenceCorpusGuide onCopy={onCopy}/></Suspense>}
     {unit.id==='folders'&&<ActualFolderTree/>}
     {unit.id==='instructions'&&<LiveInstructionFiles onCopy={onCopy}/>}
     {unit.table&&<section className="ia-table-section ia-unit-section"><h3>판단 기준과 작업 구조</h3><p className="ia-table-hint">좁은 화면에서는 표 안을 좌우로 움직여 모든 열을 확인하세요.</p><div className="ia-table-wrap" role="region" tabIndex={0} aria-label={`${unit.title} 기준표`}><table><thead><tr>{unit.table.headers.map((text,i)=><th key={i} scope="col">{text}</th>)}</tr></thead><tbody>{unit.table.rows.map((row,i)=><tr key={i}>{row.map((cell,j)=>j===0?<th key={j} scope="row">{cell}</th>:<td key={j}>{cell}</td>)}</tr>)}</tbody></table></div></section>}

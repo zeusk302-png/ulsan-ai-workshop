@@ -1,3 +1,18 @@
+<!-- reference-course:start -->
+# 다중문서 근거 탐색과 반복 보고 · 추가 활동
+
+강사 제작 가상 교육사업 문서 72개를 reference-corpus/에 제공합니다. guide/start-here.html과 reference-corpus/index.html을 브라우저로 엽니다.
+본수업에서는 Q01(적용 기준)·Q04(만족도 분모) 업무 요청만 선택합니다. 전체 문서 강독은 자습입니다.
+1. 문서ID·시행일·상태·적용 회차를 확인하고 통합 TXT/PDF 또는 질문별 핵심 파일을 실제 AI 소스로 등록합니다.
+2. 답변의 근거 문장을 원문에서 열고 work/evidence.txt에 확인한 기준을 남깁니다.
+3. sources/operating-rules.txt v2.0과 검토한 근거표로 기존 data/round-01.xlsx의 1만 행 전체를 처리합니다.
+4. XLSX·PPTX를 직접 열고 전체 건수·분모·수식·출처·편집 여부를 확인합니다.
+5. 새 공문과 R02를 전달해 변경 영향·재실행 결과를 검토합니다. 과거·예정·미채택 자료를 현재 기준으로 섞지 않습니다.
+6. 새 회차의 파일명·날짜·분모·차트·PPT가 갱신됐는지 실제 산출물을 확인합니다.
+
+data/principle-8.csv와 checks/principle-8.json은 별도의 작은 원리 예제입니다. 48행 준비·1만 행 본실습·10만 행 확장과 구분합니다.
+문서 묶음은 R01/R02의 기존 산술값을 바꾸지 않습니다. 보고 명칭·출처 표기 변경과 숫자 재계산을 구분합니다.
+<!-- reference-course:end -->
 # RAG·엑셀·PPT 중급 실습 묶음
 
 압축을 푼 뒤 guide/start-here.html을 브라우저로 여세요. 이 폴더의 자료는 모두 강사 제작 교육용 예제입니다. examples는 외부 AI가 실행한 결과가 아니라 검산용 완성 예시입니다.

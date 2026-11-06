@@ -19,7 +19,9 @@ try{
     assert.ok(html.includes(unit.title));
     assert.equal((html.match(/aria-current="page"/g)||[]).length,1);
     for(const label of ['왜 이 작업을 하나요?','이 순서대로 직접 진행하세요','보여야 할 결과','막혔다면','설명용 도식','내 결과를 확인하세요','내 작업 기록'])assert.ok(html.includes(label),unit.id+': '+label);
-    assert.equal((html.match(/type="checkbox"/g)||[]).length,3);
+    const reviewSection=html.split('class="ia-checks ia-unit-section"')[1]?.split('</section>')[0];
+    assert.ok(reviewSection,unit.id+': review section');
+    assert.equal((reviewSection.match(/type="checkbox"/g)||[]).length,3);
     assert.ok(!html.includes('undefined'));
     const paths=[...html.matchAll(/href="(?:\.\/)?(automation\/[^"?#]+)"/g)].map(match=>match[1]);
     for(const path of new Set(paths))await fs.access(new URL('../public/'+path,import.meta.url));

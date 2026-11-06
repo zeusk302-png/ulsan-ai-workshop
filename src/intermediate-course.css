@@ -128,3 +128,14 @@
 .ia-processing-rules>article p{font-size:12px;line-height:2;color:#728663;margin:10px 0 0}
 .ia-processing-rules>article small{display:block;font-size:10px;line-height:2;color:#8c987f;margin-top:11px;overflow-wrap:anywhere}
 @media(max-width:760px){.ia-scale-options{grid-template-columns:1fr}.ia-scale-options button{grid-template-columns:100px minmax(0,1fr);align-items:center;min-height:61px;padding:11px 13px;gap:10px}.ia-scale-options button[aria-pressed=true]{padding:10px 12px}.ia-scale-options button>b{font-size:19px}.ia-scale-options button>span{font-size:11px}.ia-processing-rules{padding:14px 11px}.ia-processing-rules>strong{font-size:13px}.ia-rule-options{grid-template-columns:1fr;gap:7px}.ia-rule-options button{min-height:52px;padding:10px 12px}.ia-rule-options button[aria-pressed=true]{padding:9px 11px}.ia-rule-options button b{font-size:16px}.ia-processing-rules>article{padding:14px}.ia-processing-rules>article>span{font-size:11px}.ia-processing-rules>article p{font-size:11px}.ia-processing-rules>article small{font-size:9px}}
+
+/* One mounted lab: enlarging preserves every selected row, round and prediction. */
+.ia-single-visual-panel{min-width:0}
+.ia-single-visual-panel.is-expanded{position:fixed;inset:0;z-index:1000;overflow:auto;background:#fff;padding:20px clamp(12px,4vw,60px) 48px;outline:none;overscroll-behavior:contain}
+.ia-single-visual-panel.is-expanded>.ia-teaching-visual,.ia-single-visual-panel.is-expanded>.ia-illustration-label{max-width:1160px;margin-left:auto;margin-right:auto}
+.ia-single-visual-header{position:sticky;top:-20px;z-index:2;display:flex;justify-content:space-between;align-items:center;gap:15px;background:#fff;padding:16px 0;border-bottom:1px solid #c7d3c4;margin-bottom:20px}
+.ia-single-visual-header strong{font-size:18px;line-height:1.6}
+.ia-single-visual-header button{flex-shrink:0;min-width:44px;min-height:44px;border:1px solid #b7c7b0;background:white;color:#263b27;display:grid;place-items:center}
+.ia-corpus-entry{display:flex;flex-wrap:wrap;gap:12px;align-items:center;padding:18px;margin:16px 0;background:#eef4e7;border:1px solid #c4d3ba}
+.ia-corpus-entry p{flex:1 1 300px;margin:0;font-size:14px;line-height:1.9}
+@media(max-width:760px){.ia-single-visual-header strong{font-size:15px}.ia-single-visual-panel.is-expanded{padding-top:12px}.ia-single-visual-header{top:-12px}}
