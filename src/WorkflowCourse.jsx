@@ -78,6 +78,7 @@ export function WorkflowCourse({courseSlug='beginner',onCourse,onCopy,onCase}) {
     const url=URL.createObjectURL(new Blob([parts.join('\n\n')],{type:'text/plain;charset=utf-8'}));const a=document.createElement('a');a.href=url;a.download=`AI작업흐름-${course.slug}-${active}.txt`;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
   }
   return <>
+    {course.slug==='intermediate'&&<div className="official-update"><b>이전 중급반의 RAG·문서 사례 참고</b> 현재 중급반은 지침 파일·작업 폴더·RAG를 엑셀·PPT 작업에 연결합니다. <a href="#automation?course=intermediate&unit=purpose">새 중급반 전체 수업 열기<ArrowUpRight size={15}/></a></div>}
     <div className="page-heading flow-page-heading"><div className="eyebrow">AI WORKFLOW / {course.slug.toUpperCase()}</div><h1>{course.label} · {course.title}</h1><p>{course.focus}</p></div>
     <div className="flow-course-switch" role="group" aria-label="작업 흐름 과정 선택">{webCurriculum.days.map((c,i)=><button key={c.slug} className="btn secondary" aria-pressed={c.slug===course.slug} onClick={()=>onCourse(i+1)}>{c.label}<span>{c.title}</span></button>)}</div>
     <section className="flow-course-principle"><span className="flow-section-label">이 과정의 판단</span><p>{course.question}</p><div><span>AI가 맡을 처리</span><ArrowRight size={15}/><span>사람의 확인 지점</span><ArrowRight size={15}/><span>다음 단계의 입력</span></div></section>

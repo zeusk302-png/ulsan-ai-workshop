@@ -34,7 +34,7 @@ try{
   assert.ok(hero.includes('id="lobby-title"')&&hero.includes('workshop-home-qr.png'));
   assert.equal((lobby.match(/class="lobby-course-card /g)||[]).length,2);
   assert.ok(lobby.includes('#basics?course=beginner&amp;unit=ai'));
-  assert.ok(lobby.includes('#concepts?course=intermediate&amp;stage=purpose'));
+  assert.ok(lobby.includes('#automation?course=intermediate&amp;unit=purpose'));
   assert.ok(lobby.includes('기초반 수업 입장')&&lobby.includes('심화반 수업 입장'));
   assert.ok(lobby.includes('href="#beginner"')&&lobby.includes('href="#intermediate"'));
   const chrome=renderToStaticMarkup(React.createElement(React.Fragment,null,React.createElement(LobbyHeader),React.createElement(LobbyFooter)));
@@ -42,7 +42,7 @@ try{
   assert.ok(!lobby.includes('lesson-card')&&!lobby.includes('side'+'bar'));
   await fs.writeFile(new URL('lobby.html',output),chrome+lobby);
   await fs.writeFile(new URL('qr-panel.html',output),qr);
-  const report={scope:'React server-rendered structure only; browser interaction/layout unavailable in current Work settings',checks,qrMarkup:'PASS',lobby:'PASS: title and QR in hero; two course introductions and direct course links'};
+  const report={scope:'React server-rendered structure only; browser interaction/layout is outside this script',checks,qrMarkup:'PASS',lobby:'PASS: title and QR in hero; two course introductions and direct course links'};
   await fs.writeFile(new URL('structure-checks.json',output),JSON.stringify(report,null,2));
   console.log(JSON.stringify({units:checks.length,result:'PASS',scope:report.scope}));
 }finally{delete globalThis.location;await server.close();}

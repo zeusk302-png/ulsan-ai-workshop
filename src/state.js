@@ -1,5 +1,9 @@
 export const STORAGE_KEY = 'ulsan-ai-workroom-v1';
 export const lessonIds = ['email', 'document', 'adapt', 'meeting', 'sources', 'template'];
+export const automationUnitIds = ['purpose','folders','instructions','rag','data','excel','charts','ppt','verify','repeat'];
+export function automationProgress(value) {
+  return value.intermediateCourse?.revision === 'automation-2026-11-06' ? value.intermediateCourse : {revision:'automation-2026-11-06',units:{}};
+}
 export function workflowProgress(value) {
   return value.workflow?.revision === 'flow-2026-11-04' ? value.workflow : { revision:'flow-2026-11-04', completed:[], checks:{} };
 }
@@ -40,6 +44,16 @@ export function validateState(value) {
     const nextChecks={};
     for(const id of beginnerIds)if(Array.isArray(value.beginner.checks?.[id]))nextChecks[id]=[...new Set(value.beginner.checks[id].filter(n=>Number.isInteger(n)&&n>=0&&n<3))];
     normalized.beginner={revision:'beginner-2026-11-05',completed:[...new Set((Array.isArray(value.beginner.completed)?value.beginner.completed:[]).filter(id=>beginnerIds.includes(id)))],checks:nextChecks};
+  }
+  if(value.intermediateCourse?.revision==='automation-2026-11-06'){
+    const units = {};
+    for(const id of automationUnitIds){
+      const entry=value.intermediateCourse.units?.[id];
+      if(entry===undefined)continue;
+      if(!entry||typeof entry.note!=='string'||entry.note.length>100000)throw new Error('중급반 작업 기록이 올바르지 않습니다.');
+      units[id]={note:entry.note,checks:[...new Set((Array.isArray(entry.checks)?entry.checks:[]).filter(n=>Number.isInteger(n)&&n>=0&&n<3))]};
+    }
+    normalized.intermediateCourse={revision:'automation-2026-11-06',units};
   }
   return normalized;
 }

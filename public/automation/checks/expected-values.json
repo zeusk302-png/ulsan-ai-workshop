@@ -1,0 +1,38 @@
+{
+  "round-01": {
+    "rawRows": 48,
+    "validApplicants": 45,
+    "participants": 37,
+    "participationRate": 0.8222222222222222,
+    "validResponses": 32,
+    "scoreSum": 127,
+    "satisfactionMean": 3.96875,
+    "excludedRows": 2,
+    "heldRows": 1,
+    "missingSatisfaction": 4,
+    "invalidSatisfaction": 1,
+    "programParticipants": {
+      "디지털기초": 12,
+      "생활문화": 12,
+      "진로탐색": 13
+    }
+  },
+  "round-02": {
+    "rawRows": 48,
+    "validApplicants": 45,
+    "participants": 34,
+    "participationRate": 0.7555555555555555,
+    "validResponses": 30,
+    "scoreSum": 120,
+    "satisfactionMean": 4.0,
+    "excludedRows": 2,
+    "heldRows": 1,
+    "missingSatisfaction": 3,
+    "invalidSatisfaction": 1,
+    "programParticipants": {
+      "디지털기초": 11,
+      "생활문화": 11,
+      "진로탐색": 12
+    }
+  }
+}
