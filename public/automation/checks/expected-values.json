@@ -1,5 +1,55 @@
 {
   "round-01": {
+    "rawRows": 10000,
+    "validApplicants": 9824,
+    "participants": 7509,
+    "participationRate": 0.7643526058631922,
+    "validResponses": 7181,
+    "scoreSum": 27379,
+    "satisfactionMean": 3.812700181033282,
+    "excludedRows": 119,
+    "heldRows": 57,
+    "missingSatisfaction": 173,
+    "invalidSatisfaction": 155,
+    "excludedMissingId": 47,
+    "excludedDuplicate": 72,
+    "programParticipants": {
+      "디지털기초": 3815,
+      "생활문화": 2438,
+      "진로탐색": 1256
+    },
+    "programApplicants": {
+      "디지털기초": 4423,
+      "생활문화": 3381,
+      "진로탐색": 2020
+    }
+  },
+  "round-02": {
+    "rawRows": 10000,
+    "validApplicants": 9824,
+    "participants": 7677,
+    "participationRate": 0.7814535830618893,
+    "validResponses": 7340,
+    "scoreSum": 27961,
+    "satisfactionMean": 3.809400544959128,
+    "excludedRows": 119,
+    "heldRows": 57,
+    "missingSatisfaction": 181,
+    "invalidSatisfaction": 156,
+    "excludedMissingId": 47,
+    "excludedDuplicate": 72,
+    "programParticipants": {
+      "디지털기초": 3825,
+      "생활문화": 2533,
+      "진로탐색": 1319
+    },
+    "programApplicants": {
+      "디지털기초": 4361,
+      "생활문화": 3445,
+      "진로탐색": 2018
+    }
+  },
+  "warmup": {
     "rawRows": 48,
     "validApplicants": 45,
     "participants": 37,
@@ -11,28 +61,306 @@
     "heldRows": 1,
     "missingSatisfaction": 4,
     "invalidSatisfaction": 1,
+    "excludedMissingId": 1,
+    "excludedDuplicate": 1,
     "programParticipants": {
       "디지털기초": 12,
       "생활문화": 12,
       "진로탐색": 13
+    },
+    "programApplicants": {
+      "디지털기초": 15,
+      "생활문화": 15,
+      "진로탐색": 15
     }
   },
-  "round-02": {
-    "rawRows": 48,
-    "validApplicants": 45,
-    "participants": 34,
-    "participationRate": 0.7555555555555555,
-    "validResponses": 30,
-    "scoreSum": 120,
-    "satisfactionMean": 4.0,
-    "excludedRows": 2,
-    "heldRows": 1,
-    "missingSatisfaction": 3,
-    "invalidSatisfaction": 1,
+  "extension": {
+    "rawRows": 100000,
+    "validApplicants": 98240,
+    "participants": 80845,
+    "participationRate": 0.8229336319218241,
+    "validResponses": 77311,
+    "scoreSum": 294553,
+    "satisfactionMean": 3.809975294589386,
+    "excludedRows": 1190,
+    "heldRows": 570,
+    "missingSatisfaction": 1853,
+    "invalidSatisfaction": 1681,
+    "excludedMissingId": 470,
+    "excludedDuplicate": 720,
     "programParticipants": {
-      "디지털기초": 11,
-      "생활문화": 11,
-      "진로탐색": 12
-    }
+      "디지털기초": 40366,
+      "생활문화": 26755,
+      "진로탐색": 13724
+    },
+    "programApplicants": {
+      "디지털기초": 44161,
+      "생활문화": 34276,
+      "진로탐색": 19803
+    },
+    "byRound": {
+      "R01": {
+        "rawRows": 10000,
+        "validApplicants": 9824,
+        "participants": 7509,
+        "participationRate": 0.7643526058631922,
+        "validResponses": 7181,
+        "scoreSum": 27379,
+        "satisfactionMean": 3.812700181033282,
+        "excludedRows": 119,
+        "heldRows": 57,
+        "missingSatisfaction": 173,
+        "invalidSatisfaction": 155,
+        "excludedMissingId": 47,
+        "excludedDuplicate": 72,
+        "programParticipants": {
+          "디지털기초": 3815,
+          "생활문화": 2438,
+          "진로탐색": 1256
+        },
+        "programApplicants": {
+          "디지털기초": 4423,
+          "생활문화": 3381,
+          "진로탐색": 2020
+        }
+      },
+      "R02": {
+        "rawRows": 10000,
+        "validApplicants": 9824,
+        "participants": 7677,
+        "participationRate": 0.7814535830618893,
+        "validResponses": 7340,
+        "scoreSum": 27961,
+        "satisfactionMean": 3.809400544959128,
+        "excludedRows": 119,
+        "heldRows": 57,
+        "missingSatisfaction": 181,
+        "invalidSatisfaction": 156,
+        "excludedMissingId": 47,
+        "excludedDuplicate": 72,
+        "programParticipants": {
+          "디지털기초": 3825,
+          "생활문화": 2533,
+          "진로탐색": 1319
+        },
+        "programApplicants": {
+          "디지털기초": 4361,
+          "생활문화": 3445,
+          "진로탐색": 2018
+        }
+      },
+      "R03": {
+        "rawRows": 10000,
+        "validApplicants": 9824,
+        "participants": 7804,
+        "participationRate": 0.7943811074918566,
+        "validResponses": 7462,
+        "scoreSum": 28553,
+        "satisfactionMean": 3.826454033771107,
+        "excludedRows": 119,
+        "heldRows": 57,
+        "missingSatisfaction": 171,
+        "invalidSatisfaction": 171,
+        "excludedMissingId": 47,
+        "excludedDuplicate": 72,
+        "programParticipants": {
+          "디지털기초": 3947,
+          "생활문화": 2552,
+          "진로탐색": 1305
+        },
+        "programApplicants": {
+          "디지털기초": 4454,
+          "생활문화": 3381,
+          "진로탐색": 1989
+        }
+      },
+      "R04": {
+        "rawRows": 10000,
+        "validApplicants": 9824,
+        "participants": 7906,
+        "participationRate": 0.8047638436482085,
+        "validResponses": 7564,
+        "scoreSum": 28684,
+        "satisfactionMean": 3.7921734531993656,
+        "excludedRows": 119,
+        "heldRows": 57,
+        "missingSatisfaction": 175,
+        "invalidSatisfaction": 167,
+        "excludedMissingId": 47,
+        "excludedDuplicate": 72,
+        "programParticipants": {
+          "디지털기초": 3985,
+          "생활문화": 2589,
+          "진로탐색": 1332
+        },
+        "programApplicants": {
+          "디지털기초": 4458,
+          "생활문화": 3433,
+          "진로탐색": 1933
+        }
+      },
+      "R05": {
+        "rawRows": 10000,
+        "validApplicants": 9824,
+        "participants": 8032,
+        "participationRate": 0.8175895765472313,
+        "validResponses": 7673,
+        "scoreSum": 29205,
+        "satisfactionMean": 3.8062035709631172,
+        "excludedRows": 119,
+        "heldRows": 57,
+        "missingSatisfaction": 190,
+        "invalidSatisfaction": 169,
+        "excludedMissingId": 47,
+        "excludedDuplicate": 72,
+        "programParticipants": {
+          "디지털기초": 3950,
+          "생활문화": 2729,
+          "진로탐색": 1353
+        },
+        "programApplicants": {
+          "디지털기초": 4380,
+          "생활문화": 3490,
+          "진로탐색": 1954
+        }
+      },
+      "R06": {
+        "rawRows": 10000,
+        "validApplicants": 9824,
+        "participants": 8093,
+        "participationRate": 0.8237988599348535,
+        "validResponses": 7735,
+        "scoreSum": 29611,
+        "satisfactionMean": 3.8281835811247578,
+        "excludedRows": 119,
+        "heldRows": 57,
+        "missingSatisfaction": 186,
+        "invalidSatisfaction": 172,
+        "excludedMissingId": 47,
+        "excludedDuplicate": 72,
+        "programParticipants": {
+          "디지털기초": 4080,
+          "생활문화": 2660,
+          "진로탐색": 1353
+        },
+        "programApplicants": {
+          "디지털기초": 4445,
+          "생활문화": 3409,
+          "진로탐색": 1970
+        }
+      },
+      "R07": {
+        "rawRows": 10000,
+        "validApplicants": 9824,
+        "participants": 8306,
+        "participationRate": 0.8454804560260586,
+        "validResponses": 7950,
+        "scoreSum": 30114,
+        "satisfactionMean": 3.787924528301887,
+        "excludedRows": 119,
+        "heldRows": 57,
+        "missingSatisfaction": 191,
+        "invalidSatisfaction": 165,
+        "excludedMissingId": 47,
+        "excludedDuplicate": 72,
+        "programParticipants": {
+          "디지털기초": 4086,
+          "생활문화": 2771,
+          "진로탐색": 1449
+        },
+        "programApplicants": {
+          "디지털기초": 4381,
+          "생활문화": 3444,
+          "진로탐색": 1999
+        }
+      },
+      "R08": {
+        "rawRows": 10000,
+        "validApplicants": 9824,
+        "participants": 8338,
+        "participationRate": 0.8487377850162866,
+        "validResponses": 7982,
+        "scoreSum": 30423,
+        "satisfactionMean": 3.8114507642194937,
+        "excludedRows": 119,
+        "heldRows": 57,
+        "missingSatisfaction": 187,
+        "invalidSatisfaction": 169,
+        "excludedMissingId": 47,
+        "excludedDuplicate": 72,
+        "programParticipants": {
+          "디지털기초": 4118,
+          "생활문화": 2807,
+          "진로탐색": 1413
+        },
+        "programApplicants": {
+          "디지털기초": 4365,
+          "생활문화": 3472,
+          "진로탐색": 1987
+        }
+      },
+      "R09": {
+        "rawRows": 10000,
+        "validApplicants": 9824,
+        "participants": 8519,
+        "participationRate": 0.8671620521172638,
+        "validResponses": 8147,
+        "scoreSum": 31123,
+        "satisfactionMean": 3.8201792070700873,
+        "excludedRows": 119,
+        "heldRows": 57,
+        "missingSatisfaction": 196,
+        "invalidSatisfaction": 176,
+        "excludedMissingId": 47,
+        "excludedDuplicate": 72,
+        "programParticipants": {
+          "디지털기초": 4186,
+          "생활문화": 2859,
+          "진로탐색": 1474
+        },
+        "programApplicants": {
+          "디지털기초": 4366,
+          "생활문화": 3490,
+          "진로탐색": 1968
+        }
+      },
+      "R10": {
+        "rawRows": 10000,
+        "validApplicants": 9824,
+        "participants": 8661,
+        "participationRate": 0.8816164495114006,
+        "validResponses": 8277,
+        "scoreSum": 31500,
+        "satisfactionMean": 3.8057267125770204,
+        "excludedRows": 119,
+        "heldRows": 57,
+        "missingSatisfaction": 203,
+        "invalidSatisfaction": 181,
+        "excludedMissingId": 47,
+        "excludedDuplicate": 72,
+        "programParticipants": {
+          "디지털기초": 4374,
+          "생활문화": 2817,
+          "진로탐색": 1470
+        },
+        "programApplicants": {
+          "디지털기초": 4528,
+          "생활문화": 3331,
+          "진로탐색": 1965
+        }
+      }
+    },
+    "aggregationPurpose": "전체파일 검산용 합계이며 보고서는 회차별로 따로 작성한다."
+  },
+  "dataScale": {
+    "warmupRows": 48,
+    "mainRowsPerRound": 10000,
+    "extensionRows": 100000,
+    "seedBase": 2026110600,
+    "extensionRounds": 10,
+    "duplicateKey": [
+      "회차",
+      "정규화 참가자ID"
+    ]
   }
 }

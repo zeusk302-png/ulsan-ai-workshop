@@ -6,7 +6,12 @@
   "webConceptsSha256": "a972c7fc8a77ccabc808a6578d8ab002a8d96f28890351c6cab48cbcd89f1d28",
   "conceptDataSha256": "77f8d2906a3ace2fa04baa75b13f1a608f677743d6d60af976c397bad3d1bd00",
   "note": "현재 초급은 AI 기본 3교시, 중급은 지침 파일·폴더·RAG·엑셀·PPT를 연결하는 3교시 웹 교재입니다. 기존 7단계와 문서 사례는 참고 자료로 유지합니다. PDF 2.1판과 교재 원본은 이전 편성이며 새 중급 실습은 웹과 automation 자료 묶음 기준입니다.",
-  "intermediateRevision": "automation-2026-11-06",
+  "intermediateRevision": "automation-volume-2026-11-06",
   "webHandbookTopics": 15,
-  "workflowStagesPerCourse": 7
+  "workflowStagesPerCourse": 7,
+  "intermediateDataRows": {
+    "warmup": 48,
+    "mainPerRound": 10000,
+    "extension": 100000
+  }
 }

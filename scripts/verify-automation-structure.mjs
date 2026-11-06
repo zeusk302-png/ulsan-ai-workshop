@@ -6,7 +6,7 @@ import {renderToStaticMarkup} from 'react-dom/server';
 import {createServer} from 'vite';
 import {intermediateUnits,intermediateHref} from '../src/intermediate-course-data.js';
 
-const output=new URL('../artifacts/automation-2026-11-06/',import.meta.url);
+const output=new URL('../artifacts/automation-volume-2026-11-06/',import.meta.url);
 await fs.mkdir(output,{recursive:true});
 const server=await createServer({server:{middlewareMode:true},appType:'custom'});
 const checks=[];
@@ -15,7 +15,7 @@ try{
   const {WorkshopLobby}=await server.ssrLoadModule('/src/WorkshopLobby.jsx');
   for(const unit of intermediateUnits){
     globalThis.location={hash:intermediateHref(unit.id)};
-    const html=renderToStaticMarkup(React.createElement(IntermediateCourse,{onCopy:()=>{},record:{revision:'automation-2026-11-06',units:{}},onRecord:()=>{}}));
+    const html=renderToStaticMarkup(React.createElement(IntermediateCourse,{onCopy:()=>{},record:{revision:'automation-volume-2026-11-06',units:{}},onRecord:()=>{}}));
     assert.ok(html.includes(unit.title));
     assert.equal((html.match(/aria-current="page"/g)||[]).length,1);
     for(const label of ['왜 이 작업을 하나요?','이 순서대로 직접 진행하세요','보여야 할 결과','막혔다면','설명용 도식','내 결과를 확인하세요','내 작업 기록'])assert.ok(html.includes(label),unit.id+': '+label);
