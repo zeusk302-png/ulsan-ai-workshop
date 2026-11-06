@@ -138,3 +138,10 @@ OpenDesign verifier가 Edge의 데스크톱 1440×1000, 모바일 뷰포트 390�
 ## 공개 경로
 
 https://zeusk302-png.github.io/ulsan-ai-workshop/ 의 HTML·JS·CSS HTTP 200을 확인했습니다. 실제 렌더링과 실습 경로는 독립 브라우저 검증으로 추가 확인합니다.
+
+
+## 2026-11-06 초보자 기본 흐름 및 실제 화면 보완
+
+기본 교재를 4단계 RAG→파일 AI 흐름으로 교체했다. 실제 Chrome에서 72문서 통합 TXT 등록, RAG 요청/응답 전체 복사, 원본 XLSX+PPTX 첨부와 실제 응답 전달을 실행했다. 실제 Windows Excel·PowerPoint에서 강사 제공 예시를 열어 요약·차트·5장·개별 제목 선택 화면을 촬영했다. 예시 화면은 이번 외부 AI 실행 결과로 주장하지 않는다. 실제 캡처별 provenance/sha256/dimensions는 content/automation-captures.json. 공개 이미지에 계정명/개인 대화/비공개 프로젝트 URL을 넣지 않았다.
+
+복사 실패를 상위 함수가 boolean으로 반환해 본문이 허위 성공을 표시하지 않게 수정했다. 기존 기록을 삭제하지 않고 중급 교재의 새 체크·메모 입력폼과 진도 계수를 제거했다. 원리·지침·폴더·참고자료는 선택 상세로 보존했다.

@@ -45,7 +45,7 @@ export function ReferenceCorpusGuide({onCopy}){
  '회차별 output/round-01-summary.xlsx와 output/round-01-report.pptx 또는 round-02 이름으로 저장하세요. 5장 발표 양식에 확인한 숫자·분모·단위·출처와 교육용 가상 자료 표시를 넣으세요. 글자·표·차트를 수정할 수 있는지, 각 숫자가 XLSX 집계 셀과 일치하는지 확인하세요.',
  '파일 생성 여부·전체 처리 범위·확인한 검산값·남은 오류를 함께 알려 주세요. 다음 회차에는 같은 기준을 유지하고 새 원본으로 다시 계산하며 이전 결과를 보존하세요.'
  ].join('\n\n'):'';
- async function copyBrief(){try{if(onCopy)await onCopy(brief);else await navigator.clipboard.writeText(brief);setNotice('실행 프롬프트를 복사했습니다. 외부 AI에 실제 파일을 첨부한 뒤 붙여 넣으세요.');}catch{setNotice('복사하지 못했습니다. 아래 실행 프롬프트 본문을 직접 선택해 복사하세요.');}}
+ async function copyBrief(){try{if(onCopy){if(await onCopy(brief)===false)throw new Error("copy-blocked");}else await navigator.clipboard.writeText(brief);setNotice('실행 프롬프트를 복사했습니다. 외부 AI에 실제 파일을 첨부한 뒤 붙여 넣으세요.');}catch{setNotice('복사하지 못했습니다. 아래 실행 프롬프트 본문을 직접 선택해 복사하세요.');}}
  const downloads=Object.entries(corpus.downloads||{}).filter(([key])=>downloadLabels[key]).map(([key,path])=>({label:downloadLabels[key],path}));
  const stats=[['문서',documents.length],['원문 구절',corpus.stats?.sectionCount],['본문 문자',corpus.stats?.bodyCharacters],['분류',categories.length],['업무 요청',requests.length],['PDF 쪽',corpus.stats?.pdf?.pageCount]].filter(([,value])=>value!==undefined);
  return <section id="reference-corpus" ref={root} tabIndex={-1} className="reference-corpus-guide" aria-label="문서 자료실과 AI 업무 실행">

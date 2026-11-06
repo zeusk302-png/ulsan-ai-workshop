@@ -1,26 +1,19 @@
-<!-- reference-course:start -->
-# 다중문서 근거 탐색과 반복 보고 · 추가 활동
+# 처음 시작하는 AI 업무 자동화
 
-강사 제작 가상 교육사업 문서 72개를 reference-corpus/에 제공합니다. guide/start-here.html과 reference-corpus/index.html을 브라우저로 엽니다.
-본수업에서는 Q01(적용 기준)·Q04(만족도 분모) 업무 요청만 선택합니다. 전체 문서 강독은 자습입니다.
-1. 문서ID·시행일·상태·적용 회차를 확인하고 통합 TXT/PDF 또는 질문별 핵심 파일을 실제 AI 소스로 등록합니다.
-2. 답변의 근거 문장을 원문에서 열고 work/evidence.txt에 확인한 기준을 남깁니다.
-3. sources/operating-rules.txt v2.0과 검토한 근거표로 기존 data/round-01.xlsx의 1만 행 전체를 처리합니다.
-4. XLSX·PPTX를 직접 열고 전체 건수·분모·수식·출처·편집 여부를 확인합니다.
-5. 새 공문과 R02를 전달해 변경 영향·재실행 결과를 검토합니다. 과거·예정·미채택 자료를 현재 기준으로 섞지 않습니다.
-6. 새 회차의 파일명·날짜·분모·차트·PPT가 갱신됐는지 실제 산출물을 확인합니다.
+강사 제작 가상 교육자료입니다. 압축을 풀고 guide/start-here.html을 브라우저로 여세요. 기본 실습은 교육용 프로그램 1회차 성과보고 하나입니다.
 
-data/principle-8.csv와 checks/principle-8.json은 별도의 작은 원리 예제입니다. 48행 준비·1만 행 본실습·10만 행 확장과 구분합니다.
-문서 묶음은 R01/R02의 기존 산술값을 바꾸지 않습니다. 보고 명칭·출처 표기 변경과 숫자 재계산을 구분합니다.
-<!-- reference-course:end -->
-# RAG·엑셀·PPT 중급 실습 묶음
+1. reference-corpus/all-documents.txt 또는 reference-corpus/reference-corpus.pdf 중 하나를 자료 기반 AI에 등록합니다. 72개 문서가 한 파일에 있으므로 소스 1개가 정상입니다.
+2. prompts/01-rag.txt를 보냅니다. AI가 실제 작성한 업무 기준과 실행 프롬프트 두 부분을 모두 복사합니다.
+3. 파일 작업 AI에 두 부분의 실제 답변과 data/round-01.xlsx, templates/report-template.pptx를 첨부합니다. 새 XLSX와 5장 PPTX 다운로드를 요청합니다. 필요하면 prompts/02-file-ai-start.txt 아래에 실제 답변을 붙입니다.
+4. 두 파일을 지원 편집기로 열어 내용·차트·5장 구성·제목과 표의 편집·원본 보존을 확인합니다. data/round-02.xlsx와 prompts/04-repeat-novice.txt로 반복합니다. 다른 대화나 AI에서는 기준과 실행 요청, 양식도 다시 전달합니다.
 
-압축을 푼 뒤 guide/start-here.html을 브라우저로 여세요. 이 폴더의 자료는 모두 강사 제작 교육용 예제입니다. examples는 외부 AI가 실행한 결과가 아니라 검산용 완성 예시입니다.
+선택 참고: guide/rag-generated-handoff.txt는 강사의 실제 RAG 시연 응답입니다. 내 계정의 응답이나 파일 작업 AI의 생성 완료 증거가 아닙니다.
+생성할 수 없는 계정은 examples/round-01-summary.xlsx와 examples/round-01-report.pptx로 결과 확인을 이어갑니다. 강사 예시와 자신의 AI 생성을 구분합니다.
 
-sources: 운영·보고 기준 / data: 회차별 원본 / templates: 편집 가능한 PPT 양식 / work: 근거표·작업 기록 / output: 수강생 결과 / checks: 기대값·검산표 / prompts: 단계별 요청문.
+<details><summary>더 알아보기 · 선택 참고</summary>
 
-실습은 prompts/01-rag.txt → 02-excel.txt → 03-ppt.txt → 04-rerun.txt 순서입니다. 파일 생성이 안 되는 계정에서는 원본을 직접 정리하고 제공된 examples 파일을 열어 수식과 PPT를 수정하세요. 계산 자동화와 수동 파일 전달을 구분합니다.
+AGENTS.md·CLAUDE.md는 일부 로컬 도구용이며 기본 실습 선행 과제가 아닙니다. 도구별 자동 발견·적용은 따로 확인합니다.
+sources 기준 / data 원본 / templates 양식 / work 중간 자료 / output 결과 / checks 검토 자료.
+개별 문서·추가 업무·8행 모형·48행 준비·10만 행 확장은 기본 실습과 구분합니다.
 
-준비연습은 data/warmup-48.xlsx(48행), 본 실습은 data/round-01.xlsx와 round-02.xlsx(각10,000행)입니다. data/extension-100000.csv는10회차100,000행의 별도 확장 다운로드이며 이 ZIP에는 포함하지 않습니다. CSV다운로드는 공개 강의 웹의 자료 링크를 사용하세요. 48행을 복제한 자료가 아니라 프로그램별 분포가 다른 시드 데이터입니다.
-
-Excel 파일은 수식·계산 캐시를 포함합니다. 다른 앱에서 값이 비거나 오래된 값이면 자동 계산을 켜고 지금 계산을 실행하세요. 정리 판정은 선형 전처리로 재생성하고 I-L 수식·요약·차트는 재계산합니다. 본 예제 범위는 원본 A2:F10001, 정리 A2:M10001입니다. 행 추가 시 범위와 차트도 확장하세요. 원본 교체 후 정리 단계부터 재실행하고 checks 기대값을 비교하세요.
+</details>
